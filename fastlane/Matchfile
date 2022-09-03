@@ -1,4 +1,4 @@
-git_url("https://github.com/robingenz/dhbw-vs-app-ios-certificates")
+git_url("https://github.com/dhbw-vs/app-ios-certificates")
 
 storage_mode("git")
 
