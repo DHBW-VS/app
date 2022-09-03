@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dualis</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="loginFormGroup" (ngSubmit)="submitLoginForm(loginFormGroup)">
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Dualis-Benutzername</ion-label>
+            <ion-input formControlName="username" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Dualis-Passwort</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-item lines="none">
+          <ion-checkbox formControlName="storeUsername" class="ion-margin-end"></ion-checkbox>
+          <ion-label>Benutzername speichern</ion-label>
+        </ion-item>
+        <div class="ion-padding">
+          <ion-button type="submit" expand="block">Einloggen</ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

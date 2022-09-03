@@ -1,0 +1,116 @@
+<ion-app>
+  <ion-menu menu-id="unauthenticated" side="start" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>DHBW VS</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list lines="none">
+        <ion-item button="true" (click)="openPage('/login')">
+          <ion-avatar>
+            <ion-icon name="log-in"></ion-icon>
+          </ion-avatar>
+          <ion-label>Login</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/canteen')">
+          <ion-avatar>
+            <ion-icon name="restaurant"></ion-icon>
+          </ion-avatar>
+          <ion-label>Mensa</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/parking')">
+          <ion-avatar>
+            <ion-icon name="car"></ion-icon>
+          </ion-avatar>
+          <ion-label>Parkplätze</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/apartments')">
+          <ion-avatar>
+            <ion-icon name="home"></ion-icon>
+          </ion-avatar>
+          <ion-label>Wohnungsmarkt</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openWindow('mailto:app@dhbw-vs.de')" class="sub-item">
+          <ion-label>Problem melden</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/imprint')" class="sub-item">
+          <ion-label>Impressum</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-menu menu-id="authenticated" side="start" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>DHBW VS</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="openPage('/settings')">
+            <ion-icon slot="icon-only" name="settings"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list lines="none">
+        <ion-item button="true" (click)="openPage('/dashboard')">
+          <ion-avatar>
+            <ion-icon name="apps"></ion-icon>
+          </ion-avatar>
+          <ion-label>Dashboard</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/plan')">
+          <ion-avatar>
+            <ion-icon name="document"></ion-icon>
+          </ion-avatar>
+          <ion-label>Pläne</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/canteen')">
+          <ion-avatar>
+            <ion-icon name="restaurant"></ion-icon>
+          </ion-avatar>
+          <ion-label>Mensa</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/parking')">
+          <ion-avatar>
+            <ion-icon name="car"></ion-icon>
+          </ion-avatar>
+          <ion-label>Parkplätze</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/apartments')">
+          <ion-avatar>
+            <ion-icon name="home"></ion-icon>
+          </ion-avatar>
+          <ion-label>Wohnungsmarkt</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/dualis')">
+          <ion-avatar>
+            <ion-icon name="school"></ion-icon>
+          </ion-avatar>
+          <ion-label>Dualis</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/contact')">
+          <ion-avatar>
+            <ion-icon name="person-circle"></ion-icon>
+          </ion-avatar>
+          <ion-label>Kontakte</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/sos')">
+          <ion-avatar>
+            <ion-icon name="call"></ion-icon>
+          </ion-avatar>
+          <ion-label>SOS</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openWindow('mailto:app@dhbw-vs.de')" class="sub-item">
+          <ion-label>Problem melden</ion-label>
+        </ion-item>
+        <ion-item button="true" (click)="openPage('/imprint')" class="sub-item">
+          <ion-label>Impressum</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

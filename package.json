@@ -1,0 +1,136 @@
+{
+  "name": "dhbw-vs-app",
+  "version": "4.1.0",
+  "description": "The official app for students, employees and lecturers of the Baden-Wuerttemberg Cooperative State University (DHBW) in Villingen-Schwenningen.",
+  "author": "Robin Genz <mail@robingenz.dev>",
+  "homepage": "https://github.com/robingenz/dhbw-vs-app",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "test:ci": "ng test -c ci",
+    "e2e": "ng e2e",
+    "e2e:ci": "ng e2e -c ci",
+    "lint": "ng lint && npm run prettier -- --check",
+    "fmt": "ng lint --fix && npm run prettier -- --write",
+    "prettier": "prettier \"{src,e2e/src}/**/*.{css,scss,html,ts,js}\"",
+    "cypress:open": "ng run app:cypress-open",
+    "cypress:run": "ng run app:cypress-run",
+    "postinstall": "npx jetify",
+    "release": "standard-version --commit-all"
+  },
+  "dependencies": {
+    "@angular/common": "13.2.1",
+    "@angular/core": "13.2.1",
+    "@angular/forms": "13.2.1",
+    "@angular/platform-browser": "13.2.1",
+    "@angular/platform-browser-dynamic": "13.2.1",
+    "@angular/router": "13.2.1",
+    "@awesome-cordova-plugins/core": "5.39.0",
+    "@awesome-cordova-plugins/file": "5.39.0",
+    "@awesome-cordova-plugins/file-opener": "5.39.0",
+    "@awesome-cordova-plugins/http": "5.39.0",
+    "@capacitor/android": "3.4.0",
+    "@capacitor/clipboard": "1.0.7",
+    "@capacitor/core": "3.4.0",
+    "@capacitor/ios": "3.4.0",
+    "@capacitor/keyboard": "1.2.1",
+    "@capacitor/splash-screen": "1.2.1",
+    "@capacitor/status-bar": "1.0.7",
+    "@capacitor/storage": "1.2.4",
+    "@ionic/angular": "6.0.5",
+    "@ngneat/elf": "2.1.0",
+    "@ngneat/elf-cli-ng": "1.0.0",
+    "@ngneat/elf-devtools": "1.2.1",
+    "@ngneat/elf-entities": "4.4.2",
+    "@ngneat/elf-persist-state": "1.1.5",
+    "buffer": "6.0.3",
+    "cordova-plugin-advanced-http": "3.2.2",
+    "cordova-plugin-file": "6.0.2",
+    "cordova-plugin-file-opener2": "3.0.5",
+    "date-fns": "2.28.0",
+    "hammerjs": "2.0.8",
+    "leaflet": "1.7.1",
+    "rxjs": "7.4.0",
+    "stream": "0.0.2",
+    "timers": "0.1.1",
+    "tslib": "2.0.3",
+    "xml2js": "0.4.23",
+    "zone.js": "0.11.4"
+  },
+  "devDependencies": {
+    "@angular-builders/jest": "13.0.3",
+    "@angular-devkit/build-angular": "13.2.2",
+    "@angular-eslint/builder": "13.0.1",
+    "@angular-eslint/eslint-plugin": "13.0.1",
+    "@angular-eslint/eslint-plugin-template": "13.0.1",
+    "@angular-eslint/schematics": "13.0.1",
+    "@angular-eslint/template-parser": "13.0.1",
+    "@angular/cli": "13.2.2",
+    "@angular/compiler": "13.2.1",
+    "@angular/compiler-cli": "13.2.1",
+    "@angular/language-service": "13.2.1",
+    "@capacitor/cli": "3.4.0",
+    "@cypress/schematic": "1.6.0",
+    "@ionic/angular-toolkit": "6.0.0",
+    "@ionic/cli": "6.18.1",
+    "@types/jest": "27.4.0",
+    "@types/jest-when": "3.5.0",
+    "@types/leaflet": "1.7.9",
+    "@types/node": "17.0.15",
+    "@types/xml2js": "0.4.9",
+    "@typescript-eslint/eslint-plugin": "5.10.2",
+    "@typescript-eslint/parser": "5.10.2",
+    "cy-mobile-commands": "0.3.0",
+    "cypress": "9.4.1",
+    "eslint": "8.8.0",
+    "eslint-plugin-unicorn": "40.1.0",
+    "jest": "27.5.0",
+    "jest-preset-angular": "11.1.0",
+    "jest-when": "3.5.0",
+    "jetifier": "2.0.0",
+    "prettier": "2.5.1",
+    "prettier-plugin-organize-imports": "2.3.4",
+    "semver": "7.3.5",
+    "standard-version": "9.3.2",
+    "ts-jest": "27.1.3",
+    "ts-node": "10.4.0",
+    "tsconfig-paths": "3.12.0",
+    "typescript": "4.5.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robingenz/dhbw-vs-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robingenz/dhbw-vs-app/issues"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-file": {},
+      "cordova-plugin-file-opener2": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "cordova-plugin-advanced-http": {
+        "OKHTTP_VERSION": "3.10.0"
+      }
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "postbump": "node scripts/bump-native-versions.js && git add android/app/build.gradle ios/App/App/Info.plist"
+    }
+  },
+  "elf": {
+    "cli": {
+      "repoTemplate": "class",
+      "plugins": [
+        "@ngneat/elf-cli-ng"
+      ],
+      "repoLibrary": "src/app/store"
+    }
+  }
+}

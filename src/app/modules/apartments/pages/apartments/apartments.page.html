@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Wohnungsmarkt</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentMenuPopover($event)" data-cy="apartments-page-open-menu-popover-button">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment (ionChange)="slides?.slideTo(getIndexOfSegment())" [(ngModel)]="segment">
+      <ion-segment-button value="offers">
+        <ion-label>Angebote</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="searches">
+        <ion-label>Gesuche</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="apartments && apartments.offers as offers; else content_placeholder">
+    <ng-container *ngIf="apartments && apartments.searches as searches; else content_placeholder">
+      <ng-container *ngIf="offers.data.length > 0 || searches.data.length > 0; else content_placeholder">
+        <ion-slides
+          #slides
+          [options]="{autoHeight: true}"
+          (ionSlideWillChange)="setSegmentByIndex(slides.getActiveIndex())"
+        >
+          <ion-slide>
+            <app-apartment-card
+              *ngFor="let apartmentOffer of offers.data; trackBy: trackByIndex"
+              [apartment]="apartmentOffer"
+            >
+            </app-apartment-card>
+          </ion-slide>
+          <ion-slide>
+            <app-apartment-card
+              *ngFor="let apartmentSearch of searches.data; trackBy: trackByIndex"
+              [apartment]="apartmentSearch"
+            >
+            </app-apartment-card>
+          </ion-slide>
+        </ion-slides>
+        <ion-infinite-scroll
+          [disabled]="(!offers.infiniteLoadingEnabled && segment === 'offers') || (!searches.infiniteLoadingEnabled && segment === 'searches')"
+          threshold="100px"
+          (ionInfinite)="loadMoreApartments($event)"
+        >
+          <ion-infinite-scroll-content loadingText="Bitte warten..."> </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+  <ng-template #content_placeholder>
+    <div id="content-placeholder">
+      <ion-icon name="home"></ion-icon>
+    </div>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,179 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: 14
+  JAVA_VERSION: 8
+  JAVA_DISTRIBUTION: "adopt"
+  RUBY_VERSION: 2.7
+
+jobs:
+  build-web:
+    name: Build web assets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install Node.js dependencies
+        run: npm ci
+      - name: Build web assets
+        run: npm run build -- --prod
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: www
+          path: www
+  build-android:
+    name: Build Android platform
+    runs-on: macos-latest
+    needs: [build-web]
+    outputs:
+      GRADLE_AAB_OUTPUT_FILE_PATH: ${{ steps.set-output.outputs.GRADLE_AAB_OUTPUT_FILE_PATH }}
+      GRADLE_AAB_OUTPUT_DIR_PATH: ${{ steps.set-output.outputs.GRADLE_AAB_OUTPUT_DIR_PATH }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: www
+          path: www
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install Node.js dependencies
+        run: npm ci
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v2
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+      - name: Set up Ruby ${{ env.RUBY_VERSION }} and install dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - name: Copy web assets to native platform
+        run: npx ionic capacitor copy android --no-build
+      - name: Update native platform
+        run: npx ionic capacitor update android
+      - name: Add keystore files
+        run: |
+          echo "${{ secrets.KEYSTORE_PROPERTIES_BASE64 }}" | base64 --decode > android/keystore.properties
+          echo "${{ secrets.DHBW_VS_KEYSTORE_BASE64 }}" | base64 --decode > android/DHBW-VS.keystore
+      - name: Build native platform
+        run: bundle exec fastlane android build release:true
+      - name: Set job outputs
+        id: set-output
+        run: |
+          echo "::set-output name=GRADLE_AAB_OUTPUT_FILE_PATH::${{ env.GRADLE_AAB_OUTPUT_FILE_PATH }}"
+          echo "::set-output name=GRADLE_AAB_OUTPUT_DIR_PATH::${{ env.GRADLE_AAB_OUTPUT_DIR_PATH }}"
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: android
+          path: ${{ env.GRADLE_AAB_OUTPUT_FILE_PATH }}
+  build-ios:
+    name: Build iOS platform
+    runs-on: macos-latest
+    needs: [build-web]
+    outputs:
+      IPA_OUTPUT_FILE_PATH: ${{ steps.set-output.outputs.IPA_OUTPUT_FILE_PATH }}
+      IPA_OUTPUT_DIR_PATH: ${{ steps.set-output.outputs.IPA_OUTPUT_DIR_PATH }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: www
+          path: www
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install Node.js dependencies
+        run: npm ci
+      - name: Set up Ruby ${{ env.RUBY_VERSION }} and install dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - name: Copy web assets to native platform
+        run: npx ionic capacitor copy ios --no-build
+      - name: Update native platform
+        run: npx ionic capacitor update ios
+      - name: Download iOS certificates and provisioning profiles
+        run: bundle exec fastlane ios sync_certificates type:appstore
+        env:
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      - name: Build native platform
+        run: bundle exec fastlane ios build release:true
+      - name: Set job outputs
+        id: set-output
+        run: |
+          echo "::set-output name=IPA_OUTPUT_FILE_PATH::${{ env.IPA_OUTPUT_FILE_PATH }}"
+          echo "::set-output name=IPA_OUTPUT_DIR_PATH::${{ env.IPA_OUTPUT_DIR_PATH }}"
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ios
+          path: ${{ env.IPA_OUTPUT_FILE_PATH }}
+  deploy-android:
+    name: Deploy Android platform
+    runs-on: macos-latest
+    needs: [build-android]
+    env:
+      GRADLE_AAB_OUTPUT_FILE_PATH: ${{ needs.build-android.outputs.GRADLE_AAB_OUTPUT_FILE_PATH }}
+      GRADLE_AAB_OUTPUT_DIR_PATH: ${{ needs.build-android.outputs.GRADLE_AAB_OUTPUT_DIR_PATH }}
+      SUPPLY_JSON_KEY_PATH: android/supply_key.json
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: android
+          path: ${{ env.GRADLE_AAB_OUTPUT_DIR_PATH }}
+      - name: Set up Ruby ${{ env.RUBY_VERSION }} and install dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - name: Add API key file
+        run: echo "${{ secrets.SUPPLY_JSON_KEY }}" | base64 --decode > ${{ env.SUPPLY_JSON_KEY_PATH }}
+      - name: Deploy native platform
+        run: bundle exec fastlane android deploy beta:true api_key:${{ env.SUPPLY_JSON_KEY_PATH }} aab:${{ env.GRADLE_AAB_OUTPUT_FILE_PATH }}
+  deploy-ios:
+    name: Deploy iOS platform
+    runs-on: macos-latest
+    needs: [build-ios]
+    env:
+      IPA_OUTPUT_FILE_PATH: ${{ needs.build-ios.outputs.IPA_OUTPUT_FILE_PATH }}
+      IPA_OUTPUT_DIR_PATH: ${{ needs.build-ios.outputs.IPA_OUTPUT_DIR_PATH }}
+      APP_STORE_CONNECT_API_JSON_KEY_PATH: ios/connect_key.json
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: ios
+          path: ${{ env.IPA_OUTPUT_DIR_PATH }}
+      - name: Set up Ruby ${{ env.RUBY_VERSION }} and install dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - name: Add API key file
+        run: echo "${{ secrets.APP_STORE_CONNECT_API_JSON_KEY }}" | base64 --decode > ${{ env.APP_STORE_CONNECT_API_JSON_KEY_PATH }}
+      - name: Deploy native platform
+        run: bundle exec fastlane ios deploy beta:true api_key:${{ env.APP_STORE_CONNECT_API_JSON_KEY_PATH }} ipa:${{ env.IPA_OUTPUT_FILE_PATH }}

@@ -1,0 +1,41 @@
+<ion-card *ngIf="apartment">
+  <ion-card-header>
+    <ion-card-title *ngIf="apartment.firstname || apartment.lastname">
+      {{ apartment?.firstname }} {{ apartment?.lastname }}
+    </ion-card-title>
+    <ion-card-subtitle *ngIf="apartment.date">
+      {{ apartment.date | apartmentDate }}
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-badge *ngIf="apartment.wg">Wohngemeinschaft</ion-badge>
+    <ion-item *ngIf="apartment.zip || apartment.city">
+      <ion-icon name="pin" slot="start"></ion-icon>
+      <ion-label>
+        {{ apartment?.zip }}<span *ngIf="apartment.zip && apartment.city">&nbsp;</span>{{ apartment?.city }}
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="apartment.price">
+      <ion-icon name="cash" slot="start"></ion-icon>
+      <ion-label>
+        {{ apartment.price }} € <span *ngIf="apartment.addcosts">+ {{ apartment.addcosts }} €</span>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="apartment.date1 && apartment.date2" lines="none">
+      <ion-icon name="calendar" slot="start"></ion-icon>
+      <ion-label> {{ apartment.date1 }} bis {{ apartment.date2 }} </ion-label>
+    </ion-item>
+  </ion-card-content>
+  <ion-row class="ion-no-padding">
+    <ion-col>
+      <ion-button
+        fill="clear"
+        (click)="presentApartmentModal(apartment)"
+        class="ion-float-right"
+        data-cy="apartment-card-open-button"
+      >
+        Öffnen
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-card>

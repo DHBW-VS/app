@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Parkplätze</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div id="content-placeholder" *ngIf="!parkingData || parkingData.length < 1">
+    <ion-icon name="car"></ion-icon>
+  </div>
+  <ng-container *ngIf="parkingData && parkingData.length > 0">
+    <app-parking-card *ngFor="let parking of parkingData; trackBy: trackByIndex" [parking]="parking"></app-parking-card>
+    <div class="annotation" *ngIf="parkingData && parkingData.length > 0">
+      <ion-icon name="checkmark"></ion-icon> <span>Automatische Aktualisierung</span>
+    </div>
+  </ng-container>
+</ion-content>

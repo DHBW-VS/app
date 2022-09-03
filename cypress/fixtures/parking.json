@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Parkplatz 4",
+    "location": "Expressguthalle",
+    "staff": {
+      "occupied": 70,
+      "free": 0
+    },
+    "students": {
+      "occupied": 0,
+      "free": 80
+    }
+  },
+  {
+    "description": "Parkplatz 5",
+    "location": "Ostbahnhof",
+    "staff": {
+      "occupied": 1,
+      "free": 99
+    },
+    "students": {
+      "occupied": 10,
+      "free": 65
+    }
+  }
+]

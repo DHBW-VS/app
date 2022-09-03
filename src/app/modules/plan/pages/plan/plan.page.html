@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pläne</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="timetableList && timetableList.length > 0">
+    <ion-card-header>
+      <ion-card-title data-cy="plan-page-timetable-card-title">Vorlesungsplan</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Vorlesungsplan auswählen</ion-label>
+          <ion-select
+            [interfaceOptions]="timetableSelection"
+            [(ngModel)]="selectedTimetable"
+            okText="Ok"
+            cancelText="Abbrechen"
+            data-cy="plan-page-plan-select"
+          >
+            <ion-select-option value="{{ timetable.id }}" *ngFor="let timetable of timetableList"
+              >{{ timetable.filename }}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-row class="ion-no-padding">
+      <ion-col>
+        <ion-button
+          fill="clear"
+          (click)="showTimetable()"
+          [disabled]="!selectedTimetable"
+          class="ion-float-right"
+          data-cy="plan-page-open-plan-button"
+        >
+          Öffnen
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title data-cy="plan-page-map-card-title">Gebäudeplan</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> Campusplan der Fakultät Wirtschaft. </ion-card-content>
+    <ion-row class="ion-no-padding">
+      <ion-col>
+        <ion-button fill="clear" routerLink="/map" class="ion-float-right" data-cy="plan-page-open-map-button">
+          Öffnen
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

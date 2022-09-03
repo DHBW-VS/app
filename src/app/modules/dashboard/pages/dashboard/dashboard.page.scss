@@ -1,0 +1,13 @@
+ion-col {
+  text-align: center;
+
+  ion-icon {
+    font-size: 40px;
+  }
+
+  a,
+  a > * {
+    color: var(--color);
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,35 @@
+export interface IApartment {
+  id: number;
+  date: string;
+  lastname: string;
+  firstname: string;
+  mail: string;
+  phone1: string;
+  phone2: string;
+  fax: string;
+  street?: string;
+  city: string;
+  zip?: string;
+  size: number;
+  wg: boolean;
+  distance?: number;
+  distance_from: string;
+  balcony: boolean;
+  kitchen: boolean;
+  bath: boolean;
+  shower: boolean;
+  wc: boolean;
+  smoker: boolean;
+  furnished: boolean;
+  parking: number;
+  comment: string;
+  room: number;
+  tv: boolean;
+  phone: boolean;
+  date1: string;
+  date2: string;
+  price: number;
+  deposit?: number;
+  addcosts: number;
+  benefits: string;
+}

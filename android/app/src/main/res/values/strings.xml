@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">DHBW VS</string>
+    <string name="title_activity_main">DHBW VS</string>
+    <string name="package_name">de.dhbw.vs.standortapp</string>
+    <string name="custom_url_scheme">de.dhbw.vs.standortapp</string>
+</resources>

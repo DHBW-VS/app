@@ -1,0 +1,313 @@
+[
+  {
+    "date": "25.02.2019",
+    "dishes": [
+      {
+        "name": "Essen 1",
+        "allergyWarnings": [
+          "Ei: Eier,Se: Sellerie,Gl: GLUTENHALTIGES Getreide,GlW: Weizen,GlH: Hafer"
+        ],
+        "labels": [
+          ""
+        ],
+        "description": "\n                    Pastinaken-Steckrübenrösti<br>Rosmarinkartoffeln<br>Schwarze Bohnen mit Mais\n                ",
+        "price": {
+          "employee": "3,90€",
+          "guests": "5,10€",
+          "pupils": "2,90€",
+          "students": "2,90€"
+        },
+        "promotion": "STUDY & FIT",
+        "additionalInformation": "vegetarisch"
+      },
+      {
+        "name": "Essen 2",
+        "allergyWarnings": [
+          "Ei: Eier,ML: Milch /-erzeugnisse"
+        ],
+        "labels": [
+          ""
+        ],
+        "description": "\n                    Schinken Makkaroni<br>Geriebener Käse<br>Tomatensauce<br>Mischgemüse\n                ",
+        "price": {
+          "employee": "3,90€",
+          "guests": "5,10€",
+          "pupils": "2,90€",
+          "students": "2,90€"
+        }
+      },
+      {
+        "name": "Wochenangebot",
+        "allergyWarnings": [
+          "Gl: GLUTENHALTIGES Getreide,GlW: Weizen"
+        ],
+        "labels": [
+          "sch: mit Schwein"
+        ],
+        "description": "\n                    Paniertes Schweineschnitzel<br>Pommes frites<br>Beilagensalat\n                ",
+        "price": {
+          "employee": "4,10€",
+          "guests": "5,10€",
+          "pupils": "3,10€",
+          "students": "3,10€"
+        },
+        "additionalInformation": "auf Wunsch vegan"
+      },
+      {
+        "name": "Wochenangebot",
+        "allergyWarnings": [
+          ""
+        ],
+        "labels": [
+          "5: mit Antioxidationsmittel"
+        ],
+        "description": "\n                    Chicken Wings<br>Pommes frites<br>Beilagensalat\n                ",
+        "price": {
+          "employee": "4,90€",
+          "guests": "5,80€",
+          "pupils": "3,90€",
+          "students": "3,90€"
+        }
+      },
+      {
+        "name": "Wok",
+        "allergyWarnings": [
+          ""
+        ],
+        "labels": [
+          ""
+        ],
+        "description": "\n                    Pfannengemüse aus dem Wok<br>Toppings und Saucen nach Wahl\n                ",
+        "price": {
+          "employee": "1,00€ pro 100g",
+          "guests": "1,20€ pro 100g",
+          "pupils": "0,85€ pro 100g",
+          "students": "0,85€ pro 100g"
+        }
+      },
+      {
+        "name": "Dessertbuffet",
+        "allergyWarnings": [
+          ""
+        ],
+        "labels": [
+          ""
+        ],
+        "description": "\n                    Fruchtjoghurt<br>Fruchtquark<br>Pudding<br>Obstsalat\n                ",
+        "price": {
+          "employee": "0,65€ pro 100g",
+          "guests": "0,80€ pro 100g",
+          "pupils": "0,50€ pro 100g",
+          "students": "0,50€ pro 100g"
+        }
+      }
+    ]
+  },
+  {
+    "date": "26.02.2019",
+    "dishes": [
+      {
+        "name": "Essen 1",
+        "allergyWarnings": [
+          "Ei: Eier,Se: Sellerie,Gl: GLUTENHALTIGES Getreide,GlW: Weizen,ML: Milch /-erzeugnisse"
+        ],
+        "labels": [
+          ""
+        ],
+        "description": "\n                    Gemüsemaultaschen mit geriebenen Käse überbacken<br>Basilikumsauce<br>Tomaten-Zucchiniragout\n                ",
+        "price": {
+          "employee": "3,90€",
+          "guests": "5,10€",
+          "pupils": "2,90€",
+          "students": "2,90€"
+        },
+        "additionalInformation": "vegetarisch"
+      },
+      {
+        "name": "Essen 2",
+        "allergyWarnings": [
+          "Gl: GLUTENHALTIGES Getreide,GlW: Weizen,ML: Milch /-erzeugnisse"
+        ],
+        "labels": [
+          "ri: mit Rindfleisch"
+        ],
+        "description": "\n                    Köfte<br>Zaziki<br>Basilikumsauce<br>Naturreis<br>Blattsalat\n                ",
+        "price": {
+          "employee": "3,90€",
+          "guests": "5,10€",
+          "pupils": "2,90€",
+          "students": "2,90€"
+        },
+        "promotion": "STUDY & FIT"
+      },
+      {
+        "name": "Wochenangebot",
+        "allergyWarnings": [
+          "Gl: GLUTENHALTIGES Getreide,GlW: Weizen"
+        ],
+        "labels": [
+          "sch: mit Schwein"
+        ],
+        "description": "\n                    Paniertes Schweineschnitzel<br>Pommes frites<br>Beilagensalat\n                ",
+        "price": {
+          "employee": "4,10€",
+          "guests": "5,10€",
+          "pupils": "3,10€",
+          "students": "3,10€"
+        },
+        "additionalInformation": "auf Wunsch vegan"
+      },
+      {
+        "name": "Wochenangebot",
+        "allergyWarnings": [
+          ""
+        ],
+        "labels": [
+          "5: mit Antioxidationsmittel"
+        ],
+        "description": "\n                    Chicken Wings<br>Pommes frites<br>Beilagensalat\n                ",
+        "price": {
+          "employee": "4,90€",
+          "guests": "5,80€",
+          "pupils": "3,90€",
+          "students": "3,90€"
+        }
+      },
+      {
+        "name": "Wok",
+        "allergyWarnings": [
+          ""
+        ],
+        "labels": [
+          ""
+        ],
+        "description": "\n                    Pfannengemüse aus dem Wok<br>Toppings und Saucen nach Wahl\n                ",
+        "price": {
+          "employee": "1,00€ pro 100g",
+          "guests": "1,20€ pro 100g",
+          "pupils": "0,85€ pro 100g",
+          "students": "0,85€ pro 100g"
+        }
+      },
+      {
+        "name": "Dessertbuffet",
+        "allergyWarnings": [
+          ""
+        ],
+        "labels": [
+          ""
+        ],
+        "description": "\n                    Fruchtjoghurt<br>Fruchtquark<br>Pudding<br>Obstsalat\n                ",
+        "price": {
+          "employee": "0,65€ pro 100g",
+          "guests": "0,80€ pro 100g",
+          "pupils": "0,50€ pro 100g",
+          "students": "0,50€ pro 100g"
+        }
+      }
+    ]
+  },
+  {
+    "date": "27.02.2019",
+    "dishes": [
+      {
+        "name": "Essen 1",
+        "allergyWarnings": [
+          "Ei: Eier,So: Soja,Sn: Senf,Se: Sellerie,Sf: Schwefeldioxid/Sulfite,Gl: GLUTENHALTIGES Getreide,GlW: Weizen,ML: Milch /-erzeugnisse"
+        ],
+        "labels": [
+          "alc: mit Alkohol"
+        ],
+        "description": "\n                    Gefüllte Paprika<br>Linsensauce<br>Kartoffelbrei<br>Blattsalat\n                ",
+        "price": {
+          "employee": "3,90€",
+          "guests": "5,10€",
+          "pupils": "2,90€",
+          "students": "2,90€"
+        },
+        "additionalInformation": "vegetarisch"
+      },
+      {
+        "name": "Essen 2",
+        "allergyWarnings": [
+          "Sn: Senf,Gl: GLUTENHALTIGES Getreide,GlW: Weizen,GlG: Gerste,ML: Milch /-erzeugnisse"
+        ],
+        "labels": [
+          "sch: mit Schwein, 5: mit Antioxidationsmittel, 6: mit Konservierungsstoff, 8: mit Phosphat"
+        ],
+        "description": "\n                    Gebackener Fleischkäse<br>Süßer Senf<br>Zwiebelsauce<br>Kartoffelbrei<br>Blattsalat\n                ",
+        "price": {
+          "employee": "3,90€",
+          "guests": "5,10€",
+          "pupils": "2,90€",
+          "students": "2,90€"
+        }
+      },
+      {
+        "name": "Wochenangebot",
+        "allergyWarnings": [
+          "Gl: GLUTENHALTIGES Getreide,GlW: Weizen"
+        ],
+        "labels": [
+          "sch: mit Schwein"
+        ],
+        "description": "\n                    Paniertes Schweineschnitzel<br>Pommes frites<br>Beilagensalat\n                ",
+        "price": {
+          "employee": "4,10€",
+          "guests": "5,10€",
+          "pupils": "3,10€",
+          "students": "3,10€"
+        },
+        "additionalInformation": "auf Wunsch vegan"
+      },
+      {
+        "name": "Wochenangebot",
+        "allergyWarnings": [
+          ""
+        ],
+        "labels": [
+          "5: mit Antioxidationsmittel"
+        ],
+        "description": "\n                    Chicken Wings<br>Pommes frites<br>Beilagensalat\n                ",
+        "price": {
+          "employee": "4,90€",
+          "guests": "5,80€",
+          "pupils": "3,90€",
+          "students": "3,90€"
+        }
+      },
+      {
+        "name": "Wok",
+        "allergyWarnings": [
+          ""
+        ],
+        "labels": [
+          ""
+        ],
+        "description": "\n                    Pfannengemüse aus dem Wok<br>Toppings und Saucen nach Wahl\n                ",
+        "price": {
+          "employee": "1,00€ pro 100g",
+          "guests": "1,20€ pro 100g",
+          "pupils": "0,85€ pro 100g",
+          "students": "0,85€ pro 100g"
+        }
+      },
+      {
+        "name": "Dessertbuffet",
+        "allergyWarnings": [
+          ""
+        ],
+        "labels": [
+          ""
+        ],
+        "description": "\n                    Fruchtjoghurt<br>Fruchtquark<br>Pudding<br>Obstsalat\n                ",
+        "price": {
+          "employee": "0,65€ pro 100g",
+          "guests": "0,80€ pro 100g",
+          "pupils": "0,50€ pro 100g",
+          "students": "0,50€ pro 100g"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+      "id": "4684",
+      "filename": "WI2_Kurs_A_WI_2020.pdf",
+      "description": "Kurs A WI 2020",
+      "semester": "2",
+      "course": "WI"
+  },
+  {
+      "id": "4685",
+      "filename": "WI2_Kurs_B_WI_2020.pdf",
+      "description": "Kurs B WI 2020",
+      "semester": "2",
+      "course": "WI"
+  },
+  {
+      "id": "4671",
+      "filename": "WI2_Kurs_C_WI_2020.pdf",
+      "description": "Kurs C WI 2020",
+      "semester": "2",
+      "course": "WI"
+  },
+  {
+      "id": "4560",
+      "filename": "WI4_Kurs_A_WI_2019.pdf",
+      "description": "Kurs A WI 2019",
+      "semester": "4",
+      "course": "WI"
+  },
+  {
+      "id": "4563",
+      "filename": "WI4_Kurs_B_WI_2019.pdf",
+      "description": "Kurs B WI 2019",
+      "semester": "4",
+      "course": "WI"
+  },
+  {
+      "id": "4562",
+      "filename": "WI4_Kurs_C_WI_2019.pdf",
+      "description": "Kurs C WI 2019",
+      "semester": "4",
+      "course": "WI"
+  },
+  {
+      "id": "4727",
+      "filename": "WI6_Kurs_A_WI_2018.pdf",
+      "description": "Kurs A WI 2018",
+      "semester": "6",
+      "course": "WI"
+  },
+  {
+      "id": "4728",
+      "filename": "WI6_Kurs_B_WI_2018.pdf",
+      "description": "Kurs B WI 2018",
+      "semester": "6",
+      "course": "WI"
+  },
+  {
+      "id": "4729",
+      "filename": "WI6_Kurs_C_WI_2018.pdf",
+      "description": "Kurs C WI 2018",
+      "semester": "6",
+      "course": "WI"
+  }
+]

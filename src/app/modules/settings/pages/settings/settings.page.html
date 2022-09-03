@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Einstellungen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Daten löschen</ion-card-subtitle>
+      <ion-card-title>Ausloggen</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Durch Drücken des folgenden Buttons kannst du dich aus der App ausloggen. Hierbei werden alle lokalen Daten der
+        App gelöscht.
+      </p>
+      <br />
+      <ion-button expand="block" color="danger" (click)="logout()" data-cy="settings-page-logout-button"
+        >Ausloggen</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+</ion-content>

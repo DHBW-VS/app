@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>DHBW VS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="loginFormGroup">
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Moodle-Anmeldename</ion-label>
+            <ion-input formControlName="username" (keyup.enter)="login(loginFormGroup)"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Moodle-Kennwort</ion-label>
+            <ion-input formControlName="password" (keyup.enter)="login(loginFormGroup)" type="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <div class="ion-padding">
+          <ion-button type="submit" expand="block" (click)="login(loginFormGroup)">Einloggen</ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

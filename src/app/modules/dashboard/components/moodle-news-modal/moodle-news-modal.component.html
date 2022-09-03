@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>News</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="moodleNews">
+    <ion-card-header>
+      <ion-card-title [innerHTML]="moodleNews.subject"> </ion-card-title>
+      <ion-card-subtitle>
+        {{ moodleNews.date }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content [innerHTML]="moodleNews.message"> </ion-card-content>
+    <ion-list *ngIf="moodleNews.attachment && moodleNews.attachment.length > 0">
+      <ion-list-header>
+        <ion-label>Anhänge</ion-label>
+      </ion-list-header>
+      <ion-item
+        *ngFor="let attachment of moodleNews.attachment; let last = last"
+        (click)="openAttachment(attachment)"
+        [attr.lines]="last ? 'none' : 'inset'"
+      >
+        <ion-icon name="download" slot="start"></ion-icon>
+        <ion-label>{{ attachment.title }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

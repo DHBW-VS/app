@@ -1,0 +1,12 @@
+opt_out_usage
+
+before_all do |lane, options|
+  if is_ci
+    setup_ci
+  end
+end
+
+# Import lanes for Android
+import("./lanes/android")
+# Import lanes for iOS
+import("./lanes/ios")

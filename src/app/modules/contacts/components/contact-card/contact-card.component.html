@@ -1,0 +1,45 @@
+<ion-card *ngIf="contact">
+  <ion-card-header>
+    <ion-card-subtitle *ngIf="contact.jobtitle">{{ contact.jobtitle }}</ion-card-subtitle>
+    <ion-card-title *ngIf="contact.firstname || contact.lastname"
+      >{{ contact?.firstname }}<span *ngIf="contact.firstname && contact.lastname">&nbsp;</span
+      >{{ contact?.lastname }}</ion-card-title
+    >
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row *ngIf="contact.location">
+        <ion-col size="4">
+          <div>Raum:</div>
+        </ion-col>
+        <ion-col size="8">
+          <div class="ion-float-right">{{ contact.location }}</div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="contact.phone">
+        <ion-col size="4">
+          <div>Telefon:</div>
+        </ion-col>
+        <ion-col size="8">
+          <div class="ion-float-right phoneNumber" (click)="_openWindow('tel:' + contact.phone)">
+            {{ contact.phone }}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="contact.mail">
+        <ion-col size="4">
+          <div>E-Mail:</div>
+        </ion-col>
+        <ion-col size="8">
+          <div
+            class="mailAddress ion-float-right"
+            (press)="_copyToClipboard(contact.mail)"
+            (click)="_openWindow('mailto:' + contact.mail)"
+          >
+            {{ contact.mail }}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

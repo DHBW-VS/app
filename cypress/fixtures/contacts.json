@@ -1,0 +1,76 @@
+[
+  {
+    "groupname": "Kontakt Studiengang",
+    "contacts": [
+      {
+        "firstname": "Prof. Dr. Christian",
+        "lastname": "Umlauf",
+        "jobtitle": "Prorektor und Dekan der Fakultät Wirtschaft",
+        "location": "Gebäude A, Raum 101",
+        "phone": "+49 7720 1234-100",
+        "mail": "christian.umlauf@example.com"
+      },
+      {
+        "firstname": "Prof. Dr. Sebastian",
+        "lastname": "Schnell",
+        "jobtitle": "Studiengangsleiter, Wirtschaftsinformatik",
+        "location": "Gebäude D, Raum 102",
+        "phone": "+49 7720 1234-101",
+        "mail": "sebastian.schnell@example.com"
+      },
+      {
+        "firstname": "Prof. Dr. Georg",
+        "lastname": "Grutz",
+        "jobtitle": "Studiengangsleiter, Wirtschaftsinformatik",
+        "location": "Gebäude D, Raum 103",
+        "phone": "+49 7720 1234-102",
+        "mail": "georg.grutz@example.com"
+      },
+      {
+        "firstname": "Tina",
+        "lastname": "Groß",
+        "jobtitle": "Sekretariat",
+        "location": "Gebäude D, Raum 100",
+        "phone": "+49 7720 1234-103",
+        "mail": "tina.gross@example.com"
+      }
+    ]
+  },
+  {
+    "groupname": "Professorinnen und Professoren",
+    "contacts": [
+      {
+        "firstname": "Prof. Dr. Petra",
+        "lastname": "Groß",
+        "jobtitle": "Professorin für Technik Grundlagen, Fakultät für Wirtschaft",
+        "location": "Gebäude B, Raum 200",
+        "phone": "+49 7720 1234-200",
+        "mail": "petra.groß@example.com"
+      },
+      {
+        "firstname": "Prof. Dr. Wolfgang",
+        "lastname": "Herzlich",
+        "jobtitle": "Professor für Technik Grundlagen, Fakultät für Wirtschaft",
+        "location": "Gebäude D, Raum 201",
+        "phone": "+49 7720 1234-201",
+        "mail": "wolfgang.herzlich@example.com"
+      },
+      {
+        "firstname": "Prof. Dr. Markus",
+        "lastname": "Stengel",
+        "jobtitle": "Professor für Technik Grundlagen, Fakultät für Wirtschaft",
+        "location": "Gebäude D, Raum 202",
+        "phone": "+49 7720 1234-102",
+        "mail": "markus.stengel@example.com"
+      },
+      {
+        "firstname": "Simone",
+        "lastname": "Hauser",
+        "jobtitle": "Professorin für Technik Grundlagen, Fakultät für Wirtschaft",
+        "location": "Gebäude D, Raum 203",
+        "phone": "+49 7720 1234-203",
+        "mail": "simone.hauser@example.com"
+      }
+    ]
+  }
+]

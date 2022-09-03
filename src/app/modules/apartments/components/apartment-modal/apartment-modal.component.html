@@ -1,0 +1,236 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Wohnungsmarkt</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="apartment">
+    <ion-card-header>
+      <ion-card-title *ngIf="apartment.firstname || apartment.lastname">
+        {{ apartment?.firstname }} {{ apartment?.lastname }}
+      </ion-card-title>
+      <ion-card-subtitle *ngIf="apartment.date">
+        {{ apartment.date | apartmentDate }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-badge *ngIf="apartment.wg">Wohngemeinschaft</ion-badge>
+      <ng-container *ngIf="apartment.comment">
+        <p><strong>Bemerkung:</strong></p>
+        <p [innerHTML]="apartment.comment"></p>
+      </ng-container>
+      <ng-container *ngIf="apartment.price || apartment.addcosts || apartment.deposit">
+        <br />
+        <p><strong>Kosten:</strong></p>
+        <ion-grid class="ion-no-padding">
+          <ion-row *ngIf="apartment.price">
+            <ion-col size="6">
+              <div>Mietpreis:</div>
+            </ion-col>
+            <ion-col size="6">
+              <div class="ion-float-right">{{ apartment.price }} €</div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="apartment.addcosts">
+            <ion-col size="6">
+              <div>Nebenkosten:</div>
+            </ion-col>
+            <ion-col size="6">
+              <div class="ion-float-right">{{ apartment.addcosts }} €</div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="apartment.deposit">
+            <ion-col size="6">
+              <div>Kaution:</div>
+            </ion-col>
+            <ion-col size="6">
+              <div class="ion-float-right">{{ apartment.deposit }} €</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+      <ng-container *ngIf="apartment.benefits">
+        <br />
+        <p><strong>Leistungen inklusive:</strong></p>
+        <p>{{ apartment.benefits }}</p>
+      </ng-container>
+      <ng-container *ngIf="apartment.date1 || apartment.date2">
+        <br />
+        <p><strong>Termine:</strong></p>
+        <ion-grid class="ion-no-padding">
+          <ion-row *ngIf="apartment.date1">
+            <ion-col size="6">
+              <div>Einzugstermin:</div>
+            </ion-col>
+            <ion-col size="6">
+              <div class="ion-float-right">{{ apartment.date1 }}</div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="apartment.date2">
+            <ion-col size="6">
+              <div>Auszugstermin:</div>
+            </ion-col>
+            <ion-col size="6">
+              <div class="ion-float-right">{{ apartment.date2 }}</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+      <ng-container *ngIf="apartment.zip || apartment.city || apartment.street">
+        <br />
+        <p><strong>Adresse:</strong></p>
+        <ion-grid class="ion-no-padding">
+          <ion-row *ngIf="apartment.zip">
+            <ion-col size="4">
+              <div>PLZ:</div>
+            </ion-col>
+            <ion-col size="8">
+              <div class="ion-float-right">{{ apartment.zip }}</div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="apartment.city">
+            <ion-col size="4">
+              <div>Ort:</div>
+            </ion-col>
+            <ion-col size="8">
+              <div class="ion-float-right">{{ apartment.city }}</div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="apartment.street">
+            <ion-col size="4">
+              <div>Straße:</div>
+            </ion-col>
+            <ion-col size="8">
+              <div class="ion-float-right">{{ apartment.street }}</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+      <ng-container *ngIf="apartment.distance_from && apartment.distance">
+        <br />
+        <p><strong>Entfernung:</strong></p>
+        <p>Entfernung zu {{ apartment.distance_from }} beträgt ungefähr {{ apartment.distance }} km</p>
+      </ng-container>
+      <ng-container *ngIf="apartment.distance_from && !apartment.distance">
+        <br />
+        <p><strong>Studienstandort:</strong></p>
+        <p>{{ apartment.distance_from }}</p>
+      </ng-container>
+      <ng-container *ngIf="apartment.size || apartment.room">
+        <br />
+        <p><strong>Größe:</strong></p>
+        <ion-grid class="ion-no-padding">
+          <ion-row *ngIf="apartment.size">
+            <ion-col size="6">
+              <div>Größe:</div>
+            </ion-col>
+            <ion-col size="6">
+              <div class="ion-float-right">ca. {{ apartment.size }} qm</div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="apartment.room">
+            <ion-col size="8">
+              <div>Anzahl Zimmer:</div>
+            </ion-col>
+            <ion-col size="4">
+              <div class="ion-float-right">{{ apartment.room }}</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+      <br />
+      <p><strong>Ausstattung:</strong></p>
+      <ion-chip *ngIf="!apartment.smoker">
+        <ion-label>Nichtraucher</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="apartment.furnished">
+        <ion-label>möbiliert</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="apartment.parking">
+        <ion-label>{{ apartment.parking }} Parkplätze</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="apartment.balcony">
+        <ion-label>Balkon</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="apartment.kitchen">
+        <ion-label>Küche</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="apartment.bath">
+        <ion-label>Bad</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="apartment.shower">
+        <ion-label>Dusche</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="apartment.wc">
+        <ion-label>WC</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="apartment.tv">
+        <ion-label>TV-Anschluss</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="apartment.phone">
+        <ion-label>Telefon-Anschluss</ion-label>
+      </ion-chip>
+      <br />
+      <ng-container *ngIf="apartment.mail || apartment.phone1 || apartment.phone2 || apartment.fax">
+        <br />
+        <p><strong>Kontaktdaten:</strong></p>
+        <ion-grid class="ion-no-padding">
+          <ion-row *ngIf="apartment.mail">
+            <ion-col size="4">
+              <div>Mail:</div>
+            </ion-col>
+            <ion-col size="8">
+              <div
+                class="ion-float-right mailAddress"
+                (press)="copyToClipboard(apartment.mail)"
+                (click)="openWindow('mailto:' + apartment.mail)"
+              >
+                {{ apartment.mail }}
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="apartment.phone1">
+            <ion-col size="4">
+              <div>Telefon 1:</div>
+            </ion-col>
+            <ion-col size="8">
+              <div class="ion-float-right phoneNumber" (click)="openWindow('tel:' + apartment.phone1)">
+                {{ apartment.phone1 }}
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="apartment.phone2">
+            <ion-col size="4">
+              <div>Telefon 2:</div>
+            </ion-col>
+            <ion-col size="8">
+              <div class="ion-float-right phoneNumber" (click)="openWindow('tel:' + apartment.phone2)">
+                {{ apartment.phone2 }}
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="apartment.fax">
+            <ion-col size="4">
+              <div>Fax:</div>
+            </ion-col>
+            <ion-col size="8">
+              <div
+                class="ion-float-right phoneNumber"
+                (press)="copyToClipboard(apartment.fax)"
+                (click)="openWindow('tel:' + apartment.fax)"
+              >
+                {{ apartment.fax }}
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

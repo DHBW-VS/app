@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>SOS</ion-title>
+    <ion-buttons slot="end">
+      <ion-button href="{{ sosMoreInformationLink }}">
+        <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Allgemeine Studienberatung</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <b>Anita Peter</b><br />
+        Erzbergerstraße 18, Gebäude E<br />
+        78054 Villingen-Schwenningen<br />
+        <br />
+        Telefon: <span (click)="openWindow('tel:07720 / 3906 - 190')">07720 / 3906 - 190</span><br />
+        E-Mail:
+        <span
+          class="mailAddress"
+          (press)="copyToClipboard('studienberatung@dhbw-vs.de')"
+          (click)="openWindow('mailto:studienberatung@dhbw-vs.de')"
+          >studienberatung@dhbw-vs.de</span
+        >
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Sexuelle Belästigung</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <b>Prof. Dr. Anja Teubert</b><br />
+        Telefon: <span (click)="openWindow('tel:07720 / 3906 - 211')">07720 / 3906 - 211</span><br />
+        E-Mail:
+        <span
+          class="mailAddress"
+          (press)="copyToClipboard('teubert@dhbw-vs.de')"
+          (click)="openWindow('mailto:teubert@dhbw-vs.de')"
+          >teubert@dhbw-vs.de</span
+        ><br />
+        <br />
+        <b>Prof. Dr. Clive F. W. Flynn</b><br />
+        Telefon: <span (click)="openWindow('tel:07720 / 3906 - 588')">07720 / 3906 - 588</span><br />
+        E-Mail:
+        <span
+          class="mailAddress"
+          (press)="copyToClipboard('flynn@dhbw-vs.de')"
+          (click)="openWindow('mailto:flynn@dhbw-vs.de')"
+          >flynn@dhbw-vs.de</span
+        ><br />
+        <br />
+        Eine Broschüre findest du unter
+        <a
+          href="https://www.dhbw-vs.de/files/content/06_STUDIERENDE/01_Beratungsangebote/Sexualisierte-Gewalt-Broschuere_09.08.18.pdf"
+          >www.dhbw-vs.de</a
+        >.
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>24 Stunden kostenfrei erreichbar</ion-card-subtitle>
+      <ion-card-title>Telefonseelsorge</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Beratung per Telefon, Chat oder E-Mail<br />
+        Telefon: <span (click)="openWindow('tel:0800 / 111 0 111')">0800 / 111 0 111</span> und
+        <span (click)="openWindow('tel:0800 / 111 0 222')">0800 / 111 0 222</span><br />
+        Webseite: <a href="http://www.telefonseelsorge.de">www.telefonseelsorge.de</a>
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Studierendenwerk Freiburg</ion-card-subtitle>
+      <ion-card-title>Psychotherapeutische Beratungstelle</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Offene Sprechstunde in der Vorlesungszeit<br />
+        Montag, 11:30 Uhr - 13:30 Uhr<br />
+        <br />
+        Erzbergerstraße 18, Gebäude E<br />
+        78054 Villingen-Schwenningen<br />
+        <br />
+        <b>Ulrike Timm</b><br />
+        Telefon: <span (click)="openWindow('tel:0151 / 10 93 16 84')">0151 / 10 93 16 84</span><br />
+        E-Mail:
+        <span
+          class="mailAddress"
+          (press)="copyToClipboard('mobile.psychologin@web.de')"
+          (click)="openWindow('mailto:mobile.psychologin@web.de')"
+          >mobile.psychologin@web.de</span
+        ><br />
+        <br />
+        <b>Susanne Rettinger</b><br />
+        Telefon: <span (click)="openWindow('tel:0179 / 1 95 72 28')">0179 / 1 95 72 28</span><br />
+        E-Mail:
+        <span
+          class="mailAddress"
+          (press)="copyToClipboard('S.Rettinger@gmx.net')"
+          (click)="openWindow('mailto:S.Rettinger@gmx.net')"
+          >S.Rettinger@gmx.net</span
+        >
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

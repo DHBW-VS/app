@@ -1,0 +1,8 @@
+{
+  "name": "dhbw-vs-app",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

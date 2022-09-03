@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Kontakte</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      placeholder="Kontakte durchsuchen"
+      inputmode="search"
+      [(ngModel)]="searchbarValue"
+      (ionChange)="searchbarChangeEvent()"
+      (keyup.enter)="hideKeyboard()"
+      data-cy="contacts-page-searchbar"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div id="content-placeholder" *ngIf="!contactGroups || contactGroups.length < 1">
+    <ion-icon name="person-circle"></ion-icon>
+  </div>
+  <ng-container *ngIf="contactGroups && contactGroups.length > 0">
+    <div *ngFor="let contactGroup of contactGroups | contactGroupFilter: searchbarValue">
+      <h2 *ngIf="contactGroup.contacts.length > 0">{{ contactGroup.groupname }}</h2>
+      <app-contact-card
+        *ngFor="let contact of contactGroup.contacts"
+        [contact]="contact"
+        (copyToClipboard)="copyToClipboard($event)"
+        (openWindow)="openWindow($event)"
+      ></app-contact-card>
+    </div>
+  </ng-container>
+</ion-content>

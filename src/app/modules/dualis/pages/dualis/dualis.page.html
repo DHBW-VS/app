@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dualis</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" md="log-out-sharp" ios="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      placeholder="Prüfungsergebnisse durchsuchen"
+      inputmode="search"
+      (keyup.enter)="hideKeyboard()"
+      [(ngModel)]="searchbarValue"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <app-dualis-semester-select
+    [semesterList]="semesterList"
+    (selectSemester)="selectSemester($event)"
+  ></app-dualis-semester-select>
+  <ng-container *ngIf="semesterResults?.units as units">
+    <app-dualis-unit-card
+      *ngFor="let unit of units | dualisUnitFilter: searchbarValue; trackBy: trackByIndex"
+      [unit]="unit"
+    ></app-dualis-unit-card>
+  </ng-container>
+</ion-content>
+
+<ion-footer>
+  <app-dualis-semester-gpa-bar *ngIf="semesterResults" [semester]="semesterResults"></app-dualis-semester-gpa-bar>
+</ion-footer>

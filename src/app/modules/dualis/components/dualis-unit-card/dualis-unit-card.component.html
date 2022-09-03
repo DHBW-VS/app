@@ -1,0 +1,47 @@
+<ion-card *ngIf="unit">
+  <ion-card-header>
+    <ion-card-subtitle *ngIf="unit.no">{{ unit.no }}</ion-card-subtitle>
+    <ion-card-title *ngIf="unit.displayName">{{ unit.displayName }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row *ngFor="let exam of unit.exams">
+        <ion-col>
+          <span class="exam-name">
+            <span class="exam-attempt" *ngIf="exam.attempt.length > 0">{{ exam.attempt }}</span>
+            {{ exam.displayName }}
+          </span>
+        </ion-col>
+        <ion-col>
+          <ion-badge *ngIf="exam.grade.length > 0" class="ion-float-right">
+            {{ exam.grade | dualisGrade }}
+          </ion-badge>
+        </ion-col>
+      </ion-row>
+      <ion-row class="divider">
+        <ion-col>
+          <div>Endnote</div>
+        </ion-col>
+        <ion-col>
+          <div class="ion-float-right">{{ unit.finalGrade }}</div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="divider">
+        <ion-col>
+          <div>Credits</div>
+        </ion-col>
+        <ion-col>
+          <div class="ion-float-right">{{ unit.credits | dualisEmptyString }}</div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>Status</div>
+        </ion-col>
+        <ion-col>
+          <div class="ion-float-right">{{ unit.status | dualisEmptyString }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

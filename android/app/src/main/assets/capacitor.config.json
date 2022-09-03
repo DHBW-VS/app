@@ -1,0 +1,23 @@
+{
+	"appId": "de.dhbw.vs.standortapp",
+	"appName": "DHBW VS",
+	"bundledWebRuntime": false,
+	"webDir": "www",
+	"npmClient": "npm",
+	"server": {
+		"iosScheme": "ionic"
+	},
+	"cordova": {
+		"preferences": {
+			"android-minSdkVersion": "19"
+		}
+	},
+	"plugins": {
+		"SplashScreen": {
+			"showSpinner": false,
+			"splashFullScreen": true,
+			"launchAutoHide": false,
+			"androidScaleType": "CENTER_CROP"
+		}
+	}
+}

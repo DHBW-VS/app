@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <app-moodle-news-card data-cy="dashboard-page-moodle-news-card"></app-moodle-news-card>
+  <ion-card data-cy="dashboard-page-links-card">
+    <ion-card-header>
+      <ion-card-subtitle>Externe Dienste</ion-card-subtitle>
+      <ion-card-title data-cy="dashboard-page-links-card-title">Links</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <a href="https://moodle.dhbw-vs.de/">
+              <ion-icon name="chatbox"></ion-icon>
+              <p>Moodle</p>
+            </a>
+          </ion-col>
+          <ion-col size="6">
+            <a href="https://owa.dhbw-vs.de">
+              <ion-icon name="at"></ion-icon>
+              <p>E-Mail</p>
+            </a>
+          </ion-col>
+          <ion-col size="6">
+            <a href="https://www.stuv-vs.de/">
+              <ion-icon name="people"></ion-icon>
+              <p>Stuv</p>
+            </a>
+          </ion-col>
+          <ion-col size="6">
+            <a href="https://dhvs.boss.bsz-bw.de/">
+              <ion-icon name="book"></ion-icon>
+              <p>Bibliothek</p>
+            </a>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

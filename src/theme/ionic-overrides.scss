@@ -1,0 +1,22 @@
+ion-menu > ion-content > ion-list {
+  height: 100%;
+
+  ion-item > ion-avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    ion-icon {
+      font-size: 1.5em;
+    }
+  }
+
+  ion-item:not(.sub-item) + .sub-item {
+    border-top: 1px solid var(--ion-color-step-150) !important;
+  }
+}
+
+.button-text.sc-ion-back-button-md {
+  display: none;
+}

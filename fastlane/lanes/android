@@ -1,0 +1,50 @@
+platform :android do
+  # e.g. fastlane android build release:false
+  desc "fastlane android build"
+  lane :build do |options|
+    build_type = (options[:release] ? "Release" : "Debug")
+    gradle(
+      task: "clean",
+      project_dir: "android"
+    )
+    gradle(
+      task: "assemble",
+      build_type: build_type,
+      project_dir: "android"
+    )
+    gradle(
+      task: "bundle",
+      build_type: build_type,
+      project_dir: "android"
+    )
+    ENV['GRADLE_APK_OUTPUT_PATH'] = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH].to_s
+    ENV['GRADLE_AAB_OUTPUT_PATH'] = lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH].to_s
+    ENV['GRADLE_BUILD_TYPE'] = lane_context[SharedValues::GRADLE_BUILD_TYPE].to_s
+    UI.important "GRADLE_APK_OUTPUT_PATH: " + ENV['GRADLE_APK_OUTPUT_PATH']
+    UI.important "GRADLE_AAB_OUTPUT_PATH: " + ENV['GRADLE_AAB_OUTPUT_PATH']
+    UI.important "GRADLE_BUILD_TYPE: " + ENV['GRADLE_BUILD_TYPE']
+    if is_ci
+      sh("echo GRADLE_APK_OUTPUT_FILE_PATH=#{ENV['GRADLE_APK_OUTPUT_PATH']} >> $GITHUB_ENV")
+      sh("echo GRADLE_APK_OUTPUT_DIR_PATH=#{File.dirname(ENV['GRADLE_APK_OUTPUT_PATH'])}/ >> $GITHUB_ENV")
+      sh("echo GRADLE_AAB_OUTPUT_FILE_PATH=#{ENV['GRADLE_AAB_OUTPUT_PATH']} >> $GITHUB_ENV")
+      sh("echo GRADLE_AAB_OUTPUT_DIR_PATH=#{File.dirname(ENV['GRADLE_AAB_OUTPUT_PATH'])}/ >> $GITHUB_ENV")
+    end
+  end
+
+  # e.g. fastlane android deploy beta:true api_key:/keys/supply_key.json aab:/build/app.aab
+  desc "fastlane android deploy"
+  lane :deploy do |options|
+    track = (options[:beta] ? "beta" : "production")
+    aab = (options[:aab] ? options[:aab] : ENV['GRADLE_AAB_OUTPUT_PATH'])
+    json_key = (options[:api_key] ? options[:api_key] : ENV['SUPPLY_JSON_KEY'])
+    upload_to_play_store(
+      aab: aab,
+      track: track,
+      json_key: json_key,
+      skip_upload_metadata: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+end

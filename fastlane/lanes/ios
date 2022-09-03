@@ -1,0 +1,68 @@
+platform :ios do
+  # e.g. fastlane ios sync_certificates type:appstore
+  desc "Download iOS certificates and provisioning profiles"
+  lane :sync_certificates do |options|
+      match(
+          type: options[:type],
+          readonly: true
+      )
+  end
+
+  # e.g. fastlane ios regenerate_certificates type:development
+  desc "Regenerate iOS certificates and provisioning profiles"
+  lane :regenerate_certificates do |options|
+      sh("fastlane", "match", "nuke", options[:type])
+      match(
+          type: options[:type],
+      )
+  end
+
+  # e.g. fastlane ios build release:false
+  desc "fastlane ios build"
+  lane :build do |options|
+    configuration = (options[:release] ? "Release" : "Debug")
+    export_method = (options[:release] ? "app-store" : "development")
+    build_app(
+      clean: true,
+      scheme: "App",
+      configuration: configuration,
+      workspace: "ios/App/App.xcworkspace",
+      export_method: export_method,
+      output_directory: "./ios/App/build"
+    )
+    ENV['IPA_OUTPUT_PATH'] = lane_context[SharedValues::IPA_OUTPUT_PATH].to_s
+    ENV['PKG_OUTPUT_PATH'] = lane_context[SharedValues::PKG_OUTPUT_PATH].to_s
+    ENV['DSYM_OUTPUT_PATH'] = lane_context[SharedValues::DSYM_OUTPUT_PATH].to_s
+    ENV['XCODEBUILD_ARCHIVE'] = lane_context[SharedValues::XCODEBUILD_ARCHIVE].to_s
+    UI.important "IPA_OUTPUT_PATH: " + ENV['IPA_OUTPUT_PATH']
+    UI.important "PKG_OUTPUT_PATH: " + ENV['PKG_OUTPUT_PATH']
+    UI.important "DSYM_OUTPUT_PATH: " + ENV['DSYM_OUTPUT_PATH']
+    UI.important "XCODEBUILD_ARCHIVE: " + ENV['XCODEBUILD_ARCHIVE']
+    if is_ci
+      sh("echo IPA_OUTPUT_FILE_PATH=#{ENV['IPA_OUTPUT_PATH']} >> $GITHUB_ENV")
+      sh("echo IPA_OUTPUT_DIR_PATH=#{File.dirname(ENV['IPA_OUTPUT_PATH'])}/ >> $GITHUB_ENV")
+    end
+  end
+
+  # e.g. fastlane ios deploy beta:true api_key:/keys/connect_key.json ipa:/build/App.ipa
+  desc "fastlane ios deploy"
+  lane :deploy do |options|
+    ipa = (options[:ipa] ? options[:ipa] : ENV['IPA_OUTPUT_PATH'])
+    api_key_path = (options[:api_key] ? options[:api_key] : ENV['APP_STORE_CONNECT_API_KEY_PATH'])
+    if options[:beta]
+      upload_to_testflight(
+        ipa: ipa,
+        api_key_path: api_key_path,
+        skip_waiting_for_build_processing: true
+      )
+    else
+      upload_to_app_store(
+        ipa: ipa,
+        api_key_path: api_key_path,
+        skip_screenshots: true,
+        skip_metadata: true,
+        automatic_release: false
+      )
+    end
+  end
+end

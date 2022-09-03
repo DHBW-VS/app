@@ -1,0 +1,38 @@
+<ion-card *ngIf="parking">
+  <ion-card-header>
+    <ion-card-subtitle *ngIf="parking.location">{{ parking.location }}</ion-card-subtitle>
+    <ion-card-title *ngIf="parking.description">{{ parking.description }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row *ngIf="parking.staff && parking.staff.free !== undefined">
+        <ion-col>
+          <div data-cy="parking-card-staff-label">Mitarbeiter</div>
+        </ion-col>
+        <ion-col>
+          <div
+            [ngStyle]="{ color: parking.staff.free > 0 ? 'green' : 'red' }"
+            class="ion-float-right"
+            data-cy="parking-card-staff-count"
+          >
+            {{ parking.staff.free }}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="parking.students && parking.students.free !== undefined">
+        <ion-col>
+          <div data-cy="parking-card-students-label">Studierende</div>
+        </ion-col>
+        <ion-col>
+          <div
+            [ngStyle]="{ color: parking.students.free > 0 ? 'green' : 'red' }"
+            class="ion-float-right"
+            data-cy="parking-card-students-count"
+          >
+            {{ parking.students.free }}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
