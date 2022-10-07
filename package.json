@@ -19,7 +19,6 @@
     "prettier": "prettier \"{src,e2e/src}/**/*.{css,scss,html,ts,js}\"",
     "cypress:open": "ng run app:cypress-open",
     "cypress:run": "ng run app:cypress-run",
-    "postinstall": "npx jetify",
     "release": "standard-version --commit-all"
   },
   "dependencies": {
@@ -90,7 +89,6 @@
     "jest": "27.5.0",
     "jest-preset-angular": "11.1.0",
     "jest-when": "3.5.0",
-    "jetifier": "2.0.0",
     "prettier": "2.5.1",
     "prettier-plugin-organize-imports": "2.3.4",
     "semver": "7.3.5",
