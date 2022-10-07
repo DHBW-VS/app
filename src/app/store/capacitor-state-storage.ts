@@ -1,9 +1,9 @@
-import { Storage } from '@capacitor/storage';
+import { Preferences } from '@capacitor/preferences';
 import { StateStorage } from '@ngneat/elf-persist-state';
 
 export const capacitorStateStorage: StateStorage = {
   getItem: async (key: string): Promise<any> => {
-    const { value } = await Storage.get({ key });
+    const { value } = await Preferences.get({ key });
     if (value) {
       try {
         return JSON.parse(value);
@@ -15,10 +15,10 @@ export const capacitorStateStorage: StateStorage = {
     }
   },
   removeItem: async (key: string): Promise<any> => {
-    await Storage.remove({ key });
+    await Preferences.remove({ key });
   },
   setItem: async (key: any, value: Record<string, any>) => {
-    await Storage.set({
+    await Preferences.set({
       key,
       value: JSON.stringify(value),
     });
