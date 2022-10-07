@@ -18,5 +18,9 @@
 	{
 		"pkg": "@capacitor/status-bar",
 		"classpath": "com.capacitorjs.plugins.statusbar.StatusBarPlugin"
+	},
+	{
+		"pkg": "@capawesome-team/capacitor-file-opener",
+		"classpath": "io.capawesome.capacitorjs.plugins.fileopener.FileOpenerPlugin"
 	}
 ]

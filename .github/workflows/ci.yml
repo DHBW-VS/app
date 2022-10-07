@@ -28,6 +28,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Build web assets
@@ -53,6 +55,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -91,6 +95,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up Ruby ${{ env.RUBY_VERSION }} and install dependencies
@@ -119,6 +125,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Run ESLint and Prettier
@@ -133,6 +141,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Run unit tests
@@ -147,6 +157,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Run end-to-end tests

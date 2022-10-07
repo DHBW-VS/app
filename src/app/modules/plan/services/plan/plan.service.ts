@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiPlansService, IPlan, IPlanStorage, StorageKey, StorageService } from '@app/core';
-import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 import { File } from '@awesome-cordova-plugins/file/ngx';
+import { FileOpener } from '@capawesome-team/capacitor-file-opener';
 import { Platform } from '@ionic/angular';
 
 @Injectable({
@@ -14,7 +14,6 @@ export class PlanService {
   constructor(
     private readonly apiPlansService: ApiPlansService,
     private readonly file: File,
-    private readonly fileOpener: FileOpener,
     private readonly platform: Platform,
     private readonly storageService: StorageService,
   ) {
@@ -46,10 +45,10 @@ export class PlanService {
   }
 
   public async openTimetable(timetable: IPlan): Promise<any> {
-    return this.fileOpener.open(
-      this.dataDirectoryPath + this.timetableDirName + '/' + timetable.filename,
-      'application/pdf',
-    );
+    return FileOpener.openFile({
+      path: this.dataDirectoryPath + this.timetableDirName + '/' + timetable.filename,
+      mimeType: 'application/pdf',
+    });
   }
 
   public async checkTimetable(timetable: IPlan): Promise<boolean> {
