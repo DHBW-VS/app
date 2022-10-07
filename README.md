@@ -17,6 +17,10 @@
 | ---------- | ----------------------------------------- | --------------------------------------------- |
 | Robin Genz | [robingenz](https://github.com/robingenz) | [robin-genz-4a688b153](https://de.linkedin.com/in/robin-genz-4a688b153) |
 
+## Installation
+
+You can install the latest version from the [Play Store (Android)](https://play.google.com/store/apps/details?id=de.dhbw.vs.standortapp) and [App Store (iOS)](https://apps.apple.com/de/app/dhbw-vs/id1203299771).
+
 ## Demo
 
 | iOS                                                                                                                             |
