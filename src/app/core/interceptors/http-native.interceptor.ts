@@ -10,15 +10,13 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Config } from '@app/config';
-import { HTTPResponse } from '@awesome-cordova-plugins/http/ngx';
-import { Observable } from 'rxjs';
 import {
-  INativeHttpRequestOptions,
-  INativeHttpRequestOptionsHeaders,
-  INativeHttpRequestOptionsParameters,
-  NativeHttpMethod,
-  NativeHttpService,
-} from '../services';
+  HttpHeaders as NativeHttpHeaders,
+  HttpParams as NativeHttpParams,
+  HttpResponse as NativeHttpResponse,
+} from '@capacitor/core';
+import { Observable } from 'rxjs';
+import { CapacitorHttpService } from '../services';
 
 const LOGTAG = '[HttpNativeInterceptor]';
 
@@ -26,7 +24,7 @@ const LOGTAG = '[HttpNativeInterceptor]';
   providedIn: 'root',
 })
 export class HttpNativeInterceptor implements HttpInterceptor {
-  constructor(private readonly nativeHttpService: NativeHttpService) {}
+  constructor(private readonly capacitorHttpService: CapacitorHttpService) {}
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!request.url.startsWith('http')) {
@@ -40,49 +38,31 @@ export class HttpNativeInterceptor implements HttpInterceptor {
 
   private handleNativeRequest(request: HttpRequest<any>): Observable<HttpEvent<any>> {
     return new Observable(subscribe => {
-      const options = this.getNativeHttpRequestOptionsFrom(request);
-      const requestId = this.nativeHttpService.request(
-        request.url,
-        options,
-        response => {
-          const ngHttpResponse = this.convertNativeToNgHttpResponse(response);
+      const method = request.method.toLowerCase();
+      const headers = this.convertNgToNativeHttpHeaders(request.headers);
+      const parameters = this.convertNgToNativeHttpParams(request.params);
+      this.capacitorHttpService
+        .request({
+          method,
+          url: request.url,
+          headers,
+          params: parameters,
+          data: request.body,
+        })
+        .then(result => {
+          const ngHttpResponse = this.convertNativeToNgHttpResponse(result);
           subscribe.next(ngHttpResponse);
           subscribe.complete();
-        },
-        error => {
-          if (error.status === -8) {
-            // Ignore errors thrown when a request is aborted
-            // https://github.com/silkimen/cordova-plugin-advanced-http#abort
-            subscribe.complete();
-          }
+        })
+        .catch(error => {
           const ngHttpErrorResponse = this.convertNativeToNgHttpErrorResponse(error);
           subscribe.error(ngHttpErrorResponse);
           subscribe.complete();
-        },
-      );
-      return () => {
-        this.nativeHttpService
-          .abort(requestId)
-          .catch(error => console.error(`${LOGTAG} Error occurred while aborting native request.`, error));
-      };
+        });
     });
   }
 
-  private getNativeHttpRequestOptionsFrom(request: HttpRequest<any>): INativeHttpRequestOptions {
-    const method = request.method.toUpperCase() as NativeHttpMethod;
-    const data = request.body;
-    const headers = this.convertNgToNativeHttpHeaders(request.headers);
-    const parameters = this.convertNgToNativeHttpParams(request.params);
-    const options: INativeHttpRequestOptions = {
-      method: method,
-      data: data,
-      headers: headers,
-      params: parameters,
-    };
-    return options;
-  }
-
-  private convertNativeToNgHttpResponse<T = any>(response: HTTPResponse): HttpResponse<T> {
+  private convertNativeToNgHttpResponse<T = any>(response: NativeHttpResponse): HttpResponse<T> {
     return new HttpResponse<T>({
       body: response.data,
       headers: new HttpHeaders(response.headers),
@@ -92,9 +72,9 @@ export class HttpNativeInterceptor implements HttpInterceptor {
     });
   }
 
-  private convertNativeToNgHttpErrorResponse(response: HTTPResponse): HttpErrorResponse {
+  private convertNativeToNgHttpErrorResponse(response: NativeHttpResponse): HttpErrorResponse {
     return new HttpErrorResponse({
-      error: response.error,
+      error: '', // TODO
       headers: new HttpHeaders(response.headers),
       status: response.status,
       statusText: undefined,
@@ -102,7 +82,7 @@ export class HttpNativeInterceptor implements HttpInterceptor {
     });
   }
 
-  private convertNgToNativeHttpHeaders(ngHttpHeaders: HttpHeaders): INativeHttpRequestOptionsHeaders {
+  private convertNgToNativeHttpHeaders(ngHttpHeaders: HttpHeaders): NativeHttpHeaders {
     const nativeHttpHeaders: { [name: string]: string } = {};
     for (const headerKey of ngHttpHeaders.keys()) {
       const headerValue = ngHttpHeaders.get(headerKey);
@@ -114,7 +94,7 @@ export class HttpNativeInterceptor implements HttpInterceptor {
     return nativeHttpHeaders;
   }
 
-  private convertNgToNativeHttpParams(ngHttpParameters: HttpParams): INativeHttpRequestOptionsParameters {
+  private convertNgToNativeHttpParams(ngHttpParameters: HttpParams): NativeHttpParams {
     const nativeHttpParameters: { [name: string]: string } = {};
     for (const headerKey of ngHttpParameters.keys()) {
       const headerValue = ngHttpParameters.get(headerKey);

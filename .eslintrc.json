@@ -56,7 +56,8 @@
           "error",
           {
             "allowList": {
-              "changeDetectorRef": true
+              "changeDetectorRef": true,
+              "NativeHttpParams": true
             }
           }
         ],
