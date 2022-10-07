@@ -32,7 +32,6 @@
     "@awesome-cordova-plugins/core": "5.39.0",
     "@awesome-cordova-plugins/file": "5.39.0",
     "@awesome-cordova-plugins/file-opener": "5.39.0",
-    "@awesome-cordova-plugins/http": "5.39.0",
     "@capacitor/android": "4.3.0",
     "@capacitor/clipboard": "4.0.1",
     "@capacitor/core": "4.3.0",
@@ -48,7 +47,6 @@
     "@ngneat/elf-entities": "4.4.2",
     "@ngneat/elf-persist-state": "1.1.5",
     "buffer": "6.0.3",
-    "cordova-plugin-advanced-http": "3.2.2",
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-file-opener2": "3.0.5",
     "date-fns": "2.28.0",
@@ -113,9 +111,6 @@
       "cordova-plugin-file": {},
       "cordova-plugin-file-opener2": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      },
-      "cordova-plugin-advanced-http": {
-        "OKHTTP_VERSION": "3.10.0"
       }
     }
   },
