@@ -12,10 +12,10 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: 14
-  JAVA_VERSION: 8
+  NODE_VERSION: 16
+  JAVA_VERSION: 11
   JAVA_DISTRIBUTION: "adopt"
-  RUBY_VERSION: 2.7
+  RUBY_VERSION: 3.1
 
 jobs:
   build-web:
