@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:3000/v1',
+  apiBaseUrl: 'https://app-api.dhbw-vs.de/v1', // Local: http://localhost:3000/v1
   localStorageKeyPrefix: 'dhbw-vs-app_',
 };
 
