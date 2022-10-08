@@ -10,6 +10,6 @@
   "viewportWidth": 411,
   "video": false,
   "env": {
-    "apiBaseUrl": "http://localhost:3000/v1"
+    "apiBaseUrl": "https://app-api.dhbw-vs.de/v1"
   }
 }
