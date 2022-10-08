@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: 14
-  JAVA_VERSION: 8
+  NODE_VERSION: 16
+  JAVA_VERSION: 11
   JAVA_DISTRIBUTION: "adopt"
-  RUBY_VERSION: 2.7
+  RUBY_VERSION: 3.1
 
 jobs:
   build-web:
@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Build web assets
@@ -48,6 +50,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -99,6 +103,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up Ruby ${{ env.RUBY_VERSION }} and install dependencies
