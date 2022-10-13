@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Vorlesungsplan</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <app-calendar-toolbar [calendarComponent]="calendarComponent"></app-calendar-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-calendar #calendar *ngIf="iCalendarLink" [iCalendarLink]="iCalendarLink"></app-calendar>
+</ion-content>

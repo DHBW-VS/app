@@ -44,6 +44,10 @@ export class DialogService {
     return popover;
   }
 
+  public async dismissPopover(data?: any, role?: string, id?: string): Promise<boolean> {
+    return this.popoverCtrl.dismiss(data, role, id);
+  }
+
   public async showLoading(options?: LoadingOptions): Promise<HTMLIonLoadingElement> {
     const defaultOptions: LoadingOptions = {
       message: 'Bitte warten...',

@@ -58,7 +58,7 @@ export class MoodleNewsCardComponent implements OnInit {
     });
   }
 
-  public async presentMoodleNewsModal(moodleNews: IMoodleNews): Promise<void> {
+  public async showMoodleNewsModal(moodleNews: IMoodleNews): Promise<void> {
     await this.dialogService.showModal({
       component: MoodleNewsModalComponent,
       componentProps: { moodleNews: moodleNews },

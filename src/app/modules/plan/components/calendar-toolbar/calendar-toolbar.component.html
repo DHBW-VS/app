@@ -1,0 +1,19 @@
+<ion-toolbar *ngIf="calendarComponent"
+  ><ion-title color="dark">{{ calendarTitle$ | async }}</ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="showCalendarViewOptionsPopover($event)" fill="clear" color="dark">
+      <ng-container [ngSwitch]="calendarTitle$ | async">
+        <fa-icon *ngSwitchCase="CALENDAR_VIEW_TIMEGRIDDAY" [icon]="['fas', 'calendar-day']" [size]="'lg'"></fa-icon>
+        <fa-icon *ngSwitchCase="CALENDAR_VIEW_TIMEGRIDWEEK" [icon]="['fas', 'calendar-week']" [size]="'lg'"></fa-icon>
+        <fa-icon *ngSwitchDefault [icon]="['fas', 'calendar-alt']" [size]="'lg'"></fa-icon>
+      </ng-container>
+    </ion-button>
+    <ion-button (click)="navigateBack()" fill="clear" color="dark">
+      <fa-icon [icon]="['fas', 'chevron-left']" [size]="'lg'"></fa-icon>
+    </ion-button>
+    <ion-button (click)="navigateToToday()" fill="clear" color="dark">Heute</ion-button>
+    <ion-button (click)="navigateForward()" fill="clear" color="dark">
+      <fa-icon [icon]="['fas', 'chevron-right']" [size]="'lg'"></fa-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>

@@ -3,6 +3,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -12,12 +18,12 @@
     "target": "es2015",
     "module": "es2020",
     "esModuleInterop": true,
+    "noImplicitAny": true,
     "lib": [
       "es2018",
       "dom",
       "dom.iterable"
     ],
-    "strict": true,
     "paths": {
       "@app/*": [
         "src/app/*"
@@ -34,10 +40,13 @@
     }
   },
   "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "exclude": ["cypress"]
+  "exclude": [
+    "cypress"
+  ]
 }

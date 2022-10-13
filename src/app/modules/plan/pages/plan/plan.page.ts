@@ -8,6 +8,7 @@ import {
   StorageService,
   UserService,
 } from '@app/core';
+import { CalendarModalComponent } from '../../components';
 import { PlanService } from '../../services';
 
 @Component({
@@ -80,6 +81,14 @@ export class PlanPage implements OnInit {
     if (!timetable) {
       return;
     }
+    if (timetable.iCalendarKey) {
+      await this.showCalendarModal(timetable.iCalendarKey);
+    } else {
+      await this.showTimetablePdf(timetable);
+    }
+  }
+
+  private async showTimetablePdf(timetable: IPlan): Promise<void> {
     try {
       await this.planService.checkTimetable(timetable);
     } catch {
@@ -98,6 +107,15 @@ export class PlanPage implements OnInit {
     } catch {
       await this.showAlert('Die PDF-Datei konnte nicht geöffnet werden.');
     }
+  }
+
+  private async showCalendarModal(iCalendarKey: string): Promise<void> {
+    const iCalendarLink = this.planService.buildICalendarLink(iCalendarKey);
+    await this.dialogService.showModal({
+      component: CalendarModalComponent,
+      componentProps: { iCalendarLink: iCalendarLink },
+      cssClass: 'fullscreen-modal',
+    });
   }
 
   private async showAlert(message: string): Promise<void> {

@@ -56,7 +56,9 @@
           "error",
           {
             "allowList": {
-              "changeDetectorRef": true
+              "changeDetectorRef": true,
+              "iCalendarKey": true,
+              "iCalendarLink": true
             }
           }
         ],

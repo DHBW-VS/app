@@ -72,4 +72,8 @@ export class PlanService {
     }
     return storageData.lastOpenedTimetable;
   }
+
+  public buildICalendarLink(iCalendarKey: string) {
+    return this.apiPlansService.buildICalendarLink(iCalendarKey);
+  }
 }
