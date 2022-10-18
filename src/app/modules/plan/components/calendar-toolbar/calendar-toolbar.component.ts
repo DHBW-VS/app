@@ -39,6 +39,7 @@ export class CalendarToolbarComponent {
       component: CalendarViewOptionsPopoverComponent,
       componentProps: { bindings },
       event: event,
+      arrow: false,
     });
     await popover.present();
   }

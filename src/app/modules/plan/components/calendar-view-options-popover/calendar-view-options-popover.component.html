@@ -1,14 +1,14 @@
 <ion-content>
   <ion-list>
-    <ion-item button="true" (click)="changeView(CALENDAR_VIEW_DAYGRIDMONTH)">
+    <ion-item button="true" (click)="changeView(CALENDAR_VIEW_DAYGRIDMONTH)" [detail]="false">
       <fa-icon [icon]="['fas', 'calendar-alt']" [size]="'lg'" slot="start"></fa-icon>
       <ion-label>Monat</ion-label>
     </ion-item>
-    <ion-item button="true" (click)="changeView(CALENDAR_VIEW_TIMEGRIDWEEK)">
+    <ion-item button="true" (click)="changeView(CALENDAR_VIEW_TIMEGRIDWEEK)" [detail]="false">
       <fa-icon [icon]="['fas', 'calendar-week']" [size]="'lg'" slot="start"></fa-icon>
       <ion-label>Woche</ion-label>
     </ion-item>
-    <ion-item button="true" (click)="changeView(CALENDAR_VIEW_TIMEGRIDDAY)" lines="none">
+    <ion-item button="true" (click)="changeView(CALENDAR_VIEW_TIMEGRIDDAY)" [detail]="false" lines="none">
       <fa-icon [icon]="['fas', 'calendar-day']" [size]="'lg'" slot="start"></fa-icon>
       <ion-label>Tag</ion-label>
     </ion-item>

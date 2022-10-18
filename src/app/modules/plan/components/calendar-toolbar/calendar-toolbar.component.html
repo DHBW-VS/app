@@ -1,4 +1,4 @@
-<ion-toolbar *ngIf="calendarComponent"
+<ion-toolbar *ngIf="calendarComponent" [mode]="'md'"
   ><ion-title color="dark">{{ calendarTitle$ | async }}</ion-title>
   <ion-buttons slot="end">
     <ion-button (click)="showCalendarViewOptionsPopover($event)" fill="clear" color="dark">
