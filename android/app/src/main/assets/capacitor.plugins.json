@@ -1,5 +1,9 @@
 [
 	{
+		"pkg": "@capacitor/action-sheet",
+		"classpath": "com.capacitorjs.plugins.actionsheet.ActionSheetPlugin"
+	},
+	{
 		"pkg": "@capacitor/clipboard",
 		"classpath": "com.capacitorjs.plugins.clipboard.ClipboardPlugin"
 	},
@@ -10,6 +14,10 @@
 	{
 		"pkg": "@capacitor/preferences",
 		"classpath": "com.capacitorjs.plugins.preferences.PreferencesPlugin"
+	},
+	{
+		"pkg": "@capacitor/share",
+		"classpath": "com.capacitorjs.plugins.share.SharePlugin"
 	},
 	{
 		"pkg": "@capacitor/splash-screen",
