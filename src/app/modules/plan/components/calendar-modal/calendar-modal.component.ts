@@ -1,5 +1,13 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
-import { DialogService } from '@app/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { DialogService, NotificationService } from '@app/core';
 import { ActionSheet, ActionSheetButton, ActionSheetButtonStyle } from '@capacitor/action-sheet';
 import { CalendarComponent } from '../calendar/calendar.component';
 
@@ -9,7 +17,7 @@ import { CalendarComponent } from '../calendar/calendar.component';
   styleUrls: ['./calendar-modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalendarModalComponent implements AfterViewInit {
+export class CalendarModalComponent implements OnInit, AfterViewInit {
   @Input()
   public iCalendarLink: string | undefined;
   @Input()
@@ -20,10 +28,30 @@ export class CalendarModalComponent implements AfterViewInit {
   @ViewChild('calendar')
   public calendarComponent: CalendarComponent | undefined;
 
-  constructor(private readonly dialogService: DialogService, private readonly changeDetectorref: ChangeDetectorRef) {}
+  private loadingElement: HTMLIonLoadingElement | undefined;
+  private eventsLoaded = false;
+
+  constructor(
+    private readonly dialogService: DialogService,
+    private readonly notificationService: NotificationService,
+    private readonly changeDetectorref: ChangeDetectorRef,
+  ) {}
+
+  public ngOnInit(): void {
+    void this.showLoading();
+  }
 
   public ngAfterViewInit(): void {
     this.changeDetectorref.detectChanges();
+  }
+
+  public onEventSourceSuccess(): void {
+    this.eventsLoaded = true;
+    void this.dismissLoading();
+  }
+
+  public onEventSourceError(): void {
+    void this.closeModalWithErrorToast();
   }
 
   public async openExportTimetableActionSheet(): Promise<void> {
@@ -59,7 +87,29 @@ export class CalendarModalComponent implements AfterViewInit {
     }
   }
 
+  private async dismissLoading(): Promise<void> {
+    if (this.loadingElement) {
+      await this.loadingElement.dismiss();
+    }
+  }
+
+  private async showLoading(): Promise<void> {
+    await this.dismissLoading();
+    this.loadingElement = await this.dialogService.showLoading();
+    if (this.eventsLoaded) {
+      await this.dismissLoading();
+    }
+  }
+
   public async closeModal(): Promise<void> {
     await this.dialogService.dismissModal();
+  }
+
+  public async closeModalWithErrorToast(): Promise<void> {
+    await this.notificationService.showToast({
+      message: 'Laden fehlgeschlagen!',
+    });
+    await this.dismissLoading();
+    await this.closeModal();
   }
 }

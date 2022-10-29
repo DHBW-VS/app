@@ -57,4 +57,8 @@ export class DialogService {
     await loading.present();
     return loading;
   }
+
+  public async dismissLoading(data?: any, role?: string, id?: string): Promise<boolean> {
+    return this.loadingCtrl.dismiss(data, role, id);
+  }
 }

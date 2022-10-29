@@ -4,7 +4,9 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  Output,
   ViewChild,
 } from '@angular/core';
 import { Config } from '@app/config';
@@ -25,6 +27,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CalendarComponent implements AfterViewInit {
   @Input()
   public iCalendarLink: string | undefined;
+  @Output()
+  public eventSourceSuccess = new EventEmitter<void>();
+  @Output()
+  public eventSourceError = new EventEmitter<void>();
 
   @ViewChild('calendar')
   public calendarElementRef: ElementRef<HTMLDivElement> | undefined;
@@ -71,9 +77,11 @@ export class CalendarComponent implements AfterViewInit {
       events: {
         url: this.iCalendarLink,
         format: 'ics',
-        // TODO: Add error handling
-        failure: event => {
-          console.error(event);
+        success: () => {
+          this.eventSourceSuccess.emit();
+        },
+        failure: () => {
+          this.eventSourceError.emit();
         },
       },
       eventBackgroundColor: Config.primaryColor,
