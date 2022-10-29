@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiPlansService, IPlan, IPlanStorage, StorageKey, StorageService } from '@app/core';
 import { File } from '@awesome-cordova-plugins/file/ngx';
+import { Share } from '@capacitor/share';
 import { FileOpener } from '@capawesome-team/capacitor-file-opener';
 import { Platform } from '@ionic/angular';
 
@@ -53,6 +54,36 @@ export class PlanService {
 
   public async checkTimetable(timetable: IPlan): Promise<boolean> {
     return this.file.checkFile(this.dataDirectoryPath + this.timetableDirName + '/', timetable.filename);
+  }
+
+  public async shareTimetableAsPdf(timetable: IPlan): Promise<void> {
+    try {
+      await Share.share({
+        url: this.dataDirectoryPath + this.timetableDirName + '/' + timetable.filename,
+      });
+    } catch (error) {
+      if (error instanceof Error && error.message && error.message.includes('canceled')) {
+        return;
+      }
+      throw error;
+    }
+  }
+
+  public async shareTimetableAsICalendar(timetable: IPlan): Promise<void> {
+    if (!timetable.iCalendarKey) {
+      return;
+    }
+    const iCalendarLink = this.buildICalendarLink(timetable.iCalendarKey);
+    try {
+      await Share.share({
+        url: iCalendarLink,
+      });
+    } catch (error) {
+      if (error instanceof Error && error.message && error.message.includes('canceled')) {
+        return;
+      }
+      throw error;
+    }
   }
 
   public async setLastOpenedTimetable(timetable: IPlan): Promise<void> {

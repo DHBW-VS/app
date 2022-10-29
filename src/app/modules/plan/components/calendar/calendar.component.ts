@@ -51,7 +51,7 @@ export class CalendarComponent implements AfterViewInit {
   }
 
   private initFullcalendarInstance(): void {
-    if (!this.calendarElementRef) {
+    if (!this.calendarElementRef || !this.iCalendarLink) {
       return;
     }
     this.fullcalendarInstance = new Calendar(this.calendarElementRef.nativeElement, {

@@ -2,6 +2,9 @@
   <ion-toolbar>
     <ion-title>Vorlesungsplan</ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="openExportTimetableActionSheet()">
+        <fa-icon [icon]="['fas', 'download']" [size]="'lg'" slot="start"></fa-icon>
+      </ion-button>
       <ion-button (click)="closeModal()">
         <ion-icon name="close"></ion-icon>
       </ion-button>

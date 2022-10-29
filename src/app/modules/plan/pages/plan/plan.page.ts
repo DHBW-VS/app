@@ -82,13 +82,13 @@ export class PlanPage implements OnInit {
       return;
     }
     if (timetable.iCalendarKey) {
-      await this.showCalendarModal(timetable.iCalendarKey);
+      await this.openTimetableAsICalendar(timetable);
     } else {
-      await this.showTimetablePdf(timetable);
+      await this.openTimetableAsPdf(timetable);
     }
   }
 
-  private async showTimetablePdf(timetable: IPlan): Promise<void> {
+  private async openTimetableAsPdf(timetable: IPlan): Promise<void> {
     try {
       await this.planService.checkTimetable(timetable);
     } catch {
@@ -109,13 +109,48 @@ export class PlanPage implements OnInit {
     }
   }
 
-  private async showCalendarModal(iCalendarKey: string): Promise<void> {
-    const iCalendarLink = this.planService.buildICalendarLink(iCalendarKey);
+  private async openTimetableAsICalendar(timetable: IPlan): Promise<void> {
+    if (!timetable.iCalendarKey) {
+      return;
+    }
+    const iCalendarLink = this.planService.buildICalendarLink(timetable.iCalendarKey);
     await this.dialogService.showModal({
       component: CalendarModalComponent,
-      componentProps: { iCalendarLink: iCalendarLink },
+      componentProps: {
+        iCalendarLink: iCalendarLink,
+        exportTimetableAsPdf: () => this.exportTimetableAsPdf(timetable),
+        exportTimetableAsICalendar: () => this.exportTimetableAsICalendar(timetable),
+      },
       cssClass: 'fullscreen-modal',
     });
+  }
+
+  private async exportTimetableAsPdf(timetable: IPlan): Promise<void> {
+    try {
+      await this.planService.checkTimetable(timetable);
+    } catch {
+      const loading = await this.dialogService.showLoading();
+      try {
+        await this.planService.downloadTimetable(timetable);
+      } catch {
+        await loading.dismiss();
+        return this.showAlert('Abfrage fehlgeschlagen! Bitte versuche es später erneut.');
+      }
+      await loading.dismiss();
+    }
+    try {
+      await this.planService.shareTimetableAsPdf(timetable);
+    } catch {
+      await this.showAlert('Die PDF-Datei konnte nicht exportiert werden.');
+    }
+  }
+
+  private async exportTimetableAsICalendar(timetable: IPlan): Promise<void> {
+    try {
+      await this.planService.shareTimetableAsICalendar(timetable);
+    } catch {
+      await this.showAlert('Die iCalendar-Datei konnte nicht exportiert werden.');
+    }
   }
 
   private async showAlert(message: string): Promise<void> {

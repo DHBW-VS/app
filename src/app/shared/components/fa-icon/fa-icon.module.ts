@@ -6,6 +6,7 @@ import {
   faCalendarWeek,
   faChevronLeft,
   faChevronRight,
+  faDownload,
 } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
@@ -19,6 +20,7 @@ export class FaIconModule {
     library.addIcons(faCalendarDay);
     library.addIcons(faChevronLeft);
     library.addIcons(faChevronRight);
+    library.addIcons(faDownload);
     faConfig.fixedWidth = true;
   }
 }
