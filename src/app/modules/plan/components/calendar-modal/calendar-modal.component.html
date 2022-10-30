@@ -5,7 +5,7 @@
       <ion-button (click)="openExportTimetableActionSheet()">
         <fa-icon [icon]="['fas', 'download']" [size]="'lg'" slot="start"></fa-icon>
       </ion-button>
-      <ion-button (click)="closeModal()">
+      <ion-button (click)="closeModal()" data-cy="calendar-modal-close-button">
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
