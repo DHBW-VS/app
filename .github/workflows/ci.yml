@@ -78,7 +78,7 @@ jobs:
           echo "${{ secrets.KEYSTORE_PROPERTIES_BASE64 }}" | base64 --decode > android/keystore.properties
           echo "${{ secrets.DHBW_VS_KEYSTORE_BASE64 }}" | base64 --decode > android/DHBW-VS.keystore
       - name: Build native platform
-        run: bundle exec fastlane android build release:false
+        run: bundle exec fastlane android build release:true
   build-ios:
     name: Build iOS platform
     runs-on: macos-latest
@@ -109,12 +109,12 @@ jobs:
       - name: Update native platform
         run: npx ionic capacitor update ios
       - name: Download iOS certificates and provisioning profiles
-        run: bundle exec fastlane ios sync_certificates type:development
+        run: bundle exec fastlane ios sync_certificates type:appstore
         env:
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       - name: Build native platform
-        run: bundle exec fastlane ios build release:false
+        run: bundle exec fastlane ios build release:true
   lint:
     name: Lint
     runs-on: ubuntu-latest

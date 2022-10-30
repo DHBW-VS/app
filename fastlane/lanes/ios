@@ -20,11 +20,6 @@ platform :ios do
   # e.g. fastlane ios build release:false
   desc "fastlane ios build"
   lane :build do |options|
-    update_code_signing_settings(
-       use_automatic_signing: false,
-       path: "ios/App/App.xcodeproj",
-       code_sign_identity: options[:release] ? "iPhone Distribution" : "iPhone Developer"
-    )
     configuration = (options[:release] ? "Release" : "Debug")
     export_method = (options[:release] ? "app-store" : "development")
     build_app(
