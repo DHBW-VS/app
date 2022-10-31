@@ -163,8 +163,6 @@ export class PlanPage implements OnInit {
   private async showToast(): Promise<void> {
     await this.notificationService.showToast({
       message: 'Aktualisierung fehlgeschlagen!',
-      duration: 3000,
-      position: 'bottom',
     });
   }
 }
