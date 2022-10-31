@@ -64,6 +64,7 @@ export class ParkingPage {
     await this.notificationService.showToast({
       message: 'Verbindung wird hergestellt...',
       duration: undefined,
+      buttons: undefined,
     });
     this.isToastVisible = true;
   }
