@@ -28,6 +28,30 @@ export class DialogService {
     return this.showAlert(options);
   }
 
+  public async showConfirmAlert(options?: AlertOptions): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      const overrideOptions: AlertOptions = {
+        buttons: [
+          {
+            text: 'Abbrechen',
+            role: 'cancel',
+            handler: () => {
+              resolve(false);
+            },
+          },
+          {
+            text: 'Okay',
+            handler: () => {
+              resolve(true);
+            },
+          },
+        ],
+      };
+      options = { ...options, ...overrideOptions };
+      void this.showAlert(options);
+    });
+  }
+
   public async showModal(options: ModalOptions): Promise<HTMLIonModalElement> {
     const modal = await this.modalCtrl.create(options);
     await modal.present();
