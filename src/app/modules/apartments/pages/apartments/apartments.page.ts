@@ -129,8 +129,6 @@ export class ApartmentsPage implements OnInit {
   private async showToast(): Promise<void> {
     await this.notificationService.showToast({
       message: 'Laden fehlgeschlagen!',
-      duration: 3000,
-      position: 'bottom',
     });
   }
 

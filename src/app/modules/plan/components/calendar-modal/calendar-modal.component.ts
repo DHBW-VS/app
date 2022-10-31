@@ -7,7 +7,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { DialogService, NotificationService } from '@app/core';
+import { DialogService } from '@app/core';
 import { ActionSheet, ActionSheetButton, ActionSheetButtonStyle } from '@capacitor/action-sheet';
 import { CalendarComponent } from '../calendar/calendar.component';
 
@@ -31,11 +31,7 @@ export class CalendarModalComponent implements OnInit, AfterViewInit {
   private loadingElement: HTMLIonLoadingElement | undefined;
   private eventsLoaded = false;
 
-  constructor(
-    private readonly dialogService: DialogService,
-    private readonly notificationService: NotificationService,
-    private readonly changeDetectorref: ChangeDetectorRef,
-  ) {}
+  constructor(private readonly dialogService: DialogService, private readonly changeDetectorref: ChangeDetectorRef) {}
 
   public ngOnInit(): void {
     void this.showLoading();
@@ -45,13 +41,16 @@ export class CalendarModalComponent implements OnInit, AfterViewInit {
     this.changeDetectorref.detectChanges();
   }
 
-  public onEventSourceSuccess(): void {
+  public async onEventSourceSuccess(): Promise<void> {
     this.eventsLoaded = true;
-    void this.dismissLoading();
+    await this.dismissLoading();
   }
 
-  public onEventSourceError(): void {
-    void this.closeModalWithErrorToast();
+  public async onEventSourceError(): Promise<void> {
+    this.eventsLoaded = true;
+    await this.dismissLoading();
+    await this.showErrorAlert();
+    await this.closeModal();
   }
 
   public async openExportTimetableActionSheet(): Promise<void> {
@@ -105,11 +104,12 @@ export class CalendarModalComponent implements OnInit, AfterViewInit {
     await this.dialogService.dismissModal();
   }
 
-  public async closeModalWithErrorToast(): Promise<void> {
-    await this.notificationService.showToast({
-      message: 'Laden fehlgeschlagen!',
+  public async showErrorAlert(): Promise<void> {
+    await this.dialogService.showErrorAlert({
+      message: [
+        'Laden fehlgeschlagen!',
+        'Bitte überprüfe deine Internetverbindung und versuche es später erneut.',
+      ].join(' '),
     });
-    await this.dismissLoading();
-    await this.closeModal();
   }
 }

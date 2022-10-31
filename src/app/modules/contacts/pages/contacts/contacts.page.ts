@@ -77,8 +77,6 @@ export class ContactsPage implements OnInit {
   private async showToast(message: string): Promise<void> {
     await this.notificationService.showToast({
       message: message,
-      duration: 3000,
-      position: 'bottom',
     });
   }
 
