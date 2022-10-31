@@ -79,9 +79,11 @@ export class CalendarComponent implements AfterViewInit {
         format: 'ics',
         success: () => {
           this.eventSourceSuccess.emit();
+          this.changeDetectorRef.detectChanges();
         },
         failure: () => {
           this.eventSourceError.emit();
+          this.changeDetectorRef.detectChanges();
         },
       },
       eventBackgroundColor: Config.primaryColor,
