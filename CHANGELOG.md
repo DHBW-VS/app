@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.3.0](https://github.com/robingenz/dhbw-vs-app/compare/v4.2.0...v4.3.0) (2022-10-31)
+
+
+### Features
+
+* **settings:** confirm logout ([#20](https://github.com/robingenz/dhbw-vs-app/issues/20)) ([a5a7890](https://github.com/robingenz/dhbw-vs-app/commit/a5a7890856bdc5cd7686e6c24da156056acbab4f))
+
+
+### Bug Fixes
+
+* **calendar:** detect changes on events success/failure ([#18](https://github.com/robingenz/dhbw-vs-app/issues/18)) ([6a4aaf2](https://github.com/robingenz/dhbw-vs-app/commit/6a4aaf2e8daf982fd0e12fb6a1cfd067c1102b57))
+* **calendar:** error toast does not disappear ([#19](https://github.com/robingenz/dhbw-vs-app/issues/19)) ([6a21454](https://github.com/robingenz/dhbw-vs-app/commit/6a21454a394a2a9e92bf5f2bc4fcf139b8439aa8))
+* **plan:** set last opened timetable ([#17](https://github.com/robingenz/dhbw-vs-app/issues/17)) ([e50f615](https://github.com/robingenz/dhbw-vs-app/commit/e50f6159df3e8c8391ea464d077a387b6866d017))
+
 ## [4.2.0](https://github.com/robingenz/dhbw-vs-app/compare/v4.1.0...v4.2.0) (2022-10-31)
 
 
