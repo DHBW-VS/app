@@ -28,11 +28,21 @@ describe('NotificationService', () => {
       present: undefined,
     });
     toastControllerSpy.create.mockReturnValue(Promise.resolve(htmlIonElmSpy));
+    const defaultOptions = {
+      duration: 3000,
+      position: 'bottom',
+      buttons: [
+        {
+          text: 'OK',
+          side: 'end',
+        },
+      ],
+    };
     const options = { header: 'Test' };
     const result = await service.showToast(options);
     expect(result).toBe(htmlIonElmSpy);
     expect(toastControllerSpy.create).toHaveBeenCalledTimes(1);
-    expect(toastControllerSpy.create).toHaveBeenCalledWith(options);
+    expect(toastControllerSpy.create).toHaveBeenCalledWith({ ...defaultOptions, ...options });
     expect(htmlIonElmSpy.present).toHaveBeenCalledTimes(1);
   });
 
