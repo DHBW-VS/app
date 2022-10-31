@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/robingenz/dhbw-vs-app/compare/v4.1.0...v4.2.0) (2022-10-31)
+
+
+### Features
+
+* **plan:** add iCalendar support ([#6](https://github.com/robingenz/dhbw-vs-app/issues/6)) ([c6596e3](https://github.com/robingenz/dhbw-vs-app/commit/c6596e3252ebe83b1cf58e222573d843dfc5484d))
+* update to Android 12 and iOS 13 ([#2](https://github.com/robingenz/dhbw-vs-app/issues/2)) ([34320fb](https://github.com/robingenz/dhbw-vs-app/commit/34320fb508d2657230b0bba097826f0840db6ecb))
+
 ## [4.1.0](https://github.com/robingenz/dhbw-vs-app/compare/v4.0.0...v4.1.0) (2022-08-25)
 
 
