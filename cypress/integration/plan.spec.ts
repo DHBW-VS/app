@@ -10,6 +10,10 @@ describe('PlanPage', () => {
       statusCode: 200,
       fixture: 'plan-list-wi.json',
     });
+    cy.intercept('GET', Cypress.env('apiBaseUrl') + '/plans/download/ical/demo', {
+      statusCode: 200,
+      fixture: 'demo.ics',
+    });
     cy.intercept('GET', '**.openstreetmap.org/**', {
       statusCode: 200,
     });
@@ -49,5 +53,20 @@ describe('PlanPage', () => {
     cy.get('ion-alert div.alert-button-group button').first().click();
     cy.getBySel('plan-page-plan-select').shadow().find('div.select-text').should('be.empty');
     cy.getBySel('plan-page-open-plan-button').should('have.attr', 'disabled');
+  });
+
+  it('should open and close the calendar modal', () => {
+    cy.getBySel('plan-page-plan-select').click();
+    cy.get('ion-alert').should('be.visible');
+    cy.get('ion-alert .alert-title').contains('Vorlesungsplan auswählen');
+    cy.get('ion-alert div.alert-radio-group button').eq(3).click();
+    cy.get('ion-alert div.alert-button-group button').last().click();
+    cy.getBySel('plan-page-plan-select').shadow().find('div.select-text').contains('WI4_Kurs_A_WI_2019.pdf');
+    cy.getBySel('plan-page-open-plan-button').should('not.have.attr', 'disabled');
+    cy.getBySel('plan-page-open-plan-button').click();
+    cy.get('ion-modal').should('exist');
+    cy.get('ion-modal ion-toolbar ion-title').contains('Vorlesungsplan');
+    cy.getBySel('calendar-modal-close-button').click();
+    cy.get('ion-modal').should('not.exist');
   });
 });

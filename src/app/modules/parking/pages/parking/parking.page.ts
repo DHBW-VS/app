@@ -12,7 +12,7 @@ import { IParking } from '@app/core/interfaces';
 export class ParkingPage {
   public parkingData: IParking[] | undefined;
   public intervalId: number | undefined;
-  public toastPresent: boolean = false;
+  public isToastVisible: boolean = false;
 
   constructor(
     private readonly apiParkingService: ApiParkingService,
@@ -26,7 +26,7 @@ export class ParkingPage {
 
   public ionViewWillLeave(): void {
     clearInterval(this.intervalId);
-    if (this.toastPresent === true) {
+    if (this.isToastVisible === true) {
       void this.notificationService.dismissToast();
     }
   }
@@ -47,12 +47,12 @@ export class ParkingPage {
     try {
       const parkingData: IParking[] = await this.apiParkingService.findAll();
       this.parkingData = parkingData;
-      if (this.toastPresent === true) {
+      if (this.isToastVisible === true) {
         await this.notificationService.dismissToast();
-        this.toastPresent = false;
+        this.isToastVisible = false;
       }
     } catch {
-      if (this.toastPresent === false) {
+      if (this.isToastVisible === false) {
         await this.showToast();
       }
     } finally {
@@ -65,6 +65,6 @@ export class ParkingPage {
       message: 'Verbindung wird hergestellt...',
       position: 'bottom',
     });
-    this.toastPresent = true;
+    this.isToastVisible = true;
   }
 }

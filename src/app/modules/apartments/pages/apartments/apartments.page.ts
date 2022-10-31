@@ -134,7 +134,7 @@ export class ApartmentsPage implements OnInit {
     });
   }
 
-  public async presentMenuPopover(event: Event): Promise<void> {
+  public async showMenuPopover(event: Event): Promise<void> {
     await this.dialogService.showPopover({
       component: ApartmentsMenuPopoverComponent,
       event: event,

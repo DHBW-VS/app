@@ -6,6 +6,7 @@ import { lastValueFrom } from 'rxjs';
 export interface PlanDto {
   id: number;
   filename: string;
+  iCalendarKey?: string;
   description: string;
   semester: number;
   course: string;
@@ -35,5 +36,9 @@ export class ApiPlansService {
       responseType: 'blob',
     });
     return lastValueFrom(response$);
+  }
+
+  public buildICalendarLink(iCalendarKey: string) {
+    return `${environment.apiBaseUrl}${this.urlPath}/download/ical/${iCalendarKey}`;
   }
 }

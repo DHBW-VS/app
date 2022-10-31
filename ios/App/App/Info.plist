@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>de</string>
 	<key>CFBundleDisplayName</key>
-        <string>DHBW VS</string>
+	<string>DHBW VS</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-  <string>4.1.0</string>
+	<string>4.1.0</string>
 	<key>CFBundleVersion</key>
-  <string>4.1.0</string>
+	<string>4.1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
