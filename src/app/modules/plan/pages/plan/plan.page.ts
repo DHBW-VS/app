@@ -123,6 +123,7 @@ export class PlanPage implements OnInit {
       },
       cssClass: 'fullscreen-modal',
     });
+    await this.planService.setLastOpenedTimetable(timetable);
   }
 
   private async exportTimetableAsPdf(timetable: IPlan): Promise<void> {
