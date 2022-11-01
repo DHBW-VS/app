@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { MenuController, Platform } from '@ionic/angular';
+import { CapacitorAppService } from './core';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,8 @@ export class AppComponent {
     private readonly platform: Platform,
     private readonly menuController: MenuController,
     private readonly router: Router,
+    // Do NOT remove the following services:
+    private readonly capacitorAppService: CapacitorAppService,
   ) {
     void this.initializeApp();
   }
