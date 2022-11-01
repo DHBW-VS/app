@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { DialogService } from '@app/core';
 import { ActionSheet, ActionSheetButton, ActionSheetButtonStyle } from '@capacitor/action-sheet';
 import { CalendarComponent } from '../calendar/calendar.component';
@@ -17,7 +9,7 @@ import { CalendarComponent } from '../calendar/calendar.component';
   styleUrls: ['./calendar-modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalendarModalComponent implements OnInit, AfterViewInit {
+export class CalendarModalComponent implements OnInit {
   @Input()
   public iCalendarLink: string | undefined;
   @Input()
@@ -35,10 +27,6 @@ export class CalendarModalComponent implements OnInit, AfterViewInit {
 
   public ngOnInit(): void {
     void this.showLoading();
-  }
-
-  public ngAfterViewInit(): void {
-    this.changeDetectorref.detectChanges();
   }
 
   public async onEventSourceSuccess(): Promise<void> {
