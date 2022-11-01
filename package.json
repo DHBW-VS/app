@@ -33,6 +33,7 @@
     "@awesome-cordova-plugins/http": "5.39.0",
     "@capacitor/action-sheet": "4.0.1",
     "@capacitor/android": "4.3.0",
+    "@capacitor/app": "4.1.0",
     "@capacitor/clipboard": "4.0.1",
     "@capacitor/core": "4.3.0",
     "@capacitor/ios": "4.3.0",
