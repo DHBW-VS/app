@@ -55,7 +55,7 @@ export class PlanPage implements OnInit {
     try {
       const timetableList = await this.planService.getTimetableList(course);
       this.timetableList = timetableList;
-      const storageData: IPlanStorage = { cache: timetableList, lastOpenedTimetable: undefined };
+      const storageData: IPlanStorage = { cache: timetableList, lastOpenedTimetable };
       await this.storageService.storeData(StorageKey.Plan, storageData);
     } catch {
       const storageData: IPlanStorage | null = await this.storageService.retrieveData<IPlanStorage>(StorageKey.Plan);
