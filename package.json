@@ -3,7 +3,7 @@
   "version": "4.3.0",
   "description": "The official app for students, employees and lecturers of the Baden-Wuerttemberg Cooperative State University (DHBW) in Villingen-Schwenningen.",
   "author": "Robin Genz <mail@robingenz.dev>",
-  "homepage": "https://github.com/robingenz/dhbw-vs-app",
+  "homepage": "https://github.com/dhbw-vs/app",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -113,10 +113,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robingenz/dhbw-vs-app.git"
+    "url": "git+https://github.com/dhbw-vs/app.git"
   },
   "bugs": {
-    "url": "https://github.com/robingenz/dhbw-vs-app/issues"
+    "url": "https://github.com/dhbw-vs/app/issues"
   },
   "cordova": {
     "plugins": {

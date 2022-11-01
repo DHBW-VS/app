@@ -13,8 +13,8 @@
 
 ## Maintainers
 
-| Maintainer | GitHub                                    | LinkedIn                                      |
-| ---------- | ----------------------------------------- | --------------------------------------------- |
+| Maintainer | GitHub                                    | LinkedIn                                                                |
+| ---------- | ----------------------------------------- | ----------------------------------------------------------------------- |
 | Robin Genz | [robingenz](https://github.com/robingenz) | [robin-genz-4a688b153](https://de.linkedin.com/in/robin-genz-4a688b153) |
 
 ## Installation
@@ -73,7 +73,7 @@ This project uses [Ionic](https://ionicframework.com/) as app development platfo
 
 <!-- ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/robingenz/dhbw-vs-app/blob/main/CONTRIBUTING.md). -->
+See [CONTRIBUTING.md](https://github.com/dhbw-vs/app/blob/main/CONTRIBUTING.md). -->
 
 ## Changelog
 
