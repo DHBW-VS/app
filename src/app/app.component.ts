@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { MenuController, Platform } from '@ionic/angular';
@@ -7,14 +6,19 @@ import { MenuController, Platform } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(
-    private readonly platform: Platform,
-    private readonly menuController: MenuController,
-    private readonly router: Router,
-  ) {
+  constructor(private readonly platform: Platform, private readonly menuController: MenuController) {
     void this.initializeApp();
+  }
+
+  public async closeMenu(): Promise<void> {
+    await this.menuController.close();
+  }
+
+  public openWindow(url: string): any {
+    return window.open(url, '_self');
   }
 
   private async initializeApp(): Promise<void> {
@@ -40,19 +44,5 @@ export class AppComponent {
 
   private hideSplashScreen(): Promise<void> {
     return SplashScreen.hide();
-  }
-
-  public async openPage(page: string): Promise<boolean> {
-    void this.menuController.close();
-    return this.router.navigateByUrl(page);
-  }
-
-  public async pushPage(page: string): Promise<boolean> {
-    void this.menuController.close();
-    return this.router.navigateByUrl(page, { skipLocationChange: true });
-  }
-
-  public openWindow(url: string): any {
-    return window.open(url, '_self');
   }
 }
