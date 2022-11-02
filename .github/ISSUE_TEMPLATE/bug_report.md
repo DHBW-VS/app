@@ -9,19 +9,20 @@ assignees: ''
 # Bug report
 
 **Current behavior:**
-
 <!--
 Describe how the bug manifests. Be specific.
 -->
 
-**Expected behavior:**
 
+
+**Expected behavior:**
 <!--
 Describe what the behavior should be.
 -->
 
-**Steps to reproduce:**
 
+
+**Steps to reproduce:**
 <!--
 Steps to reproduce the behavior:
 1. Go to '...'
@@ -34,7 +35,6 @@ Steps to reproduce the behavior:
 1.
 
 **Platform(s):**
-
 <!--
 List the platforms that this bug affects.
 -->
@@ -43,13 +43,15 @@ List the platforms that this bug affects.
 - [ ] iOS
 
 **Screenshots:**
-
 <!--
 If applicable, add screenshots to help explain your problem.
 -->
 
-**Additional context:**
 
+
+**Additional context:**
 <!--
 Add any other context about the problem here.
 -->
+
+
