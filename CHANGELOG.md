@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.4.0](https://github.com/dhbw-vs/app/compare/v4.3.0...v4.4.0) (2022-11-02)
+
+
+### Features
+
+* **menu:** highlight active page ([#25](https://github.com/dhbw-vs/app/issues/25)) ([1aa20f0](https://github.com/dhbw-vs/app/commit/1aa20f09bc45d6da8f7e1d1db906a6faa5f28f82))
+
+
+### Bug Fixes
+
+* **android:** hardware back button closes the app ([#24](https://github.com/dhbw-vs/app/issues/24)) ([b6a6981](https://github.com/dhbw-vs/app/commit/b6a69810520a24ddeb95aacd2164dd41bdf09738))
+* **plan:** set last opened timetable ([#21](https://github.com/dhbw-vs/app/issues/21)) ([e7dbd09](https://github.com/dhbw-vs/app/commit/e7dbd09e944528233f4bc67d108c4de89e8e3086))
+
 ## [4.3.0](https://github.com/dhbw-vs/app/compare/v4.2.0...v4.3.0) (2022-10-31)
 
 
