@@ -1,3 +1,7 @@
 ion-item.active {
   --color: var(--ion-color-primary);
 }
+
+ion-button:focus-visible {
+  outline: none;
+}
