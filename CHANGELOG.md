@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.4.1](https://github.com/dhbw-vs/app/compare/v4.4.0...v4.4.1) (2022-11-06)
+
+
+### Bug Fixes
+
+* **android:** set native cookies ([#32](https://github.com/dhbw-vs/app/issues/32)) ([b3ec1d2](https://github.com/dhbw-vs/app/commit/b3ec1d289b2e2efb18b4834a9fdfe991d21c4a7f))
+* **menu:** prevent settings icon outline ([#30](https://github.com/dhbw-vs/app/issues/30)) ([2dd21cf](https://github.com/dhbw-vs/app/commit/2dd21cf61c4d431df9294a5267b8efa574c69556))
+
 ## [4.4.0](https://github.com/dhbw-vs/app/compare/v4.3.0...v4.4.0) (2022-11-02)
 
 
