@@ -55,7 +55,19 @@ export class NativeHttpService {
       const dataSerializer = this.getDataSerializerByContentType(contentType);
       options.serializer = dataSerializer || this.defaultDataSerializer;
     }
-    return (window as any).cordova.plugin.http.sendRequest(url, options, successCallback, errorCallback);
+    return (window as any).cordova.plugin.http.sendRequest(
+      url,
+      options,
+      (response: HTTPResponse) => {
+        const setCookie = response.headers['set-cookie'] || response.headers['Set-Cookie'];
+        if (setCookie) {
+          const origin = new URL(url).origin;
+          this.nativeHttp.setCookie(origin, setCookie);
+        }
+        successCallback(response);
+      },
+      errorCallback,
+    );
   }
 
   /**
