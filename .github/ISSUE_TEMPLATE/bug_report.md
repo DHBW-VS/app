@@ -42,6 +42,13 @@ List the platforms that this bug affects.
 - [ ] Android
 - [ ] iOS
 
+**Version(s):**
+<!--
+List the app versions that this bug affects.
+-->
+
+
+
 **Screenshots:**
 <!--
 If applicable, add screenshots to help explain your problem.
