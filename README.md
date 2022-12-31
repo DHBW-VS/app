@@ -6,7 +6,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/platform-android%20%7C%20ios-lightgrey?style=flat-square" />
-  <a href="https://github.com/DHBW-VS/app/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/workflow/status/dhbw-vs/app/CI/main?style=flat-square" /></a>
+  <a href="https://github.com/DHBW-VS/app/actions?query=workflow%3A%22CI%22"><img src="https://img.shields.io/github/actions/workflow/status/dhbw-vs/app/ci.yml?branch=main&style=flat-square" /></a>
   <a href="https://github.com/DHBW-VS/app/releases"><img src="https://img.shields.io/github/v/release/dhbw-vs/app?style=flat-square" /></a>
   <a href="https://github.com/DHBW-VS/app/blob/main/LICENSE"><img src="https://img.shields.io/github/license/dhbw-vs/app?style=flat-square" /></a>
 </p>
