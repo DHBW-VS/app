@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-top-level-await */
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';

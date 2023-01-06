@@ -65,10 +65,10 @@ export class CanteenPage implements OnInit {
       if (storageData) {
         this.menus = storageData.cache;
       }
-      if (!this.menus) {
-        await this.showAlert();
-      } else {
+      if (this.menus) {
         await this.showToast();
+      } else {
+        await this.showAlert();
       }
     } finally {
       this.changeDetectorRef.markForCheck();

@@ -62,10 +62,10 @@ export class PlanPage implements OnInit {
       if (storageData) {
         this.timetableList = storageData.cache;
       }
-      if (!this.timetableList) {
-        await this.showAlert('Abfrage fehlgeschlagen! Bitte versuche es später erneut.');
-      } else {
+      if (this.timetableList) {
         await this.showToast();
+      } else {
+        await this.showAlert('Abfrage fehlgeschlagen! Bitte versuche es später erneut.');
       }
     } finally {
       this.changeDetectorRef.markForCheck();
