@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DialogService, IDualisStorage, StorageKey, StorageService } from '@app/core';
 import { DualisAuthService } from '../../services';
@@ -11,14 +11,14 @@ import { DualisAuthService } from '../../services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DualisLoginPage implements OnInit {
-  public loginFormGroup: FormGroup = new FormGroup({
-    username: new FormControl('', {
+  public loginFormGroup: UntypedFormGroup = new UntypedFormGroup({
+    username: new UntypedFormControl('', {
       validators: Validators.required,
     }),
-    password: new FormControl('', {
+    password: new UntypedFormControl('', {
       validators: Validators.required,
     }),
-    storeUsername: new FormControl(false),
+    storeUsername: new UntypedFormControl(false),
   });
 
   constructor(
@@ -33,7 +33,7 @@ export class DualisLoginPage implements OnInit {
     void this.init();
   }
 
-  public async submitLoginForm(loginFormGroup: FormGroup): Promise<void> {
+  public async submitLoginForm(loginFormGroup: UntypedFormGroup): Promise<void> {
     if (!loginFormGroup.valid) {
       await this.dialogService.showErrorAlert({ message: 'Bitte fülle alle Eingabefelder aus.' });
       return;
