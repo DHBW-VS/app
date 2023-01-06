@@ -13,7 +13,7 @@
   <ion-card *ngIf="apartment">
     <ion-card-header>
       <ion-card-title *ngIf="apartment.firstname || apartment.lastname">
-        {{ apartment?.firstname }} {{ apartment?.lastname }}
+        {{ apartment.firstname }} {{ apartment.lastname }}
       </ion-card-title>
       <ion-card-subtitle *ngIf="apartment.date">
         {{ apartment.date | apartmentDate }}

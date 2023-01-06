@@ -2,8 +2,8 @@
   <ion-card-header>
     <ion-card-subtitle *ngIf="contact.jobtitle">{{ contact.jobtitle }}</ion-card-subtitle>
     <ion-card-title *ngIf="contact.firstname || contact.lastname"
-      >{{ contact?.firstname }}<span *ngIf="contact.firstname && contact.lastname">&nbsp;</span
-      >{{ contact?.lastname }}</ion-card-title
+      >{{ contact.firstname }}<span *ngIf="contact.firstname && contact.lastname">&nbsp;</span
+      >{{ contact.lastname }}</ion-card-title
     >
   </ion-card-header>
   <ion-card-content>

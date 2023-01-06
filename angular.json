@@ -28,7 +28,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "allowedCommonJsDependencies": [
-              "xml2js"
+              "xml2js",
+              "ical.js",
+              "leaflet"
             ],
             "assets": [
               {

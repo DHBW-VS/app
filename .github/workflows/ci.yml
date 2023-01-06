@@ -33,7 +33,7 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
       - name: Build web assets
-        run: npm run build -- --prod
+        run: npm run build -- --configuration production
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
