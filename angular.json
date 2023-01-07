@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "defaultProject": "app",
   "newProjectRoot": "projects",
   "projects": {
     "app": {
@@ -29,7 +28,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "allowedCommonJsDependencies": [
-              "xml2js"
+              "xml2js",
+              "ical.js",
+              "leaflet"
             ],
             "assets": [
               {
@@ -49,10 +50,7 @@
               }
             ],
             "styles": [
-              "src/global.scss",
-              "node_modules/@fullcalendar/common/main.css",
-              "node_modules/@fullcalendar/daygrid/main.css",
-              "node_modules/@fullcalendar/timegrid/main.css"
+              "src/global.scss"
             ],
             "scripts": [],
             "aot": false,
@@ -198,7 +196,10 @@
     }
   },
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ],
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
