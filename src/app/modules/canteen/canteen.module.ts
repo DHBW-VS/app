@@ -8,6 +8,6 @@ import { CanteenFoodLabelPipe } from './pipes';
 @NgModule({
   imports: [CanteenRoutingModule, SharedModule],
   declarations: [CanteenPage, CanteenDishCardComponent, CanteenFoodLabelPipe],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CanteenPageModule {}

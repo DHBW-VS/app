@@ -14,6 +14,6 @@ import { ApartmentDatePipe } from './pipes';
     ApartmentsMenuPopoverComponent,
     ApartmentDatePipe,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ApartmentsPageModule {}
