@@ -16,9 +16,9 @@ describe('CanteenPage', () => {
 
   it('should display the cards and segment buttons', () => {
     cy.get('ion-header ion-segment ion-segment-button').should('have.length', 3);
-    cy.get('ion-slide').should('have.length', 3);
+    cy.get('swiper-slide').should('have.length', 3);
     cy.get('app-canteen-dish-card').should('have.length', 18);
-    cy.get('ion-slide').first().find('app-canteen-dish-card').should('have.length', 6);
+    cy.get('swiper-slide').first().find('app-canteen-dish-card').should('have.length', 6);
   });
 
   it('should display an alert that the canteen is currently closed', () => {
@@ -59,28 +59,28 @@ describe('CanteenPage', () => {
     cy.get('@firstSegmentButtonIndicator').should('have.css', 'opacity', '1');
     cy.get('@secondSegmentButtoIndicatorn').should('have.css', 'opacity', '0');
     cy.get('@thirdSegmentButtonIndicator').should('have.css', 'opacity', '0');
-    cy.get('ion-slides').should('exist');
-    cy.get('ion-slide').should('have.length', 3);
+    cy.get('swiper-container').should('exist');
+    cy.get('swiper-slide').should('have.length', 3);
     cy.wait(1000);
     // @ts-ignore
-    cy.get('ion-slides').swipe({ delay: 100 }, 'right', 'left');
+    cy.get('swiper-container').swipe({ delay: 100 }, 'right', 'left');
     cy.get('@firstSegmentButtonIndicator').should('have.css', 'opacity', '0');
     cy.get('@secondSegmentButtoIndicatorn').should('have.css', 'opacity', '1');
     cy.get('@thirdSegmentButtonIndicator').should('have.css', 'opacity', '0');
     // @ts-ignore
-    cy.get('ion-slides').swipe({ delay: 100 }, 'right', 'left');
+    cy.get('swiper-container').swipe({ delay: 100 }, 'right', 'left');
     cy.get('@firstSegmentButtonIndicator').should('have.css', 'opacity', '0');
     cy.get('@secondSegmentButtoIndicatorn').should('have.css', 'opacity', '0');
     cy.get('@thirdSegmentButtonIndicator').should('have.css', 'opacity', '1');
     // @ts-ignore
-    cy.get('ion-slides').swipe({ delay: 100 }, 'right', 'left');
+    cy.get('swiper-container').swipe({ delay: 100 }, 'right', 'left');
     cy.get('@firstSegmentButtonIndicator').should('have.css', 'opacity', '0');
     cy.get('@secondSegmentButtoIndicatorn').should('have.css', 'opacity', '0');
     cy.get('@thirdSegmentButtonIndicator').should('have.css', 'opacity', '1');
     // @ts-ignore
-    cy.get('ion-slides').swipe({ delay: 100 }, 'left', 'right');
+    cy.get('swiper-container').swipe({ delay: 100 }, 'left', 'right');
     // @ts-ignore
-    cy.get('ion-slides').swipe({ delay: 100 }, 'left', 'right');
+    cy.get('swiper-container').swipe({ delay: 100 }, 'left', 'right');
     cy.get('@firstSegmentButtonIndicator').should('have.css', 'opacity', '1');
     cy.get('@secondSegmentButtoIndicatorn').should('have.css', 'opacity', '0');
     cy.get('@thirdSegmentButtonIndicator').should('have.css', 'opacity', '0');
@@ -125,8 +125,8 @@ describe('CanteenPage', () => {
   });
 
   it('should scroll to the last dish card', () => {
-    cy.get('ion-slide').first().find('app-canteen-dish-card').last().should('not.be.visible');
+    cy.get('swiper-slide').first().find('app-canteen-dish-card').last().should('not.be.visible');
     cy.get('app-canteen ion-content').shadow().find('main').scrollTo('bottom');
-    cy.get('ion-slide').first().find('app-canteen-dish-card').last().should('be.visible');
+    cy.get('swiper-slide').first().find('app-canteen-dish-card').last().should('be.visible');
   });
 });

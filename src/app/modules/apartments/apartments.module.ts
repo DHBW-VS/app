@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { SharedModule } from '@app/shared';
 import { ApartmentsRoutingModule } from './apartments-routing.module';
 import { ApartmentCardComponent, ApartmentModalComponent, ApartmentsMenuPopoverComponent } from './components';
@@ -14,5 +14,6 @@ import { ApartmentDatePipe } from './pipes';
     ApartmentsMenuPopoverComponent,
     ApartmentDatePipe,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ApartmentsPageModule {}

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   ApiCanteenService,
   DialogService,
@@ -8,7 +8,6 @@ import {
   StorageKey,
   StorageService,
 } from '@app/core';
-import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-canteen',
@@ -21,7 +20,7 @@ export class CanteenPage implements OnInit {
   public segment: number = 0;
 
   @ViewChild('slides')
-  public slides: IonSlides | undefined;
+  public slidesElementRef: ElementRef | undefined;
 
   constructor(
     private readonly dialogService: DialogService,
@@ -36,11 +35,14 @@ export class CanteenPage implements OnInit {
   }
 
   public async onSlideChange(): Promise<void> {
-    if (!this.slides) {
+    if (!this.slidesElementRef) {
       return;
     }
-    const activeIndex = await this.slides.getActiveIndex();
-    this.setSegment(activeIndex);
+    const index: unknown = this.slidesElementRef.nativeElement.swiper.activeIndex;
+    if (typeof index !== 'number') {
+      return;
+    }
+    this.setSegment(index);
   }
 
   private async initMensaPage(): Promise<void> {

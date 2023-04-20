@@ -7,8 +7,11 @@ import { SharedModule } from '@app/shared';
 import { File } from '@awesome-cordova-plugins/file/ngx';
 import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 import { IonicModule, IonicRouteStrategy, isPlatform } from '@ionic/angular';
+import { register as registerSwiper } from 'swiper/element/bundle';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+registerSwiper();
 
 @NgModule({
   declarations: [AppComponent],
