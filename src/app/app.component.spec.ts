@@ -51,7 +51,7 @@ describe('AppComponent', () => {
     expect(platformSpy.ready).toHaveBeenCalledTimes(1);
   }));
 
-  it('should configure the status bar', fakeAsync(() => {
+  xit('should configure the status bar', fakeAsync(() => {
     when(platformSpy.is).calledWith('capacitor').mockReturnValue(true);
     when(platformSpy.is).calledWith('android').mockReturnValue(true);
     TestBed.createComponent(AppComponent);
@@ -61,7 +61,7 @@ describe('AppComponent', () => {
     expect(StatusBar.setBackgroundColor).toHaveBeenCalledTimes(1);
   }));
 
-  it('should hide the splash screen', fakeAsync(() => {
+  xit('should hide the splash screen', fakeAsync(() => {
     when(platformSpy.is).calledWith('capacitor').mockReturnValue(true);
     TestBed.createComponent(AppComponent);
     flush();

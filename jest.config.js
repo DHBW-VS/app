@@ -9,9 +9,7 @@ const config = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: "<rootDir>/",
   }),
-  transformIgnorePatterns: [
-    "<rootDir>/node_modules/(?!@angular|@fullcalendar|rxjs|preact)|!.mjs$"
-  ]
+  transformIgnorePatterns: ["<rootDir>/node_modules/(?!@angular|@fullcalendar|@ionic|rxjs|preact)|!.mjs$"],
 };
 
 module.exports = config;
