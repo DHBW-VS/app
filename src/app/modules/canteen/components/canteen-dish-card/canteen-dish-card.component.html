@@ -2,11 +2,11 @@
   <ion-card-header>
     <ion-card-subtitle *ngIf="dish.promotion">{{ dish.promotion }}</ion-card-subtitle>
     <ion-card-title *ngIf="dish.name">{{ dish.name }}</ion-card-title>
-    <ion-badge *ngIf="dish.additionalInformation" class="ion-float-right">{{ dish.additionalInformation }}</ion-badge>
   </ion-card-header>
   <ion-card-content>
+    <ion-badge *ngIf="dish.additionalInformation">{{ dish.additionalInformation }}</ion-badge>
     <p *ngIf="dish.description" [innerHTML]="dish.description"></p>
-    <div *ngIf="showMore" data-cy="canteen-dish-card-more-container">
+    <div *ngIf="showMore" class="more-container" data-cy="canteen-dish-card-more-container">
       <div>
         <ion-grid class="ion-no-padding">
           <ion-row *ngIf="dish.price.students">

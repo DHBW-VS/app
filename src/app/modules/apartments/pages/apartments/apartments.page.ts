@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiApartmentsService, DialogService, IApartment, NotificationService } from '@app/core';
-import { IonSlides } from '@ionic/angular';
 import { ApartmentsMenuPopoverComponent } from '../../components';
 
 interface IApartmentsPageData {
@@ -27,7 +26,7 @@ export class ApartmentsPage implements OnInit {
   public segment: 'offers' | 'searches' = 'offers';
 
   @ViewChild('slides')
-  public slides: IonSlides | undefined;
+  public slidesElementRef: ElementRef | undefined;
 
   public readonly limit: number = 10;
 
@@ -42,8 +41,10 @@ export class ApartmentsPage implements OnInit {
     void this.initApartmentPage();
   }
 
-  public async setSegmentByIndex(activeIndex: Promise<number>): Promise<void> {
-    const index = await activeIndex;
+  public async setSegmentByIndex(index: unknown): Promise<void> {
+    if (typeof index !== 'number') {
+      return;
+    }
     this.segment = index === 1 ? 'searches' : 'offers';
     this.changeDetectorRef.markForCheck();
   }
@@ -117,7 +118,7 @@ export class ApartmentsPage implements OnInit {
     } finally {
       this.changeDetectorRef.markForCheck();
       await new Promise(resolve => setTimeout(resolve, 250));
-      await this.slides?.updateAutoHeight();
+      await this.slidesElementRef?.nativeElement.swiper.updateAutoHeight();
       event.target.complete();
     }
   }

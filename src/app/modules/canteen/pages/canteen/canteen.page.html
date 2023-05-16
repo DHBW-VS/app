@@ -8,7 +8,7 @@
   <ion-toolbar [hidden]="!(menus && menus.length > 0)">
     <ion-segment
       *ngIf="menus && menus.length > 0"
-      (ionChange)="slides?.slideTo(segment)"
+      (ionChange)="slidesElementRef?.nativeElement.swiper.slideTo(segment)"
       [(ngModel)]="segment"
       scrollable
     >
@@ -24,10 +24,10 @@
     <ion-icon name="restaurant"></ion-icon>
   </div>
   <ng-container *ngIf="menus && menus.length > 0">
-    <ion-slides #slides (ionSlideWillChange)="onSlideChange()">
-      <ion-slide *ngFor="let menu of menus">
+    <swiper-container #slides (slidechange)="onSlideChange()">
+      <swiper-slide *ngFor="let menu of menus">
         <app-canteen-dish-card *ngFor="let dish of menu.dishes" [dish]="dish"> </app-canteen-dish-card>
-      </ion-slide>
-    </ion-slides>
+      </swiper-slide>
+    </swiper-container>
   </ng-container>
 </ion-content>

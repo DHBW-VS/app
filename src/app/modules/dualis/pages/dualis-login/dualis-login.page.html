@@ -13,17 +13,30 @@
       <form [formGroup]="loginFormGroup" (ngSubmit)="submitLoginForm(loginFormGroup)">
         <ion-list>
           <ion-item>
-            <ion-label position="floating">Dualis-Benutzername</ion-label>
-            <ion-input formControlName="username" type="text"></ion-input>
+            <ion-input
+              formControlName="username"
+              type="text"
+              [label]="'Dualis-Benutzername'"
+              [labelPlacement]="'floating'"
+            ></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="floating">Dualis-Passwort</ion-label>
-            <ion-input formControlName="password" type="password"></ion-input>
+            <ion-input
+              formControlName="password"
+              type="password"
+              [label]="'Dualis-Passwort'"
+              [labelPlacement]="'floating'"
+            ></ion-input>
           </ion-item>
         </ion-list>
         <ion-item lines="none">
-          <ion-checkbox formControlName="storeUsername" class="ion-margin-end"></ion-checkbox>
-          <ion-label>Benutzername speichern</ion-label>
+          <ion-checkbox
+            formControlName="storeUsername"
+            [labelPlacement]="'end'"
+            [justify]="'start'"
+            class="ion-margin-end"
+            >Benutzername speichern</ion-checkbox
+          >
         </ion-item>
         <div class="ion-padding">
           <ion-button type="submit" expand="block">Einloggen</ion-button>
