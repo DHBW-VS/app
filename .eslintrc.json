@@ -16,6 +16,7 @@
         "createDefaultProgram": true
       },
       "plugins": [
+        "@typescript-eslint",
         "unicorn"
       ],
       "extends": [

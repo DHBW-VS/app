@@ -23,7 +23,10 @@ export class CalendarModalComponent implements OnInit {
   private loadingElement: HTMLIonLoadingElement | undefined;
   private eventsLoaded = false;
 
-  constructor(private readonly dialogService: DialogService, private readonly changeDetectorref: ChangeDetectorRef) {}
+  constructor(
+    private readonly dialogService: DialogService,
+    private readonly changeDetectorref: ChangeDetectorRef,
+  ) {}
 
   public ngOnInit(): void {
     void this.showLoading();

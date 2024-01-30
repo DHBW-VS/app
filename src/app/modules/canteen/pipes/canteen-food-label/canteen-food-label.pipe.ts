@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CanteenFoodLabelPipe implements PipeTransform {
   public transform(value: string): string {
-    return value.replace(/,/gi, '<br>');
+    return value.replaceAll(/,/gi, '<br>');
   }
 }

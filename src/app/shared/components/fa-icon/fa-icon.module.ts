@@ -14,7 +14,10 @@ import {
   exports: [FontAwesomeModule],
 })
 export class FaIconModule {
-  constructor(private readonly library: FaIconLibrary, private readonly faConfig: FaConfig) {
+  constructor(
+    private readonly library: FaIconLibrary,
+    private readonly faConfig: FaConfig,
+  ) {
     library.addIcons(faCalendarAlt);
     library.addIcons(faCalendarWeek);
     library.addIcons(faCalendarDay);
