@@ -94,7 +94,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "port": 8100,
-            "buildTarget": "app:build"
+            "buildTarget": "app:build",
+            "disableHostCheck": true
           },
           "configurations": {
             "production": {
