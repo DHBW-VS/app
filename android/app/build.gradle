@@ -5,6 +5,7 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
+    namespace "de.dhbw.vs.standortapp"
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "de.dhbw.vs.standortapp"
