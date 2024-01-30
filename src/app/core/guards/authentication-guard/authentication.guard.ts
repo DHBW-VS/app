@@ -5,8 +5,11 @@ import { AuthenticationService } from '@app/core/authentication';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthenticationGuard  {
-  constructor(private readonly authenticationService: AuthenticationService, private readonly router: Router) {}
+export class AuthenticationGuard {
+  constructor(
+    private readonly authenticationService: AuthenticationService,
+    private readonly router: Router,
+  ) {}
 
   public async canActivate(): Promise<boolean> {
     const isAuthenticated = this.authenticationService.isAuthenticated();

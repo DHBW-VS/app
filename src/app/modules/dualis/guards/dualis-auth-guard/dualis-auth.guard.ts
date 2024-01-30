@@ -5,8 +5,11 @@ import { DualisAuthService } from '../../services';
 @Injectable({
   providedIn: 'root',
 })
-export class DualisAuthGuard  {
-  constructor(private readonly dualisAuthService: DualisAuthService, private readonly router: Router) {}
+export class DualisAuthGuard {
+  constructor(
+    private readonly dualisAuthService: DualisAuthService,
+    private readonly router: Router,
+  ) {}
 
   public canActivate(): boolean {
     const session = this.dualisAuthService.getSession();
