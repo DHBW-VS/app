@@ -1,6 +1,8 @@
 const { pathsToModuleNameMapper } = require("ts-jest");
 const { compilerOptions } = require("./tsconfig.json");
 
+const esModules = ['@angular', '@fullcalendar', '@ionic', '@stencil', 'rxjs', 'preact'];
+
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
   preset: "jest-preset-angular",
@@ -9,7 +11,7 @@ const config = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: "<rootDir>/",
   }),
-  transformIgnorePatterns: ["<rootDir>/node_modules/(?!@angular|@fullcalendar|@ionic|rxjs|preact)|!.mjs$"],
+  transformIgnorePatterns: [`<rootDir>/node_modules/(?!${esModules.join('|')})|!.mjs$`],
 };
 
 module.exports = config;
