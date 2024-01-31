@@ -6,13 +6,8 @@
     <ion-title>Mensa</ion-title>
   </ion-toolbar>
   <ion-toolbar [hidden]="!(menus && menus.length > 0)">
-    <ion-segment
-      *ngIf="menus && menus.length > 0"
-      (ionChange)="slidesElementRef?.nativeElement.swiper.slideTo(segment)"
-      [(ngModel)]="segment"
-      scrollable
-    >
-      <ion-segment-button value="{{ i }}" *ngFor="let menu of menus; let i = index">
+    <ion-segment *ngIf="menus && menus.length > 0" (ionChange)="onSegmentChange($event)" [value]="segment" scrollable>
+      <ion-segment-button [value]="i" *ngFor="let menu of menus; let i = index">
         <ion-label>{{ removeYearFromDateString(menu.date) }}</ion-label>
       </ion-segment-button>
     </ion-segment>

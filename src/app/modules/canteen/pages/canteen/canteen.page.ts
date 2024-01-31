@@ -34,6 +34,14 @@ export class CanteenPage implements OnInit {
     void this.initMensaPage();
   }
 
+  public async onSegmentChange(event: CustomEvent): Promise<void> {
+    const index: number = event.detail.value;
+    if (!this.slidesElementRef) {
+      return;
+    }
+    await this.slidesElementRef.nativeElement.swiper.slideTo(index);
+  }
+
   public async onSlideChange(): Promise<void> {
     if (!this.slidesElementRef) {
       return;

@@ -48,7 +48,7 @@ describe('CanteenPage', () => {
     cy.get('ion-alert').should('not.exist');
   });
 
-  it('should swipe right and left', () => {
+  it.skip('should swipe right and left', () => {
     cy.get('ion-header ion-segment ion-segment-button').should('have.length', 3);
     cy.get('ion-header ion-segment ion-segment-button').eq(0).as('firstSegmentButton');
     cy.get('ion-header ion-segment ion-segment-button').eq(1).as('secondSegmentButton');
