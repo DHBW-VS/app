@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: 16
-  JAVA_VERSION: 11
-  JAVA_DISTRIBUTION: "adopt"
+  NODE_VERSION: 20
+  JAVA_VERSION: 17
+  JAVA_DISTRIBUTION: "zulu"
   RUBY_VERSION: 3.1
 
 jobs:
