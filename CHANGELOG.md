@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/dhbw-vs/app/compare/v4.4.1...v5.0.0) (2024-02-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** update to Capacitor 5 (#47)
+
+* **deps:** update to Capacitor 5 ([#47](https://github.com/dhbw-vs/app/issues/47)) ([f55da1e](https://github.com/dhbw-vs/app/commit/f55da1e147279512c74a633c4aadf236f3c237b2))
+
 ### [4.4.1](https://github.com/dhbw-vs/app/compare/v4.4.0...v4.4.1) (2022-11-06)
 
 
