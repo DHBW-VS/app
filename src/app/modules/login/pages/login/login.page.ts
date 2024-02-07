@@ -31,6 +31,7 @@ export class LoginPage implements OnInit {
 
   public ngOnInit(): void {
     void this.menuController.enable(true, 'unauthenticated');
+    void this.menuController.enable(false, 'authenticated');
   }
 
   public async login(loginFormGroup: UntypedFormGroup): Promise<boolean> {
