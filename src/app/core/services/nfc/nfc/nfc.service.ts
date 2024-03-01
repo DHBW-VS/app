@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NdefMessage, NfcTag, NfcTagTechType } from '@capawesome-team/capacitor-nfc';
+import { NfcTag, NfcTagTechType } from '@capawesome-team/capacitor-nfc';
 import { Observable } from 'rxjs';
 import { CapacitorNfcService } from '../../capacitor';
 
@@ -13,8 +13,8 @@ export class NfcService {
     return this.capacitorNfcService.scannedTag$;
   }
 
-  public get lastScannedTag$(): Observable<NfcTag> {
-    return this.capacitorNfcService.lastScannedTag$;
+  public get sessionCanceled$(): Observable<void> {
+    return this.capacitorNfcService.sessionCanceled$;
   }
 
   public async startScanSession(): Promise<void> {
@@ -31,20 +31,6 @@ export class NfcService {
 
   public async stopScanSession(): Promise<void> {
     await this.capacitorNfcService.stopScanSession();
-  }
-
-  public async write(message: NdefMessage): Promise<void> {
-    await this.capacitorNfcService.write({
-      message,
-    });
-  }
-
-  public async erase(): Promise<void> {
-    await this.capacitorNfcService.erase();
-  }
-
-  public async format(): Promise<void> {
-    await this.capacitorNfcService.format();
   }
 
   public async transceive(techType: NfcTagTechType, data: number[]): Promise<number[]> {

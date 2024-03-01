@@ -60,7 +60,12 @@ export class CanteenCardBalanceModalComponent {
     }
     await this.showScanSessionAlert();
     this.nfcService.scannedTag$
-      .pipe(takeUntil(this.cancel$), take(1), takeUntilDestroyed(this.destroyRef))
+      .pipe(
+        takeUntil(this.cancel$),
+        takeUntil(this.nfcService.sessionCanceled$),
+        take(1),
+        takeUntilDestroyed(this.destroyRef),
+      )
       .subscribe(async () => {
         try {
           const techType = Capacitor.getPlatform() === 'ios' ? NfcTagTechType.Iso7816 : NfcTagTechType.IsoDep;
