@@ -8,6 +8,7 @@ import {
   StorageKey,
   StorageService,
 } from '@app/core';
+import { CanteenMenuPopoverComponent } from '../../components';
 
 @Component({
   selector: 'app-canteen',
@@ -32,6 +33,13 @@ export class CanteenPage implements OnInit {
 
   public ngOnInit(): void {
     void this.initMensaPage();
+  }
+
+  public async showMenuPopover(event: Event): Promise<void> {
+    await this.dialogService.showPopover({
+      component: CanteenMenuPopoverComponent,
+      event: event,
+    });
   }
 
   public async onSegmentChange(event: CustomEvent): Promise<void> {

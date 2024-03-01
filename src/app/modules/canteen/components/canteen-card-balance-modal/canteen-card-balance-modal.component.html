@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Wohnungsmarkt</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Guthaben </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      @if (balance()) {
+        <span>Dein aktuelles Guthaben beträgt:</span>
+        <div class="balance">
+          <h1>{{ balance() | currency: "EUR" : "symbol" : "1.2-2" : "de" }}</h1>
+        </div>
+      } @else {
+        <div>
+          Mithilfe der NFC-Schnittstelle deines Smartphones kannst du das aktuelle Guthaben deiner Karte auslesen.
+        </div>
+      }
+    </ion-card-content>
+    <ion-row class="ion-no-padding">
+      <ion-col>
+        <ion-button
+          fill="clear"
+          (click)="startScanSession()"
+          class="ion-float-right"
+          [disabled]="isScanSessionActive()"
+        >
+          Guthaben auslesen
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Karte aufwerten </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      An folgenden Orten kannst du deine Karte aufwerten:
+      <ul>
+        <li>Mensa (EC-Karte / Bargeld)</li>
+        <li>HFU (EC-Karte)</li>
+        <li>DHBW VS (EC-Karte)</li>
+      </ul>
+      Mehr Informationen findest du unter www.swfr.de.
+    </ion-card-content>
+  </ion-card>
+</ion-content>
