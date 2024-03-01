@@ -1,34 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DialogService, NotificationService } from '@app/core';
-import { createSpyObj } from '@tests/helpers';
-import { createPipeMock } from '@tests/mocks';
 import { SharedTestingModule } from '@tests/modules';
-import { createDialogServiceSpy } from '@tests/spies';
-import { ApartmentModalComponent } from './apartment-modal.component';
+import { CanteenCardBalanceModalComponent } from './canteen-card-balance-modal.component';
 
-describe('ApartmentModalComponent', () => {
-  let component: ApartmentModalComponent;
-  let fixture: ComponentFixture<ApartmentModalComponent>;
+describe('CanteenCardBalanceModalComponent', () => {
+  let component: CanteenCardBalanceModalComponent;
+  let fixture: ComponentFixture<CanteenCardBalanceModalComponent>;
   let element: HTMLElement;
-  let dialogServiceSpy: jest.Mocked<DialogService>;
-  let notificationServiceSpy: jest.Mocked<NotificationService>;
 
   beforeEach(async () => {
-    dialogServiceSpy = createDialogServiceSpy();
-    notificationServiceSpy = createSpyObj('NotificationService', {
-      showToast: undefined,
-    });
-
     await TestBed.configureTestingModule({
-      declarations: [ApartmentModalComponent, createPipeMock({ name: 'apartmentDate' })],
+      declarations: [CanteenCardBalanceModalComponent],
       imports: [SharedTestingModule],
-      providers: [
-        { provide: DialogService, useValue: dialogServiceSpy },
-        { provide: NotificationService, useValue: notificationServiceSpy },
-      ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ApartmentModalComponent);
+    fixture = TestBed.createComponent(CanteenCardBalanceModalComponent);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
     fixture.detectChanges();
