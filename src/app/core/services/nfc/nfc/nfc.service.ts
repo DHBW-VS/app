@@ -30,64 +30,24 @@ export class NfcService {
   }
 
   public async stopScanSession(): Promise<void> {
-    const isSupported = await this.isSupported();
-    if (!isSupported) {
-      return;
-    }
-    const isEnabled = await this.isEnabled();
-    if (!isEnabled) {
-      return;
-    }
     await this.capacitorNfcService.stopScanSession();
   }
 
   public async write(message: NdefMessage): Promise<void> {
-    const isSupported = await this.isSupported();
-    if (!isSupported) {
-      throw this.createNotSupportedError();
-    }
-    const isEnabled = await this.isEnabled();
-    if (!isEnabled) {
-      throw this.createNotEnabledError();
-    }
     await this.capacitorNfcService.write({
       message,
     });
   }
 
   public async erase(): Promise<void> {
-    const isSupported = await this.isSupported();
-    if (!isSupported) {
-      throw this.createNotSupportedError();
-    }
-    const isEnabled = await this.isEnabled();
-    if (!isEnabled) {
-      throw this.createNotEnabledError();
-    }
     await this.capacitorNfcService.erase();
   }
 
   public async format(): Promise<void> {
-    const isSupported = await this.isSupported();
-    if (!isSupported) {
-      throw this.createNotSupportedError();
-    }
-    const isEnabled = await this.isEnabled();
-    if (!isEnabled) {
-      throw this.createNotEnabledError();
-    }
     await this.capacitorNfcService.format();
   }
 
   public async transceive(techType: NfcTagTechType, data: number[]): Promise<number[]> {
-    const isSupported = await this.isSupported();
-    if (!isSupported) {
-      throw this.createNotSupportedError();
-    }
-    const isEnabled = await this.isEnabled();
-    if (!isEnabled) {
-      throw this.createNotEnabledError();
-    }
     const { response } = await this.capacitorNfcService.transceive({
       techType,
       data,
@@ -96,28 +56,12 @@ export class NfcService {
   }
 
   public async connect(techType: NfcTagTechType): Promise<void> {
-    const isSupported = await this.isSupported();
-    if (!isSupported) {
-      throw this.createNotSupportedError();
-    }
-    const isEnabled = await this.isEnabled();
-    if (!isEnabled) {
-      throw this.createNotEnabledError();
-    }
     await this.capacitorNfcService.connect({
       techType,
     });
   }
 
   public async close(): Promise<void> {
-    const isSupported = await this.isSupported();
-    if (!isSupported) {
-      return;
-    }
-    const isEnabled = await this.isEnabled();
-    if (!isEnabled) {
-      return;
-    }
     await this.capacitorNfcService.close();
   }
 

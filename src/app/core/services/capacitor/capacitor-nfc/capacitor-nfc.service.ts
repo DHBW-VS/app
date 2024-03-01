@@ -83,12 +83,18 @@ export class CapacitorNfcService {
     return Nfc.transceive(options);
   }
 
-  public connect(options: ConnectOptions): Promise<void> {
-    return Nfc.connect(options);
+  public async connect(options: ConnectOptions): Promise<void> {
+    const isAndroid = Capacitor.getPlatform() === 'android';
+    if (isAndroid) {
+      await Nfc.connect(options);
+    }
   }
 
   public async close(): Promise<void> {
-    await Nfc.close();
+    const isAndroid = Capacitor.getPlatform() === 'android';
+    if (isAndroid) {
+      await Nfc.close();
+    }
   }
 
   public async openSettings(): Promise<void> {

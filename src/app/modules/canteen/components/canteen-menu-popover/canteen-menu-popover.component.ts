@@ -15,5 +15,6 @@ export class CanteenMenuPopoverComponent {
     await this.dialogService.showModal({
       component: CanteenCardBalanceModalComponent,
     });
+    await this.dialogService.dismissPopover();
   }
 }

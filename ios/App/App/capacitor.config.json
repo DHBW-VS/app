@@ -5,7 +5,8 @@
 	"webDir": "www",
 	"npmClient": "npm",
 	"server": {
-		"iosScheme": "ionic"
+		"iosScheme": "ionic",
+		"url": "http://192.168.2.112:8100"
 	},
 	"cordova": {
 		"preferences": {

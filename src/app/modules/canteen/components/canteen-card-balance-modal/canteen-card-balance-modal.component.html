@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Wohnungsmarkt</ion-title>
+    <ion-title>Kartenguthaben</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="close"></ion-icon>
@@ -12,10 +12,10 @@
 <ion-content class="ion-padding">
   <ion-card>
     <ion-card-header>
-      <ion-card-title> Guthaben </ion-card-title>
+      <ion-card-title> Kartenguthaben </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      @if (balance()) {
+      @if (balance() !== undefined) {
         <span>Dein aktuelles Guthaben beträgt:</span>
         <div class="balance">
           <h1>{{ balance() | currency: "EUR" : "symbol" : "1.2-2" : "de" }}</h1>

@@ -43,6 +43,7 @@ export class CanteenCardBalanceModalComponent {
 
   public async startScanSession(): Promise<void> {
     this.isScanSessionActive.set(true);
+    this.balance.set(undefined);
     try {
       await this.nfcService.startScanSession();
     } catch (error) {
@@ -74,7 +75,8 @@ export class CanteenCardBalanceModalComponent {
           // 4. Parse the balance
           const balance = this.convertBytesToBalance(response);
           this.balance.set(balance);
-          // 5. Stop the scan session
+          // 5. Close the connection
+          await this.nfcService.close();
         } finally {
           await this.stopScanSession();
         }
@@ -88,6 +90,7 @@ export class CanteenCardBalanceModalComponent {
     trimmedBytes.reverse();
     const hex = this.nfcHelperService.convertBytesToHex(trimmedBytes);
     const balance = this.nfcHelperService.convertHexToNumber(hex);
+    console.log({ bytes, trimmedBytes, hex, balance });
     return balance;
   }
 
@@ -116,9 +119,6 @@ export class CanteenCardBalanceModalComponent {
     this.isScanSessionActive.set(false);
     void this.activeWriterAlert?.dismiss();
     this.cancelSubject.next(undefined);
-    await this.nfcService.close().catch(() => {
-      // Ignore errors
-    });
     await this.nfcService.stopScanSession();
   }
 }

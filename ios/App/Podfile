@@ -20,6 +20,7 @@ def capacitor_pods
   pod 'CapacitorSplashScreen', :path => '../../node_modules/@capacitor/splash-screen'
   pod 'CapacitorStatusBar', :path => '../../node_modules/@capacitor/status-bar'
   pod 'CapawesomeTeamCapacitorFileOpener', :path => '../../node_modules/@capawesome-team/capacitor-file-opener'
+  pod 'CapawesomeTeamCapacitorNfc', :path => '../../node_modules/@capawesome-team/capacitor-nfc'
   pod 'CordovaPlugins', :path => '../capacitor-cordova-ios-plugins'
 end
 
