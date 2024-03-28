@@ -43,6 +43,7 @@
     "@capacitor/splash-screen": "5.0.7",
     "@capacitor/status-bar": "5.0.7",
     "@capawesome-team/capacitor-file-opener": "5.0.4",
+    "@capawesome-team/capacitor-nfc": "5.1.0-dev.7d38c01.1709239536",
     "@fortawesome/angular-fontawesome": "0.14.1",
     "@fortawesome/fontawesome-svg-core": "6.5.1",
     "@fortawesome/free-brands-svg-icons": "6.5.1",

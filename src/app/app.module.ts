@@ -1,5 +1,7 @@
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ErrorHandler, NgModule } from '@angular/core';
+import localeDe from '@angular/common/locales/de';
+import { ErrorHandler, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { CoreModule, GlobalErrorHandlerService } from '@app/core';
@@ -10,6 +12,8 @@ import { IonicModule, IonicRouteStrategy, isPlatform } from '@ionic/angular';
 import { register as registerSwiper } from 'swiper/element/bundle';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+registerLocaleData(localeDe);
 
 registerSwiper();
 
@@ -34,6 +38,7 @@ registerSwiper();
       provide: ErrorHandler,
       useClass: GlobalErrorHandlerService,
     },
+    { provide: LOCALE_ID, useValue: 'de-DE' },
   ],
   bootstrap: [AppComponent],
 })
