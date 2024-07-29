@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/dhbw-vs/app/compare/v5.0.0...v5.1.0) (2024-07-29)
+
+
+### Features
+
+* NFC support for canteen cards to query the balance ([#48](https://github.com/dhbw-vs/app/issues/48)) ([42b82c1](https://github.com/dhbw-vs/app/commit/42b82c1b7360fa62ac93696d2775e4176f8edff8))
+
+
+### Bug Fixes
+
+* replace old email server url ([19a84c9](https://github.com/dhbw-vs/app/commit/19a84c9527ffd2b1d6868f251d8b60fe8c29ed79))
+* **sos:** update content ([7df5892](https://github.com/dhbw-vs/app/commit/7df5892a4b2c9a5b5ad7efc98fd8f34c640f44a2))
+
 ## [5.0.0](https://github.com/dhbw-vs/app/compare/v4.4.1...v5.0.0) (2024-02-07)
 
 
