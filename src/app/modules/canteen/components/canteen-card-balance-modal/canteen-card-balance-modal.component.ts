@@ -94,8 +94,7 @@ export class CanteenCardBalanceModalComponent {
     trimmedBytes.pop();
     trimmedBytes.reverse();
     const hex = this.nfcHelperService.convertBytesToHex(trimmedBytes);
-    const balance = this.nfcHelperService.convertHexToNumber(hex);
-    console.log({ bytes, trimmedBytes, hex, balance });
+    const balance = this.nfcHelperService.convertHexToNumber(hex) / 1000;
     return balance;
   }
 
