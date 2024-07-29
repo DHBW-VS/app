@@ -1,14 +1,12 @@
-ion-card {
-  ion-card-content::first-line {
-    font-weight: bold;
-  }
+ion-card-content p::first-line {
+  font-weight: bold;
+}
 
-  ion-card-content > div {
-    border-top: 1px solid #dedede;
-    padding: 10px 0px;
-  }
+ion-card-content .more-container {
+  border-top: 1px solid #dedede;
+  padding: 10px 0px;
+}
 
-  p {
-    padding-bottom: 10px;
-  }
+p {
+  padding-bottom: 10px;
 }

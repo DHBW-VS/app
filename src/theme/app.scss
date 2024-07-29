@@ -27,3 +27,24 @@
     }
   }
 }
+
+.fullscreen-modal {
+  --height: 100%;
+  --width: 100%;
+}
+
+.fullcalendar-event {
+  color: var(--ion-color-dark);
+}
+
+.fullcalendar-day-header a {
+  color: var(--ion-color-dark);
+}
+
+.fullcalendar-week-number a {
+  color: var(--ion-color-dark);
+}
+
+.fullcalendar-day-cell a {
+  color: var(--ion-color-dark);
+}

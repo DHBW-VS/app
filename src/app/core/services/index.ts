@@ -2,6 +2,8 @@ export * from './api';
 export * from './capacitor';
 export * from './dialog/dialog.service';
 export * from './global-error-handler/global-error-handler.service';
+export * from './nfc';
 export * from './notification/notification.service';
 export * from './storage/storage.service';
+export * from './timeout/timeout.service';
 export * from './user/user.service';

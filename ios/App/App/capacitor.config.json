@@ -5,6 +5,7 @@
 	"webDir": "www",
 	"npmClient": "npm",
 	"server": {
+		"androidScheme": "http",
 		"iosScheme": "ionic"
 	},
 	"cordova": {
@@ -19,5 +20,18 @@
 			"launchAutoHide": false,
 			"androidScaleType": "CENTER_CROP"
 		}
-	}
+	},
+	"packageClassList": [
+		"ActionSheetPlugin",
+		"AppPlugin",
+		"ClipboardPlugin",
+		"KeyboardPlugin",
+		"PreferencesPlugin",
+		"SharePlugin",
+		"SplashScreenPlugin",
+		"StatusBarPlugin",
+		"FileOpenerPlugin",
+		"NfcPlugin",
+		"CDVPlugin"
+	]
 }

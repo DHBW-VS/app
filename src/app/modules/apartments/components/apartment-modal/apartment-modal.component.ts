@@ -33,8 +33,6 @@ export class ApartmentModalComponent {
   private async showToast(): Promise<void> {
     await this.notificationService.showToast({
       message: 'In die Zwischenablage kopiert',
-      duration: 3000,
-      position: 'bottom',
     });
   }
 }

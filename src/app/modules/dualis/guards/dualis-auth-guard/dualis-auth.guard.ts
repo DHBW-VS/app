@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { DualisAuthService } from '../../services';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DualisAuthGuard implements CanActivate {
-  constructor(private readonly dualisAuthService: DualisAuthService, private readonly router: Router) {}
+export class DualisAuthGuard {
+  constructor(
+    private readonly dualisAuthService: DualisAuthService,
+    private readonly router: Router,
+  ) {}
 
   public canActivate(): boolean {
     const session = this.dualisAuthService.getSession();

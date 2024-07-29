@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService, DialogService } from '@app/core';
 import { MenuController } from '@ionic/angular';
@@ -11,7 +11,7 @@ import { MenuController } from '@ionic/angular';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginPage implements OnInit {
-  public loginFormGroup: FormGroup;
+  public loginFormGroup: UntypedFormGroup;
 
   constructor(
     private readonly menuController: MenuController,
@@ -19,11 +19,11 @@ export class LoginPage implements OnInit {
     private readonly router: Router,
     private readonly authenticationService: AuthenticationService,
   ) {
-    this.loginFormGroup = new FormGroup({
-      username: new FormControl('', {
+    this.loginFormGroup = new UntypedFormGroup({
+      username: new UntypedFormControl('', {
         validators: Validators.required,
       }),
-      password: new FormControl('', {
+      password: new UntypedFormControl('', {
         validators: Validators.required,
       }),
     });
@@ -31,9 +31,10 @@ export class LoginPage implements OnInit {
 
   public ngOnInit(): void {
     void this.menuController.enable(true, 'unauthenticated');
+    void this.menuController.enable(false, 'authenticated');
   }
 
-  public async login(loginFormGroup: FormGroup): Promise<boolean> {
+  public async login(loginFormGroup: UntypedFormGroup): Promise<boolean> {
     if (!loginFormGroup.valid) {
       await this.showAlert('Einloggen fehlgeschlagen! Bitte fülle alle Eingabefelder aus.');
       return false;

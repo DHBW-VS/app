@@ -16,6 +16,7 @@
         "createDefaultProgram": true
       },
       "plugins": [
+        "@typescript-eslint",
         "unicorn"
       ],
       "extends": [
@@ -57,6 +58,8 @@
           {
             "allowList": {
               "changeDetectorRef": true,
+              "iCalendarKey": true,
+              "iCalendarLink": true,
               "NativeHttpParams": true
             }
           }

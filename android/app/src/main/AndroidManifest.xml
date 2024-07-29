@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.dhbw.vs.standortapp">
+    >
 
     <application
         android:allowBackup="true"
@@ -36,7 +36,7 @@
         </provider>
     </application>
 
-    <!-- Permissions -->
-
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- To get access to the NFC hardware. -->
+    <uses-permission android:name="android.permission.NFC" />
 </manifest>

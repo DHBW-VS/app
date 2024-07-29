@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Vorlesungsplan</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openExportTimetableActionSheet()">
+        <fa-icon [icon]="['fas', 'download']" [size]="'lg'" slot="start"></fa-icon>
+      </ion-button>
+      <ion-button (click)="closeModal()" data-cy="calendar-modal-close-button">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <app-calendar-toolbar [calendarComponent]="calendarComponent"></app-calendar-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-calendar
+    #calendar
+    *ngIf="iCalendarLink"
+    [iCalendarLink]="iCalendarLink"
+    (eventSourceSuccess)="onEventSourceSuccess()"
+    (eventSourceError)="onEventSourceError()"
+  ></app-calendar>
+</ion-content>

@@ -9,7 +9,7 @@
         detail
         *ngFor="let post of moodleNews; let last = last"
         [attr.lines]="last ? 'none' : 'inset'"
-        (click)="presentMoodleNewsModal(post)"
+        (click)="showMoodleNewsModal(post)"
       >
         <ion-label [innerHTML]="post.subject"> </ion-label>
       </ion-item>

@@ -8,6 +8,7 @@ import {
   StorageService,
   UserService,
 } from '@app/core';
+import { CalendarModalComponent } from '../../components';
 import { PlanService } from '../../services';
 
 @Component({
@@ -54,17 +55,17 @@ export class PlanPage implements OnInit {
     try {
       const timetableList = await this.planService.getTimetableList(course);
       this.timetableList = timetableList;
-      const storageData: IPlanStorage = { cache: timetableList, lastOpenedTimetable: undefined };
+      const storageData: IPlanStorage = { cache: timetableList, lastOpenedTimetable };
       await this.storageService.storeData(StorageKey.Plan, storageData);
     } catch {
       const storageData: IPlanStorage | null = await this.storageService.retrieveData<IPlanStorage>(StorageKey.Plan);
       if (storageData) {
         this.timetableList = storageData.cache;
       }
-      if (!this.timetableList) {
-        await this.showAlert('Abfrage fehlgeschlagen! Bitte versuche es später erneut.');
-      } else {
+      if (this.timetableList) {
         await this.showToast();
+      } else {
+        await this.showAlert('Abfrage fehlgeschlagen! Bitte versuche es später erneut.');
       }
     } finally {
       this.changeDetectorRef.markForCheck();
@@ -80,6 +81,14 @@ export class PlanPage implements OnInit {
     if (!timetable) {
       return;
     }
+    if (timetable.iCalendarKey) {
+      await this.openTimetableAsICalendar(timetable);
+    } else {
+      await this.openTimetableAsPdf(timetable);
+    }
+  }
+
+  private async openTimetableAsPdf(timetable: IPlan): Promise<void> {
     try {
       await this.planService.checkTimetable(timetable);
     } catch {
@@ -100,6 +109,51 @@ export class PlanPage implements OnInit {
     }
   }
 
+  private async openTimetableAsICalendar(timetable: IPlan): Promise<void> {
+    if (!timetable.iCalendarKey) {
+      return;
+    }
+    const iCalendarLink = this.planService.buildICalendarLink(timetable.iCalendarKey);
+    await this.dialogService.showModal({
+      component: CalendarModalComponent,
+      componentProps: {
+        iCalendarLink: iCalendarLink,
+        exportTimetableAsPdf: () => this.exportTimetableAsPdf(timetable),
+        exportTimetableAsICalendar: () => this.exportTimetableAsICalendar(timetable),
+      },
+      cssClass: 'fullscreen-modal',
+    });
+    await this.planService.setLastOpenedTimetable(timetable);
+  }
+
+  private async exportTimetableAsPdf(timetable: IPlan): Promise<void> {
+    try {
+      await this.planService.checkTimetable(timetable);
+    } catch {
+      const loading = await this.dialogService.showLoading();
+      try {
+        await this.planService.downloadTimetable(timetable);
+      } catch {
+        await loading.dismiss();
+        return this.showAlert('Abfrage fehlgeschlagen! Bitte versuche es später erneut.');
+      }
+      await loading.dismiss();
+    }
+    try {
+      await this.planService.shareTimetableAsPdf(timetable);
+    } catch {
+      await this.showAlert('Die PDF-Datei konnte nicht exportiert werden.');
+    }
+  }
+
+  private async exportTimetableAsICalendar(timetable: IPlan): Promise<void> {
+    try {
+      await this.planService.shareTimetableAsICalendar(timetable);
+    } catch {
+      await this.showAlert('Die iCalendar-Datei konnte nicht exportiert werden.');
+    }
+  }
+
   private async showAlert(message: string): Promise<void> {
     await this.dialogService.showErrorAlert({
       message,
@@ -109,8 +163,6 @@ export class PlanPage implements OnInit {
   private async showToast(): Promise<void> {
     await this.notificationService.showToast({
       message: 'Aktualisierung fehlgeschlagen!',
-      duration: 3000,
-      position: 'bottom',
     });
   }
 }

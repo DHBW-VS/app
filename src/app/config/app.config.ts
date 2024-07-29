@@ -4,4 +4,5 @@ export class Config {
   public static readonly httpTimeout: number = 10_000; // ms
   public static readonly parkingIntervalValue: number = 12_000;
   public static readonly sosMoreInformationLink: string = 'https://www.dhbw-vs.de/studierende/service-beratung.html';
+  public static readonly primaryColor: string = '#e2001a';
 }

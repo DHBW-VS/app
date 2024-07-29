@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { ApiPlansService, StorageService } from '@app/core';
-import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 import { File } from '@awesome-cordova-plugins/file/ngx';
 import { Platform } from '@ionic/angular';
 import { createSpyObj } from '@tests/helpers';
@@ -17,7 +16,6 @@ describe('PlanService', () => {
       providers: [
         { provide: ApiPlansService, useValue: {} },
         { provide: File, useValue: {} },
-        { provide: FileOpener, useValue: {} },
         { provide: Platform, useValue: platformSpy },
         { provide: StorageService, useValue: {} },
       ],

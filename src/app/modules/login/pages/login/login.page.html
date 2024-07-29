@@ -13,12 +13,21 @@
       <form [formGroup]="loginFormGroup">
         <ion-list>
           <ion-item>
-            <ion-label position="floating">Moodle-Anmeldename</ion-label>
-            <ion-input formControlName="username" (keyup.enter)="login(loginFormGroup)"></ion-input>
+            <ion-input
+              formControlName="username"
+              [label]="'Moodle-Anmeldename'"
+              [labelPlacement]="'floating'"
+              (keyup.enter)="login(loginFormGroup)"
+            ></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="floating">Moodle-Kennwort</ion-label>
-            <ion-input formControlName="password" (keyup.enter)="login(loginFormGroup)" type="password"></ion-input>
+            <ion-input
+              formControlName="password"
+              [label]="'Moodle-Kennwort'"
+              [labelPlacement]="'floating'"
+              (keyup.enter)="login(loginFormGroup)"
+              type="password"
+            ></ion-input>
           </ion-item>
         </ion-list>
         <div class="ion-padding">

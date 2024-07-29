@@ -53,12 +53,10 @@ export class MoodleNewsCardComponent implements OnInit {
   private async showToast(): Promise<void> {
     await this.notificationService.showToast({
       message: 'Aktualisierung fehlgeschlagen!',
-      duration: 3000,
-      position: 'bottom',
     });
   }
 
-  public async presentMoodleNewsModal(moodleNews: IMoodleNews): Promise<void> {
+  public async showMoodleNewsModal(moodleNews: IMoodleNews): Promise<void> {
     await this.dialogService.showModal({
       component: MoodleNewsModalComponent,
       componentProps: { moodleNews: moodleNews },

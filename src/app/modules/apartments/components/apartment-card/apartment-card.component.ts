@@ -14,10 +14,11 @@ export class ApartmentCardComponent {
 
   constructor(private readonly dialogService: DialogService) {}
 
-  public async presentApartmentModal(apartment: IApartment): Promise<void> {
+  public async showApartmentModal(apartment: IApartment): Promise<void> {
     await this.dialogService.showModal({
       component: ApartmentModalComponent,
       componentProps: { apartment: apartment },
+      cssClass: 'fullscreen-modal',
     });
   }
 }

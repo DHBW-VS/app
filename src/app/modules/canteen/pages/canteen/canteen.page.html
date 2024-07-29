@@ -4,15 +4,15 @@
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
     <ion-title>Mensa</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="showMenuPopover($event)">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
   <ion-toolbar [hidden]="!(menus && menus.length > 0)">
-    <ion-segment
-      *ngIf="menus && menus.length > 0"
-      (ionChange)="slides?.slideTo(segment)"
-      [(ngModel)]="segment"
-      scrollable
-    >
-      <ion-segment-button value="{{ i }}" *ngFor="let menu of menus; let i = index">
+    <ion-segment *ngIf="menus && menus.length > 0" (ionChange)="onSegmentChange($event)" [value]="segment" scrollable>
+      <ion-segment-button [value]="i" *ngFor="let menu of menus; let i = index">
         <ion-label>{{ removeYearFromDateString(menu.date) }}</ion-label>
       </ion-segment-button>
     </ion-segment>
@@ -24,10 +24,10 @@
     <ion-icon name="restaurant"></ion-icon>
   </div>
   <ng-container *ngIf="menus && menus.length > 0">
-    <ion-slides #slides (ionSlideWillChange)="onSlideChange()">
-      <ion-slide *ngFor="let menu of menus">
+    <swiper-container #slides (slidechange)="onSlideChange()">
+      <swiper-slide *ngFor="let menu of menus">
         <app-canteen-dish-card *ngFor="let dish of menu.dishes" [dish]="dish"> </app-canteen-dish-card>
-      </ion-slide>
-    </ion-slides>
+      </swiper-slide>
+    </swiper-container>
   </ng-container>
 </ion-content>

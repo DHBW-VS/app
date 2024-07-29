@@ -11,6 +11,7 @@ export class DashboardPage implements OnInit {
   constructor(private readonly menuController: MenuController) {}
 
   public ngOnInit(): void {
+    void this.menuController.enable(false, 'unauthenticated');
     void this.menuController.enable(true, 'authenticated');
   }
 }

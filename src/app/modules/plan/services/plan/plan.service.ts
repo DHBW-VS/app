@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiPlansService, IPlan, IPlanStorage, StorageKey, StorageService } from '@app/core';
-import { FileOpener } from '@awesome-cordova-plugins/file-opener/ngx';
 import { File } from '@awesome-cordova-plugins/file/ngx';
+import { Share } from '@capacitor/share';
+import { FileOpener } from '@capawesome-team/capacitor-file-opener';
 import { Platform } from '@ionic/angular';
 
 @Injectable({
@@ -14,7 +15,6 @@ export class PlanService {
   constructor(
     private readonly apiPlansService: ApiPlansService,
     private readonly file: File,
-    private readonly fileOpener: FileOpener,
     private readonly platform: Platform,
     private readonly storageService: StorageService,
   ) {
@@ -46,14 +46,44 @@ export class PlanService {
   }
 
   public async openTimetable(timetable: IPlan): Promise<any> {
-    return this.fileOpener.open(
-      this.dataDirectoryPath + this.timetableDirName + '/' + timetable.filename,
-      'application/pdf',
-    );
+    return FileOpener.openFile({
+      path: this.dataDirectoryPath + this.timetableDirName + '/' + timetable.filename,
+      mimeType: 'application/pdf',
+    });
   }
 
   public async checkTimetable(timetable: IPlan): Promise<boolean> {
     return this.file.checkFile(this.dataDirectoryPath + this.timetableDirName + '/', timetable.filename);
+  }
+
+  public async shareTimetableAsPdf(timetable: IPlan): Promise<void> {
+    try {
+      await Share.share({
+        url: this.dataDirectoryPath + this.timetableDirName + '/' + timetable.filename,
+      });
+    } catch (error) {
+      if (error instanceof Error && error.message && error.message.includes('canceled')) {
+        return;
+      }
+      throw error;
+    }
+  }
+
+  public async shareTimetableAsICalendar(timetable: IPlan): Promise<void> {
+    if (!timetable.iCalendarKey) {
+      return;
+    }
+    const iCalendarLink = this.buildICalendarLink(timetable.iCalendarKey);
+    try {
+      await Share.share({
+        url: iCalendarLink,
+      });
+    } catch (error) {
+      if (error instanceof Error && error.message && error.message.includes('canceled')) {
+        return;
+      }
+      throw error;
+    }
   }
 
   public async setLastOpenedTimetable(timetable: IPlan): Promise<void> {
@@ -72,5 +102,9 @@ export class PlanService {
       return;
     }
     return storageData.lastOpenedTimetable;
+  }
+
+  public buildICalendarLink(iCalendarKey: string) {
+    return this.apiPlansService.buildICalendarLink(iCalendarKey);
   }
 }

@@ -2,19 +2,24 @@
 
 android {
   compileOptions {
-      sourceCompatibility JavaVersion.VERSION_11
-      targetCompatibility JavaVersion.VERSION_11
+      sourceCompatibility JavaVersion.VERSION_17
+      targetCompatibility JavaVersion.VERSION_17
   }
 }
 
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
+    implementation project(':capacitor-action-sheet')
+    implementation project(':capacitor-app')
     implementation project(':capacitor-clipboard')
     implementation project(':capacitor-keyboard')
     implementation project(':capacitor-preferences')
+    implementation project(':capacitor-share')
     implementation project(':capacitor-splash-screen')
     implementation project(':capacitor-status-bar')
-    implementation "com.android.support:support-v4:27.+"
+    implementation project(':capawesome-team-capacitor-file-opener')
+    implementation project(':capawesome-team-capacitor-nfc')
+
 }
 
 

@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: 14
-  JAVA_VERSION: 8
-  JAVA_DISTRIBUTION: "adopt"
-  RUBY_VERSION: 2.7
+  NODE_VERSION: 20
+  JAVA_VERSION: 17
+  JAVA_DISTRIBUTION: "zulu"
+  RUBY_VERSION: 3.1
 
 jobs:
   build-web:
@@ -15,17 +15,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Build web assets
-        run: npm run build -- --prod
+        run: npm run build -- --configuration production
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: www
           path: www
@@ -38,20 +40,22 @@ jobs:
       GRADLE_AAB_OUTPUT_DIR_PATH: ${{ steps.set-output.outputs.GRADLE_AAB_OUTPUT_DIR_PATH }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: www
           path: www
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up JDK ${{ env.JAVA_VERSION }}
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           distribution: ${{ env.JAVA_DISTRIBUTION }}
           java-version: ${{ env.JAVA_VERSION }}
@@ -73,10 +77,10 @@ jobs:
       - name: Set job outputs
         id: set-output
         run: |
-          echo "::set-output name=GRADLE_AAB_OUTPUT_FILE_PATH::${{ env.GRADLE_AAB_OUTPUT_FILE_PATH }}"
-          echo "::set-output name=GRADLE_AAB_OUTPUT_DIR_PATH::${{ env.GRADLE_AAB_OUTPUT_DIR_PATH }}"
+          echo "GRADLE_AAB_OUTPUT_FILE_PATH=${{ env.GRADLE_AAB_OUTPUT_FILE_PATH }}" >> $GITHUB_OUTPUT
+          echo "GRADLE_AAB_OUTPUT_DIR_PATH=${{ env.GRADLE_AAB_OUTPUT_DIR_PATH }}" >> $GITHUB_OUTPUT
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: android
           path: ${{ env.GRADLE_AAB_OUTPUT_FILE_PATH }}
@@ -89,16 +93,18 @@ jobs:
       IPA_OUTPUT_DIR_PATH: ${{ steps.set-output.outputs.IPA_OUTPUT_DIR_PATH }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: www
           path: www
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up Ruby ${{ env.RUBY_VERSION }} and install dependencies
@@ -120,10 +126,10 @@ jobs:
       - name: Set job outputs
         id: set-output
         run: |
-          echo "::set-output name=IPA_OUTPUT_FILE_PATH::${{ env.IPA_OUTPUT_FILE_PATH }}"
-          echo "::set-output name=IPA_OUTPUT_DIR_PATH::${{ env.IPA_OUTPUT_DIR_PATH }}"
+          echo "IPA_OUTPUT_FILE_PATH=${{ env.IPA_OUTPUT_FILE_PATH }}" >> $GITHUB_OUTPUT
+          echo "IPA_OUTPUT_DIR_PATH=${{ env.IPA_OUTPUT_DIR_PATH }}" >> $GITHUB_OUTPUT
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ios
           path: ${{ env.IPA_OUTPUT_FILE_PATH }}
@@ -137,9 +143,9 @@ jobs:
       SUPPLY_JSON_KEY_PATH: android/supply_key.json
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: android
           path: ${{ env.GRADLE_AAB_OUTPUT_DIR_PATH }}
@@ -162,9 +168,9 @@ jobs:
       APP_STORE_CONNECT_API_JSON_KEY_PATH: ios/connect_key.json
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: ios
           path: ${{ env.IPA_OUTPUT_DIR_PATH }}

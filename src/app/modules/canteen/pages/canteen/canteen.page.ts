@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   ApiCanteenService,
   DialogService,
@@ -8,7 +8,7 @@ import {
   StorageKey,
   StorageService,
 } from '@app/core';
-import { IonSlides } from '@ionic/angular';
+import { CanteenMenuPopoverComponent } from '../../components';
 
 @Component({
   selector: 'app-canteen',
@@ -21,7 +21,7 @@ export class CanteenPage implements OnInit {
   public segment: number = 0;
 
   @ViewChild('slides')
-  public slides: IonSlides | undefined;
+  public slidesElementRef: ElementRef | undefined;
 
   constructor(
     private readonly dialogService: DialogService,
@@ -35,12 +35,30 @@ export class CanteenPage implements OnInit {
     void this.initMensaPage();
   }
 
-  public async onSlideChange(): Promise<void> {
-    if (!this.slides) {
+  public async showMenuPopover(event: Event): Promise<void> {
+    await this.dialogService.showPopover({
+      component: CanteenMenuPopoverComponent,
+      event: event,
+    });
+  }
+
+  public async onSegmentChange(event: CustomEvent): Promise<void> {
+    const index: number = event.detail.value;
+    if (!this.slidesElementRef) {
       return;
     }
-    const activeIndex = await this.slides.getActiveIndex();
-    this.setSegment(activeIndex);
+    await this.slidesElementRef.nativeElement.swiper.slideTo(index);
+  }
+
+  public async onSlideChange(): Promise<void> {
+    if (!this.slidesElementRef) {
+      return;
+    }
+    const index: unknown = this.slidesElementRef.nativeElement.swiper.activeIndex;
+    if (typeof index !== 'number') {
+      return;
+    }
+    this.setSegment(index);
   }
 
   private async initMensaPage(): Promise<void> {
@@ -65,10 +83,10 @@ export class CanteenPage implements OnInit {
       if (storageData) {
         this.menus = storageData.cache;
       }
-      if (!this.menus) {
-        await this.showAlert();
-      } else {
+      if (this.menus) {
         await this.showToast();
+      } else {
+        await this.showAlert();
       }
     } finally {
       this.changeDetectorRef.markForCheck();
@@ -101,8 +119,6 @@ export class CanteenPage implements OnInit {
   private async showToast(): Promise<void> {
     await this.notificationService.showToast({
       message: 'Aktualisierung fehlgeschlagen!',
-      duration: 3000,
-      position: 'bottom',
     });
   }
 }

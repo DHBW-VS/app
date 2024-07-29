@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: 16
-  JAVA_VERSION: 11
-  JAVA_DISTRIBUTION: "adopt"
+  NODE_VERSION: 20
+  JAVA_VERSION: 17
+  JAVA_DISTRIBUTION: "zulu"
   RUBY_VERSION: 3.1
 
 jobs:
@@ -23,17 +23,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Build web assets
-        run: npm run build -- --prod
+        run: npm run build -- --configuration production
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: www
           path: www
@@ -43,20 +45,22 @@ jobs:
     needs: [build-web]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: www
           path: www
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up JDK ${{ env.JAVA_VERSION }}
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v4
         with:
           distribution: ${{ env.JAVA_DISTRIBUTION }}
           java-version: ${{ env.JAVA_VERSION }}
@@ -74,23 +78,25 @@ jobs:
           echo "${{ secrets.KEYSTORE_PROPERTIES_BASE64 }}" | base64 --decode > android/keystore.properties
           echo "${{ secrets.DHBW_VS_KEYSTORE_BASE64 }}" | base64 --decode > android/DHBW-VS.keystore
       - name: Build native platform
-        run: bundle exec fastlane android build release:false
+        run: bundle exec fastlane android build release:true
   build-ios:
     name: Build iOS platform
     runs-on: macos-latest
     needs: [build-web]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: www
           path: www
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up Ruby ${{ env.RUBY_VERSION }} and install dependencies
@@ -103,22 +109,24 @@ jobs:
       - name: Update native platform
         run: npx ionic capacitor update ios
       - name: Download iOS certificates and provisioning profiles
-        run: bundle exec fastlane ios sync_certificates type:development
+        run: bundle exec fastlane ios sync_certificates type:appstore
         env:
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       - name: Build native platform
-        run: bundle exec fastlane ios build release:false
+        run: bundle exec fastlane ios build release:true
   lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Run ESLint and Prettier
@@ -128,11 +136,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Run unit tests
@@ -142,17 +152,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - name: Set npm token
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Run end-to-end tests
         run: npm run e2e:ci
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: screenshots

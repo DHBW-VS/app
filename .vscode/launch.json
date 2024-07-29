@@ -30,8 +30,7 @@
         "ts-node/register",
         "${workspaceRoot}/node_modules/@angular/cli/bin/ng",
         "test",
-        "--",
-        "${fileBasenameNoExtension}"
+        "--test-path-pattern=${file}"
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",

@@ -50,10 +50,10 @@ export class ContactsPage implements OnInit {
       if (storageData) {
         this.contactGroups = storageData.cache;
       }
-      if (!this.contactGroups) {
-        await this.showAlert();
-      } else {
+      if (this.contactGroups) {
         await this.showToast('Aktualisierung fehlgeschlagen!');
+      } else {
+        await this.showAlert();
       }
     } finally {
       this.changeDetectorRef.markForCheck();
@@ -77,8 +77,6 @@ export class ContactsPage implements OnInit {
   private async showToast(message: string): Promise<void> {
     await this.notificationService.showToast({
       message: message,
-      duration: 3000,
-      position: 'bottom',
     });
   }
 

@@ -28,6 +28,30 @@ export class DialogService {
     return this.showAlert(options);
   }
 
+  public async showConfirmAlert(options?: AlertOptions): Promise<boolean> {
+    return new Promise<boolean>(resolve => {
+      const overrideOptions: AlertOptions = {
+        buttons: [
+          {
+            text: 'Abbrechen',
+            role: 'cancel',
+            handler: () => {
+              resolve(false);
+            },
+          },
+          {
+            text: 'Okay',
+            handler: () => {
+              resolve(true);
+            },
+          },
+        ],
+      };
+      options = { ...options, ...overrideOptions };
+      void this.showAlert(options);
+    });
+  }
+
   public async showModal(options: ModalOptions): Promise<HTMLIonModalElement> {
     const modal = await this.modalCtrl.create(options);
     await modal.present();
@@ -44,6 +68,10 @@ export class DialogService {
     return popover;
   }
 
+  public async dismissPopover(data?: any, role?: string, id?: string): Promise<boolean> {
+    return this.popoverCtrl.dismiss(data, role, id);
+  }
+
   public async showLoading(options?: LoadingOptions): Promise<HTMLIonLoadingElement> {
     const defaultOptions: LoadingOptions = {
       message: 'Bitte warten...',
@@ -52,5 +80,9 @@ export class DialogService {
     const loading = await this.loadingCtrl.create(options);
     await loading.present();
     return loading;
+  }
+
+  public async dismissLoading(data?: any, role?: string, id?: string): Promise<boolean> {
+    return this.loadingCtrl.dismiss(data, role, id);
   }
 }
