@@ -36,7 +36,7 @@
         </provider>
     </application>
 
-    <!-- Permissions -->
-
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- To get access to the NFC hardware. -->
+    <uses-permission android:name="android.permission.NFC" />
 </manifest>

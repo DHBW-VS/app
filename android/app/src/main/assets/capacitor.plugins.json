@@ -34,5 +34,9 @@
 	{
 		"pkg": "@capawesome-team/capacitor-file-opener",
 		"classpath": "io.capawesome.capacitorjs.plugins.fileopener.FileOpenerPlugin"
+	},
+	{
+		"pkg": "@capawesome-team/capacitor-nfc",
+		"classpath": "io.capawesome.capacitorjs.plugins.nfc.NfcPlugin"
 	}
 ]
