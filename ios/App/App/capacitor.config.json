@@ -19,5 +19,18 @@
 			"launchAutoHide": false,
 			"androidScaleType": "CENTER_CROP"
 		}
-	}
+	},
+	"packageClassList": [
+		"ActionSheetPlugin",
+		"AppPlugin",
+		"ClipboardPlugin",
+		"KeyboardPlugin",
+		"PreferencesPlugin",
+		"SharePlugin",
+		"SplashScreenPlugin",
+		"StatusBarPlugin",
+		"FileOpenerPlugin",
+		"NfcPlugin",
+		"CDVPlugin"
+	]
 }
