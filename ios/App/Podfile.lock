@@ -81,7 +81,7 @@ SPEC CHECKSUMS:
   CapacitorStatusBar: 2e4369f99166125435641b1908d05f561eaba6f6
   CapawesomeTeamCapacitorFileOpener: 3b92b7d407c6a85e241e77ff081f0dcc4beb86b3
   CapawesomeTeamCapacitorNfc: d1c1af83a57d1f385c221a50c894244e116c3160
-  CordovaPlugins: e46692a88b8b37ca8bd53ae20ee33bbcb18248cd
+  CordovaPlugins: 1a820855fc3c3adb569ae18eeacc30ab15f1fed8
 
 PODFILE CHECKSUM: baa07d86309c338c813d17409138037a1834285f
 
