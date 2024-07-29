@@ -1,28 +1,28 @@
 PODS:
-  - Capacitor (5.6.0):
+  - Capacitor (6.1.1):
     - CapacitorCordova
-  - CapacitorActionSheet (5.0.7):
+  - CapacitorActionSheet (6.0.1):
     - Capacitor
-  - CapacitorApp (5.0.7):
+  - CapacitorApp (6.0.0):
     - Capacitor
-  - CapacitorClipboard (5.0.7):
+  - CapacitorClipboard (6.0.0):
     - Capacitor
-  - CapacitorCordova (5.6.0)
-  - CapacitorKeyboard (5.0.8):
+  - CapacitorCordova (6.1.1)
+  - CapacitorKeyboard (6.0.1):
     - Capacitor
-  - CapacitorPreferences (5.0.7):
+  - CapacitorPreferences (6.0.1):
     - Capacitor
-  - CapacitorShare (5.0.7):
+  - CapacitorShare (6.0.1):
     - Capacitor
-  - CapacitorSplashScreen (5.0.7):
+  - CapacitorSplashScreen (6.0.1):
     - Capacitor
-  - CapacitorStatusBar (5.0.7):
+  - CapacitorStatusBar (6.0.0):
     - Capacitor
-  - CapawesomeTeamCapacitorFileOpener (5.0.4):
+  - CapawesomeTeamCapacitorFileOpener (6.1.0):
     - Capacitor
-  - CapawesomeTeamCapacitorNfc (5.1.0-dev.7d38c01.1709239536):
+  - CapawesomeTeamCapacitorNfc (6.2.0):
     - Capacitor
-  - CordovaPlugins (5.6.0):
+  - CordovaPlugins (6.1.1):
     - CapacitorCordova
 
 DEPENDENCIES:
@@ -69,19 +69,19 @@ EXTERNAL SOURCES:
     :path: "../capacitor-cordova-ios-plugins"
 
 SPEC CHECKSUMS:
-  Capacitor: ebfc16cdb8116d04c101686b080342872da42d43
-  CapacitorActionSheet: 8096e5cb8a3dfa89b03a40a62ea4836111263cb4
-  CapacitorApp: 17fecd0e6cb23feafac7eb0939417389038b0979
-  CapacitorClipboard: 45e5e25f2271f98712985d422776cdc5a779cca1
-  CapacitorCordova: 931b48fcdbc9bc985fc2f16cec9f77c794a27729
-  CapacitorKeyboard: aec619a578235c6ce279075009a2689c2cf5c42c
-  CapacitorPreferences: 77ac427e98db83bace772455f8ba447430382c4c
-  CapacitorShare: c6a1ebbf0114ff9e863b966cd6052678fa25d480
-  CapacitorSplashScreen: dd3de3f3644710fa2a697cfb91ec262eece4d242
-  CapacitorStatusBar: f390fbb49b82ffb754ea4b3cf71dc8b048baf3e7
-  CapawesomeTeamCapacitorFileOpener: a635d36c142c95018855c21c102da07eb88a4e1e
-  CapawesomeTeamCapacitorNfc: 62f7b56f556612e050d95a1be2d459c55b02eaa3
-  CordovaPlugins: 51a49218c1b6e2ae7d7f40efa9159eb978ddc888
+  Capacitor: 8941aba4364ba9d1b22188569001f2ce45cc2b00
+  CapacitorActionSheet: bff87d8384fd38918531ee839a2ec3c2be115f6a
+  CapacitorApp: 9d53aec7101f7b030a950c5bdc4df8612576b279
+  CapacitorClipboard: 80282f684154124b9019ebf401235b70b0cf4994
+  CapacitorCordova: 8f2cc8d8d3619c566e9418fe8772064a94266106
+  CapacitorKeyboard: 5f32a712adf41e07a61caafb82cf29fb6d8ba123
+  CapacitorPreferences: 72909b165bc7807103778ddbb86d5d8ce06abf71
+  CapacitorShare: 02222f2457ff003e642370a9c1ecd101baaa27c8
+  CapacitorSplashScreen: 61645214e8f955ff2b80f16a6a3648960fe4c89f
+  CapacitorStatusBar: 2e4369f99166125435641b1908d05f561eaba6f6
+  CapawesomeTeamCapacitorFileOpener: 3b92b7d407c6a85e241e77ff081f0dcc4beb86b3
+  CapawesomeTeamCapacitorNfc: d1c1af83a57d1f385c221a50c894244e116c3160
+  CordovaPlugins: e46692a88b8b37ca8bd53ae20ee33bbcb18248cd
 
 PODFILE CHECKSUM: baa07d86309c338c813d17409138037a1834285f
 

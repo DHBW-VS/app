@@ -6,7 +6,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     namespace "de.dhbw.vs.standortapp"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "de.dhbw.vs.standortapp"
         minSdkVersion rootProject.ext.minSdkVersion

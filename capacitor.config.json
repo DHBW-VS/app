@@ -5,6 +5,7 @@
   "webDir": "www",
   "npmClient": "npm",
   "server": {
+    "androidScheme": "http",
     "iosScheme": "ionic"
   },
   "cordova": {
