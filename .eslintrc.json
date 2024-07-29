@@ -59,7 +59,8 @@
             "allowList": {
               "changeDetectorRef": true,
               "iCalendarKey": true,
-              "iCalendarLink": true
+              "iCalendarLink": true,
+              "NativeHttpParams": true
             }
           }
         ],
