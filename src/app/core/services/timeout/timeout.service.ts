@@ -4,12 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TimeoutService {
-  public timeout<T>(callback: () => T, timeoutMs: number): Promise<T> {
+  public timeout(ms: number): Promise<void> {
     return new Promise(resolve => {
-      setTimeout(() => {
-        const result = callback();
-        resolve(result);
-      }, timeoutMs);
+      setTimeout(() => resolve(), ms);
     });
   }
 }

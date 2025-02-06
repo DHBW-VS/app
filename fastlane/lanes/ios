@@ -22,6 +22,15 @@ platform :ios do
   lane :build do |options|
     configuration = (options[:release] ? "Release" : "Debug")
     export_method = (options[:release] ? "app-store" : "development")
+    app_identifier = get_info_plist_value(path: "ios/App/App/Info.plist", key: "CFBundleIdentifier")
+    # Disable automatic code signing to avoid issues with wrong provisioning profiles
+    automatic_code_signing(
+      code_sign_identity: options[:release] ? "iPhone Distribution" : "iPhone Developer",
+      path: "ios/App/App.xcodeproj",
+      profile_name: "match #{options[:release] ? "AppStore" : "Development"} #{app_identifier}",
+      use_automatic_signing: false
+    )
+    # Build the app
     build_app(
       clean: true,
       scheme: "App",
@@ -29,6 +38,12 @@ platform :ios do
       workspace: "ios/App/App.xcworkspace",
       export_method: export_method,
       output_directory: "./ios/App/build"
+    )
+    # Enable automatic code signing again
+    automatic_code_signing(
+      path: "ios/App/App.xcodeproj",
+      profile_name: "",
+      use_automatic_signing: true
     )
     ENV['IPA_OUTPUT_PATH'] = lane_context[SharedValues::IPA_OUTPUT_PATH].to_s
     ENV['PKG_OUTPUT_PATH'] = lane_context[SharedValues::PKG_OUTPUT_PATH].to_s

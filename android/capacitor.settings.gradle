@@ -31,3 +31,6 @@ project(':capawesome-team-capacitor-file-opener').projectDir = new File('../node
 
 include ':capawesome-team-capacitor-nfc'
 project(':capawesome-team-capacitor-nfc').projectDir = new File('../node_modules/@capawesome-team/capacitor-nfc/android')
+
+include ':capawesome-capacitor-android-edge-to-edge-support'
+project(':capawesome-capacitor-android-edge-to-edge-support').projectDir = new File('../node_modules/@capawesome/capacitor-android-edge-to-edge-support/android')

@@ -38,5 +38,9 @@
 	{
 		"pkg": "@capawesome-team/capacitor-nfc",
 		"classpath": "io.capawesome.capacitorjs.plugins.nfc.NfcPlugin"
+	},
+	{
+		"pkg": "@capawesome/capacitor-android-edge-to-edge-support",
+		"classpath": "io.capawesome.capacitorjs.plugins.androidedgetoedgesupport.EdgeToEdgePlugin"
 	}
 ]

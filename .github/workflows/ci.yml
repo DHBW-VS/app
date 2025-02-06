@@ -13,7 +13,7 @@ on:
 
 env:
   NODE_VERSION: 20
-  JAVA_VERSION: 17
+  JAVA_VERSION: 21
   JAVA_DISTRIBUTION: "zulu"
   RUBY_VERSION: 3.1
 
@@ -41,7 +41,7 @@ jobs:
           path: www
   build-android:
     name: Build Android platform
-    runs-on: macos-latest
+    runs-on: macos-15
     needs: [build-web]
     steps:
       - name: Checkout
@@ -81,7 +81,7 @@ jobs:
         run: bundle exec fastlane android build release:true
   build-ios:
     name: Build iOS platform
-    runs-on: macos-latest
+    runs-on: macos-15
     needs: [build-web]
     steps:
       - name: Checkout
