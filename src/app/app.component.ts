@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { Capacitor } from '@capacitor/core';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar, Style } from '@capacitor/status-bar';
-import { MenuController, Platform } from '@ionic/angular';
-import { CapacitorAppService } from './core';
+import { MenuController } from '@ionic/angular';
+import { CapacitorAppService, TimeoutService } from './core';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,8 @@ import { CapacitorAppService } from './core';
 })
 export class AppComponent {
   constructor(
-    private readonly platform: Platform,
     private readonly menuController: MenuController,
+    private readonly timeoutService: TimeoutService,
     // Do NOT remove the following services:
     private readonly capacitorAppService: CapacitorAppService,
   ) {
@@ -28,24 +29,19 @@ export class AppComponent {
   }
 
   private async initializeApp(): Promise<void> {
-    await this.platform.ready();
-    const isCapacitor = this.platform.is('capacitor');
-    if (isCapacitor) {
-      const statusBarPromise = this.configureStatusBar();
-      const splashScreenPromise = this.hideSplashScreen();
-      await Promise.all([statusBarPromise, splashScreenPromise]);
+    const isNativePlatform = Capacitor.isNativePlatform();
+    if (isNativePlatform) {
+      await this.hideSplashScreen();
+      await this.timeoutService.timeout(500);
+      await this.configureStatusBar();
     }
   }
 
   private async configureStatusBar(): Promise<void> {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    const color = prefersDark.matches ? '#000000' : '#e2001a';
-    const isAndroid = this.platform.is('android');
+    const isAndroid = Capacitor.getPlatform() === 'android';
     if (isAndroid) {
-      await StatusBar.setOverlaysWebView({ overlay: false });
-      await StatusBar.setBackgroundColor({ color });
+      await StatusBar.setStyle({ style: Style.Light });
     }
-    await StatusBar.setStyle({ style: Style.Dark });
   }
 
   private hideSplashScreen(): Promise<void> {

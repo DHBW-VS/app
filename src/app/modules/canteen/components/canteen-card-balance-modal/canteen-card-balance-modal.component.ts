@@ -55,7 +55,8 @@ export class CanteenCardBalanceModalComponent {
        * The error dialog is not consistently presented and you had to interact
        * with the page first (e.g. by random click) for the alert to show up.
        */
-      await this.timeoutService.timeout(() => this.changeDetectorRef.detectChanges(), 1);
+      await this.timeoutService.timeout(1);
+      this.changeDetectorRef.detectChanges();
       this.isScanSessionActive.set(false);
     }
     await this.showScanSessionAlert();

@@ -22,7 +22,7 @@ PODS:
     - Capacitor
   - CapawesomeTeamCapacitorNfc (6.2.0):
     - Capacitor
-  - CordovaPlugins (6.1.1):
+  - CordovaPlugins (7.0.1):
     - CapacitorCordova
 
 DEPENDENCIES:
@@ -69,20 +69,20 @@ EXTERNAL SOURCES:
     :path: "../capacitor-cordova-ios-plugins"
 
 SPEC CHECKSUMS:
-  Capacitor: 8941aba4364ba9d1b22188569001f2ce45cc2b00
-  CapacitorActionSheet: bff87d8384fd38918531ee839a2ec3c2be115f6a
-  CapacitorApp: 9d53aec7101f7b030a950c5bdc4df8612576b279
-  CapacitorClipboard: 80282f684154124b9019ebf401235b70b0cf4994
+  Capacitor: 7b38922425a542e0b5936c8f72ea89d876dd4df1
+  CapacitorActionSheet: 75079ad8ca24d8a4a7ccd5bdbff661003b74619d
+  CapacitorApp: 30145f2ea2311e4f3744472119ec87d2ddf4c0a7
+  CapacitorClipboard: c1cb27fea166aab5c99bda605d3bc768cf00eabe
   CapacitorCordova: 8f2cc8d8d3619c566e9418fe8772064a94266106
-  CapacitorKeyboard: 5f32a712adf41e07a61caafb82cf29fb6d8ba123
-  CapacitorPreferences: 72909b165bc7807103778ddbb86d5d8ce06abf71
-  CapacitorShare: 02222f2457ff003e642370a9c1ecd101baaa27c8
-  CapacitorSplashScreen: 61645214e8f955ff2b80f16a6a3648960fe4c89f
-  CapacitorStatusBar: 2e4369f99166125435641b1908d05f561eaba6f6
-  CapawesomeTeamCapacitorFileOpener: 3b92b7d407c6a85e241e77ff081f0dcc4beb86b3
-  CapawesomeTeamCapacitorNfc: d1c1af83a57d1f385c221a50c894244e116c3160
-  CordovaPlugins: e46692a88b8b37ca8bd53ae20ee33bbcb18248cd
+  CapacitorKeyboard: f38d730356be5569d72eb87ad9c8166947728c36
+  CapacitorPreferences: 97d529423bb7c1196455e9a1b6dd1074625c78bd
+  CapacitorShare: ec1bcbc16696696133740ac876192c0480ca3018
+  CapacitorSplashScreen: d2d8fe9541d7bebdf735839b89edf6e762cea969
+  CapacitorStatusBar: 129c68650d3f950e080e8e7e03d69c3b361dbe52
+  CapawesomeTeamCapacitorFileOpener: e72b2b08befc2d3103266596a109900e882cf40a
+  CapawesomeTeamCapacitorNfc: aae9e9c67e3c67df5340619ed56cd88497b507e8
+  CordovaPlugins: 943c587bc074c1f98000ba11dad21429b0ccb475
 
-PODFILE CHECKSUM: baa07d86309c338c813d17409138037a1834285f
+PODFILE CHECKSUM: 9c87d66ece9290cbbd7295121eb5a40a2942d079
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
