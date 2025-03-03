@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar, Style } from '@capacitor/status-bar';
-import { EdgeToEdge } from '@capawesome/capacitor-android-edge-to-edge-support';
 import { MenuController } from '@ionic/angular';
 import { CapacitorAppService, TimeoutService } from './core';
 
@@ -33,7 +32,6 @@ export class AppComponent {
     const isNativePlatform = Capacitor.isNativePlatform();
     if (isNativePlatform) {
       await SplashScreen.hide();
-      await EdgeToEdge.setBackgroundColor({ color: '#e2001a' });
       // We need to add a timeout since `SplashScreen.hide()` resolves
       // before the splash screen is actually hidden.
       await this.timeoutService.timeout(500);

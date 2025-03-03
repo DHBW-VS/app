@@ -14,6 +14,9 @@
     }
   },
   "plugins": {
+    "EdgeToEdge": {
+      "backgroundColor": "#e2001a"
+    },
     "SplashScreen": {
       "showSpinner": false,
       "splashFullScreen": true,

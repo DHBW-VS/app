@@ -44,7 +44,7 @@
     "@capacitor/status-bar": "7.0.0",
     "@capawesome-team/capacitor-file-opener": "7.0.0",
     "@capawesome-team/capacitor-nfc": "7.0.2",
-    "@capawesome/capacitor-android-edge-to-edge-support": "7.0.0",
+    "@capawesome/capacitor-android-edge-to-edge-support": "7.1.0",
     "@fortawesome/angular-fontawesome": "0.14.1",
     "@fortawesome/fontawesome-svg-core": "6.5.1",
     "@fortawesome/free-brands-svg-icons": "6.5.1",
