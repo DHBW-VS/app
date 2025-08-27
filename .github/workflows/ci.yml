@@ -104,6 +104,10 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
       - name: Copy web assets to native platform
         run: npx ionic capacitor copy ios --no-build
       - name: Update native platform
