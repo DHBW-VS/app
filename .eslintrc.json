@@ -1,6 +1,7 @@
 {
   "root": true,
   "ignorePatterns": [
+    "cypress/**/*",
     "projects/**/*"
   ],
   "overrides": [

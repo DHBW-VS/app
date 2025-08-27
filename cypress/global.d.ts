@@ -5,22 +5,22 @@ declare namespace Cypress {
     /**
      * yields elements with a `data-cy` attribute that **match** a specified selector.
      */
-    getBySel(dataTestAttribute: string, args?: any): Chainable<Element>;
+    getBySel(dataTestAttribute: string, ...args: any[]): Chainable<JQuery<HTMLElement>>;
     /**
      * yields elements with a `data-cy` attribute that **contains** a specified selector.
      */
-    getBySelLike(dataTestPrefixAttribute: string, args?: any): Chainable<Element>;
+    getBySelLike(dataTestPrefixAttribute: string, ...args: any[]): Chainable<JQuery<HTMLElement>>;
     /**
      * Save current state of local storage.
      */
-    saveLocalStorage(): Chainable<Element>;
+    saveLocalStorage(): Chainable<void>;
     /**
      * Restore last saved state of local storage.
      */
-    restoreLocalStorage(): Chainable<Element>;
+    restoreLocalStorage(): Chainable<void>;
     /**
      * Login with demo user.
      */
-    login(): Chainable<Element>;
+    login(): Chainable<void>;
   }
 }
