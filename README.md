@@ -51,20 +51,26 @@ cd app
 
 Install all dependencies:
 
-```
+```bash
 npm i
+```
+
+Build the web assets:
+
+```bash
+npm run build
 ```
 
 Prepare and launch the Android app:
 
-```
+```bash
 npx ionic cap sync android
 npx ionic cap run android --open --external -l
 ```
 
 Prepare and launch the iOS app:
 
-```
+```bash
 npx ionic cap sync ios
 npx ionic cap run ios --open --external -l
 ```
