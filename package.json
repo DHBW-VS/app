@@ -90,6 +90,7 @@
     "@angular/compiler-cli": "17.1.1",
     "@angular/language-service": "17.1.1",
     "@capacitor/cli": "7.0.0",
+    "@capawesome/capver": "0.0.5",
     "@cypress/schematic": "2.5.1",
     "@ionic/angular-toolkit": "11.0.1",
     "@ionic/cli": "7.2.0",
@@ -124,6 +125,9 @@
   "bugs": {
     "url": "https://github.com/dhbw-vs/app/issues"
   },
+  "capver": {
+    "pattern": "MMmmpp"
+  },
   "cordova": {
     "plugins": {
       "cordova-plugin-file": {},
@@ -134,7 +138,7 @@
   },
   "standard-version": {
     "scripts": {
-      "postbump": "node scripts/bump-native-versions.js && git add android/app/build.gradle ios/App/App/Info.plist"
+      "postbump": "npx @capawesome/capver set $npm_package_version"
     }
   },
   "elf": {
