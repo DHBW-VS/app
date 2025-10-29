@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Set npm token
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+        run: echo "//npm.registry.capawesome.io/:_authToken=${{ secrets.CAPAWESOME_NPM_REGISTRY_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Build web assets
@@ -51,7 +51,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Set npm token
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+        run: echo "//npm.registry.capawesome.io/:_authToken=${{ secrets.CAPAWESOME_NPM_REGISTRY_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -104,7 +104,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Set npm token
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+        run: echo "//npm.registry.capawesome.io/:_authToken=${{ secrets.CAPAWESOME_NPM_REGISTRY_TOKEN }}" >> .npmrc
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up Ruby ${{ env.RUBY_VERSION }} and install dependencies

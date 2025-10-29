@@ -1,2 +1,3 @@
 save-exact=true
 @capawesome-team:registry=https://npm.registry.capawesome.io
+//npm.registry.capawesome.io/:_authToken=${CAPAWESOME_NPM_REGISTRY_TOKEN}
