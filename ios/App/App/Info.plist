@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-  <string>6.0.0</string>
+	<string>6.0.1</string>
 	<key>CFBundleVersion</key>
-  <string>6.0.0</string>
+	<string>60001</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -45,8 +45,8 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-  <key>NFCReaderUsageDescription</key>
-  <string>The app enables the reading and writing of various NFC tags.</string>
+	<key>NFCReaderUsageDescription</key>
+	<string>The app enables the reading and writing of various NFC tags.</string>
 	<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
 	<array>
 		<string>D2760000850100</string>
