@@ -138,7 +138,7 @@
   },
   "standard-version": {
     "scripts": {
-      "postbump": "npx @capawesome/capver set $npm_package_version"
+      "postbump": "npx @capawesome/capver set $(node -p \"require('./package.json').version\")"
     }
   },
   "elf": {
