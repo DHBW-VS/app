@@ -10,7 +10,7 @@
   },
   "cordova": {
     "preferences": {
-      "android-minSdkVersion": "19"
+      "android-minSdkVersion": "24"
     }
   },
   "plugins": {

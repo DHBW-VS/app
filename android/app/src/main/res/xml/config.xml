@@ -12,5 +12,5 @@
   </feature>
 
   
-  <preference name="android-minSdkVersion" value="19" />
+  <preference name="android-minSdkVersion" value="24" />
 </widget>
