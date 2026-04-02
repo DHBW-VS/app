@@ -4,11 +4,12 @@ on:
   workflow_dispatch:
 
 env:
+  CAPAWESOME_CLI_VERSION: 4.6.0
   NODE_VERSION: 22
 
 jobs:
-  release:
-    name: Release
+  release-android:
+    name: Release Android
     runs-on: ubuntu-latest
     steps:
       - name: Set up Node.js ${{ env.NODE_VERSION }}
@@ -16,10 +17,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Authenticate with Capawesome Cloud
-        run: npx @capawesome/cli login --token ${{ secrets.CAPAWESOME_CLOUD_TOKEN }}
+        run: npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} login --token ${{ secrets.CAPAWESOME_CLOUD_TOKEN }}
       - name: Build and deploy Android
         run: |
-          npx @capawesome/cli apps:builds:create \
+          npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
             --app-id ${{ secrets.CAPAWESOME_CLOUD_APP_ID }} \
             --platform android \
             --type release \
@@ -27,9 +28,19 @@ jobs:
             --certificate "Production" \
             --destination "Play Store" \
             --yes
+  release-ios:
+    name: Release iOS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Authenticate with Capawesome Cloud
+        run: npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} login --token ${{ secrets.CAPAWESOME_CLOUD_TOKEN }}
       - name: Build and deploy iOS
         run: |
-          npx @capawesome/cli apps:builds:create \
+          npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
             --app-id ${{ secrets.CAPAWESOME_CLOUD_APP_ID }} \
             --platform ios \
             --type app-store \
