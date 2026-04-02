@@ -91,7 +91,7 @@
     "@angular/compiler-cli": "17.1.1",
     "@angular/language-service": "17.1.1",
     "@capacitor/cli": "8.2.0",
-    "@capawesome/capver": "0.0.5",
+    "@capawesome/capver": "0.1.2",
     "@cypress/schematic": "2.5.1",
     "@ionic/angular-toolkit": "11.0.1",
     "@ionic/cli": "7.2.0",
