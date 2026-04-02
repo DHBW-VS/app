@@ -33,7 +33,7 @@ jobs:
             --type release \
             --git-ref ${{ github.sha }} \
             --certificate "Production" \
-            --detached --yes
+            --yes
       - name: Build iOS
         run: |
           npx @capawesome/cli apps:builds:create \
@@ -42,7 +42,7 @@ jobs:
             --type app-store \
             --git-ref ${{ github.sha }} \
             --certificate "Production" \
-            --detached --yes
+            --yes
   lint:
     name: Lint
     runs-on: ubuntu-latest

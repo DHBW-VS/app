@@ -1,0 +1,11 @@
+{
+  "files.insertFinalNewline": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "search.exclude": {
+    ".agents": true,
+    ".claude": true
+  }
+}
