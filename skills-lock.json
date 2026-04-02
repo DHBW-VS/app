@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "capacitor-angular": {
+      "source": "capawesome-team/skills",
+      "sourceType": "github",
+      "computedHash": "e12f29257ebfb8cff20972ce3edcf67a848222b5d8a5e6bffcef075d8d7a2a95"
+    },
+    "capacitor-app-development": {
+      "source": "capawesome-team/skills",
+      "sourceType": "github",
+      "computedHash": "ff7e606caf834b8b08c9c3fc208bac5e5e6dbc9d2d5006cc79297676d2cdde47"
+    },
+    "capacitor-plugins": {
+      "source": "capawesome-team/skills",
+      "sourceType": "github",
+      "computedHash": "5536af17c8ceb05cfc312c46791ba74221a2209263455666d7ae20d5294dc9be"
+    },
+    "capawesome-cli": {
+      "source": "capawesome-team/skills",
+      "sourceType": "github",
+      "computedHash": "a900fe31f20a62fb5dc31d1309962c4cc4290a0527604e6439b7029572cad58a"
+    },
+    "capawesome-cloud": {
+      "source": "capawesome-team/skills",
+      "sourceType": "github",
+      "computedHash": "e71fcd9780ec7f52fa60777288cf18b73a648d77e1698fcf629e55c2686924ca"
+    },
+    "ionic-angular": {
+      "source": "capawesome-team/skills",
+      "sourceType": "github",
+      "computedHash": "44351bf5dfe0a89334749dafe9f94de416a583f8fb6d5480b83a42dc4755e016"
+    }
+  }
+}
