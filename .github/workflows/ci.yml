@@ -32,7 +32,7 @@ jobs:
             --app-id ${{ secrets.CAPAWESOME_CLOUD_APP_ID }} \
             --platform android \
             --type release \
-            --git-ref ${{ github.sha }} \
+            --git-ref ${{ github.event.pull_request.head.sha || github.sha }} \
             --certificate "Production" \
             --yes
   build-ios:
@@ -51,7 +51,7 @@ jobs:
             --app-id ${{ secrets.CAPAWESOME_CLOUD_APP_ID }} \
             --platform ios \
             --type app-store \
-            --git-ref ${{ github.sha }} \
+            --git-ref ${{ github.event.pull_request.head.sha || github.sha }} \
             --certificate "Production" \
             --yes
   lint:
