@@ -1,6 +1,0 @@
-# Android
-package_name("de.dhbw.vs.standortapp")
-
-# iOS
-app_identifier("de.dhbw.vs.standortapp")
-itc_team_id("122714059")

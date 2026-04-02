@@ -19,7 +19,8 @@
     "prettier": "prettier \"{src,e2e/src}/**/*.{css,scss,html,ts,js}\"",
     "cypress:open": "ng run app:cypress-open",
     "cypress:run": "ng run app:cypress-run",
-    "release": "standard-version --commit-all"
+    "release": "standard-version --commit-all",
+    "capawesome:build": "npm run build -- --configuration production"
   },
   "dependencies": {
     "@angular/common": "17.1.1",
