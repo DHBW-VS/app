@@ -16,8 +16,9 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-label>Vorlesungsplan auswählen</ion-label>
           <ion-select
+            label="Vorlesungsplan auswählen"
+            labelPlacement="floating"
             [interfaceOptions]="timetableSelection"
             [(ngModel)]="selectedTimetable"
             okText="Ok"

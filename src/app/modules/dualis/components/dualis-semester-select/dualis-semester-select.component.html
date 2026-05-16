@@ -1,7 +1,12 @@
 @if (semesterList && semesterList.length > 0) {
   <ion-item>
-    <ion-label>Semester auswählen</ion-label>
-    <ion-select (ionChange)="onSemesterSelect($any($event))" okText="OK" cancelText="Abbrechen">
+    <ion-select
+      label="Semester auswählen"
+      labelPlacement="floating"
+      (ionChange)="onSemesterSelect($any($event))"
+      okText="OK"
+      cancelText="Abbrechen"
+    >
       @for (semester of semesterList; track semester) {
         <ion-select-option [value]="semester">{{ semester.displayName }}</ion-select-option>
       }
