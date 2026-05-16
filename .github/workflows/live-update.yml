@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       channel:
-        description: 'Channel name to deploy the live update to'
+        description: "Channel name"
         required: true
         type: string
 
