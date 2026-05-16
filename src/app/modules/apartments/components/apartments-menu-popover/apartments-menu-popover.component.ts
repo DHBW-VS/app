@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-    selector: 'app-apartments-menu-popover',
-    templateUrl: './apartments-menu-popover.component.html',
-    styleUrls: ['./apartments-menu-popover.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-apartments-menu-popover',
+  templateUrl: './apartments-menu-popover.component.html',
+  styleUrls: ['./apartments-menu-popover.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ApartmentsMenuPopoverComponent {
   constructor() {}

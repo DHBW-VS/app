@@ -10,9 +10,9 @@ describe('DualisAuthService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-});
+      imports: [],
+      providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()],
+    });
 
     service = TestBed.inject(DualisAuthService);
     httpTestingController = TestBed.inject(HttpTestingController);

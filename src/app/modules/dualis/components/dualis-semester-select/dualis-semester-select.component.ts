@@ -3,11 +3,11 @@ import { SelectChangeEventDetail } from '@ionic/core';
 import { DualisSemesterList, DualisSemesterListItem } from '../../interfaces';
 
 @Component({
-    selector: 'app-dualis-semester-select',
-    templateUrl: './dualis-semester-select.component.html',
-    styleUrls: ['./dualis-semester-select.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-dualis-semester-select',
+  templateUrl: './dualis-semester-select.component.html',
+  styleUrls: ['./dualis-semester-select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class DualisSemesterSelectComponent {
   @Input()

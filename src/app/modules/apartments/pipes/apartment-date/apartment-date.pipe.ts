@@ -2,8 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { format, parse } from 'date-fns';
 
 @Pipe({
-    name: 'apartmentDate',
-    standalone: false
+  name: 'apartmentDate',
+  standalone: false,
 })
 export class ApartmentDatePipe implements PipeTransform {
   public transform(value: string): string {

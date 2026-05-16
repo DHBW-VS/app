@@ -11,11 +11,11 @@ import {
 import { MoodleNewsModalComponent } from '../moodle-news-modal/moodle-news-modal.component';
 
 @Component({
-    selector: 'app-moodle-news-card',
-    templateUrl: './moodle-news-card.component.html',
-    styleUrls: ['./moodle-news-card.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-moodle-news-card',
+  templateUrl: './moodle-news-card.component.html',
+  styleUrls: ['./moodle-news-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class MoodleNewsCardComponent implements OnInit {
   public moodleNews: IMoodleNews[] | undefined;

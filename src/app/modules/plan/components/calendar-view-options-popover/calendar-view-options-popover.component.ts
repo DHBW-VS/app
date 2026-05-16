@@ -3,11 +3,11 @@ import { DialogService } from '@app/core';
 import { CalendarView } from '../calendar/calendar.component';
 
 @Component({
-    selector: 'app-calendar-view-options-popover',
-    templateUrl: './calendar-view-options-popover.component.html',
-    styleUrls: ['./calendar-view-options-popover.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-calendar-view-options-popover',
+  templateUrl: './calendar-view-options-popover.component.html',
+  styleUrls: ['./calendar-view-options-popover.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CalendarViewOptionsPopoverComponent {
   @Input()

@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { DialogService, IMoodleNews, IMoodleNewsAttachment } from '@app/core';
 
 @Component({
-    selector: 'app-moodle-news-modal',
-    templateUrl: './moodle-news-modal.component.html',
-    styleUrls: ['./moodle-news-modal.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-moodle-news-modal',
+  templateUrl: './moodle-news-modal.component.html',
+  styleUrls: ['./moodle-news-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class MoodleNewsModalComponent {
   @Input()

@@ -3,11 +3,11 @@ import { DialogService } from '@app/core';
 import { CanteenCardBalanceModalComponent } from '../canteen-card-balance-modal/canteen-card-balance-modal.component';
 
 @Component({
-    selector: 'app-canteen-menu-popover',
-    templateUrl: './canteen-menu-popover.component.html',
-    styleUrls: ['./canteen-menu-popover.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-canteen-menu-popover',
+  templateUrl: './canteen-menu-popover.component.html',
+  styleUrls: ['./canteen-menu-popover.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CanteenMenuPopoverComponent {
   constructor(private readonly dialogService: DialogService) {}

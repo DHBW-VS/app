@@ -16,11 +16,11 @@ interface IApartmentsPageData {
 }
 
 @Component({
-    selector: 'app-apartments',
-    templateUrl: './apartments.page.html',
-    styleUrls: ['./apartments.page.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-apartments',
+  templateUrl: './apartments.page.html',
+  styleUrls: ['./apartments.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ApartmentsPage implements OnInit {
   public apartments: IApartmentsPageData | undefined;

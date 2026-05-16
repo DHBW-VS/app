@@ -26,14 +26,14 @@ describe('DualisPageService', () => {
     });
 
     TestBed.configureTestingModule({
-    imports: [],
-    providers: [
+      imports: [],
+      providers: [
         { provide: DualisHtmlParserService, useValue: dualisHtmlParserServiceSpy },
         { provide: DualisAuthService, useValue: dualisAuthServiceSpy },
         provideHttpClient(withInterceptorsFromDi()),
         provideHttpClientTesting(),
-    ]
-});
+      ],
+    });
 
     service = TestBed.inject(DualisPageService);
     httpTestingController = TestBed.inject(HttpTestingController);

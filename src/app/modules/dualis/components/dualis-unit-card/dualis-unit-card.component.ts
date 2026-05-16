@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { DualisUnit } from '../../interfaces';
 
 @Component({
-    selector: 'app-dualis-unit-card',
-    templateUrl: './dualis-unit-card.component.html',
-    styleUrls: ['./dualis-unit-card.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-dualis-unit-card',
+  templateUrl: './dualis-unit-card.component.html',
+  styleUrls: ['./dualis-unit-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class DualisUnitCardComponent {
   @Input()

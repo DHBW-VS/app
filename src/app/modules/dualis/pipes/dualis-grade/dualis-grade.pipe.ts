@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'dualisGrade',
-    standalone: false
+  name: 'dualisGrade',
+  standalone: false,
 })
 export class DualisGradePipe implements PipeTransform {
   public transform(value: string, ...arguments_: unknown[]): string {

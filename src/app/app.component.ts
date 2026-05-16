@@ -6,10 +6,10 @@ import { MenuController } from '@ionic/angular';
 import { CapacitorAppService, TimeoutService } from './core';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: 'app.component.html',
-    styleUrls: ['app.component.scss'],
-    standalone: false
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
+  standalone: false,
 })
 export class AppComponent {
   constructor(

@@ -17,23 +17,29 @@ registerLocaleData(localeDe);
 
 registerSwiper();
 
-@NgModule({ declarations: [AppComponent],
-    bootstrap: [AppComponent], imports: [CoreModule,
-        SharedModule,
-        BrowserModule,
-        IonicModule.forRoot({
-            backButtonText: isPlatform('ios') ? 'Zurück' : '',
-            backButtonDefaultHref: '/dashboard',
-        }),
-        AppRoutingModule], providers: [
-        File,
-        HTTP,
-        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-        {
-            provide: ErrorHandler,
-            useClass: GlobalErrorHandlerService,
-        },
-        { provide: LOCALE_ID, useValue: 'de-DE' },
-        provideHttpClient(withInterceptorsFromDi()),
-    ] })
+@NgModule({
+  declarations: [AppComponent],
+  bootstrap: [AppComponent],
+  imports: [
+    CoreModule,
+    SharedModule,
+    BrowserModule,
+    IonicModule.forRoot({
+      backButtonText: isPlatform('ios') ? 'Zurück' : '',
+      backButtonDefaultHref: '/dashboard',
+    }),
+    AppRoutingModule,
+  ],
+  providers: [
+    File,
+    HTTP,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService,
+    },
+    { provide: LOCALE_ID, useValue: 'de-DE' },
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
+})
 export class AppModule {}

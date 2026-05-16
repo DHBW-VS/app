@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ICanteenDish } from '@app/core';
 
 @Component({
-    selector: 'app-canteen-dish-card',
-    templateUrl: './canteen-dish-card.component.html',
-    styleUrls: ['./canteen-dish-card.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-canteen-dish-card',
+  templateUrl: './canteen-dish-card.component.html',
+  styleUrls: ['./canteen-dish-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CanteenDishCardComponent {
   @Input()

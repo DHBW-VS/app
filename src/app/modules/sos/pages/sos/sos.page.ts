@@ -4,11 +4,11 @@ import { NotificationService } from '@app/core';
 import { Clipboard } from '@capacitor/clipboard';
 
 @Component({
-    selector: 'app-sos',
-    templateUrl: './sos.page.html',
-    styleUrls: ['./sos.page.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-sos',
+  templateUrl: './sos.page.html',
+  styleUrls: ['./sos.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class SosPage {
   public sosMoreInformationLink: string;

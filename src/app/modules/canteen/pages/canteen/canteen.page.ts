@@ -11,11 +11,11 @@ import {
 import { CanteenMenuPopoverComponent } from '../../components';
 
 @Component({
-    selector: 'app-canteen',
-    templateUrl: './canteen.page.html',
-    styleUrls: ['./canteen.page.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-canteen',
+  templateUrl: './canteen.page.html',
+  styleUrls: ['./canteen.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CanteenPage implements OnInit {
   public menus: ICanteenMenu[] | undefined;
