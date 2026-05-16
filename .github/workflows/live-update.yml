@@ -24,6 +24,14 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Authenticate with Capawesome Cloud
         run: npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} login --token ${{ secrets.CAPAWESOME_CLOUD_TOKEN }}
+      - name: Create channel
+        env:
+          CHANNEL: ${{ inputs.channel }}
+        run: |
+          npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:channels:create \
+            --app-id ${{ env.CAPAWESOME_CLOUD_APP_ID }} \
+            --name "$CHANNEL" \
+            --ignore-errors
       - name: Build and deploy live update
         env:
           CHANNEL: ${{ inputs.channel }}
