@@ -126,7 +126,7 @@ describe('CanteenPage', () => {
 
   it('should scroll to the last dish card', () => {
     cy.get('swiper-slide').first().find('app-canteen-dish-card').last().should('not.be.visible');
-    cy.get('app-canteen ion-content').shadow().find('main').scrollTo('bottom');
+    cy.get('app-canteen ion-content').shadow().find('[part="scroll"]').scrollTo('bottom');
     cy.get('swiper-slide').first().find('app-canteen-dish-card').last().should('be.visible');
   });
 });
