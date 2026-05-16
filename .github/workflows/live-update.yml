@@ -25,10 +25,12 @@ jobs:
       - name: Authenticate with Capawesome Cloud
         run: npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} login --token ${{ secrets.CAPAWESOME_CLOUD_TOKEN }}
       - name: Build and deploy live update
+        env:
+          CHANNEL: ${{ inputs.channel }}
         run: |
           npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
             --app-id ${{ env.CAPAWESOME_CLOUD_APP_ID }} \
             --platform web \
-            --channel "${{ inputs.channel }}" \
+            --channel "$CHANNEL" \
             --git-ref ${{ github.sha }} \
             --yes

@@ -43,7 +43,7 @@ export class AppComponent {
       }
       const confirmed = await this.dialogService.showConfirmAlert({
         header: 'Update verfügbar',
-        message: 'Eine neue Version der App ist verfügbar. Möchten Sie das Update jetzt installieren?',
+        message: 'Eine neue Version der App ist verfügbar. Möchtest du das Update jetzt installieren?',
       });
       if (confirmed) {
         await this.capacitorLiveUpdateService.reload();
