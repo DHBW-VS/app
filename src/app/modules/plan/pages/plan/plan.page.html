@@ -8,7 +8,8 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card *ngIf="timetableList && timetableList.length > 0">
+  @if (timetableList && timetableList.length > 0) {
+  <ion-card>
     <ion-card-header>
       <ion-card-title data-cy="plan-page-timetable-card-title">Vorlesungsplan</ion-card-title>
     </ion-card-header>
@@ -23,9 +24,9 @@
             cancelText="Abbrechen"
             data-cy="plan-page-plan-select"
           >
-            <ion-select-option value="{{ timetable.id }}" *ngFor="let timetable of timetableList"
-              >{{ timetable.filename }}</ion-select-option
-            >
+            @for (timetable of timetableList; track timetable) {
+            <ion-select-option value="{{ timetable.id }}">{{ timetable.filename }}</ion-select-option>
+            }
           </ion-select>
         </ion-item>
       </ion-list>
@@ -44,6 +45,7 @@
       </ion-col>
     </ion-row>
   </ion-card>
+  }
   <ion-card>
     <ion-card-header>
       <ion-card-title data-cy="plan-page-map-card-title">Gebäudeplan</ion-card-title>

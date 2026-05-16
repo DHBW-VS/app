@@ -1,41 +1,60 @@
-<ion-card *ngIf="apartment">
-  <ion-card-header>
-    <ion-card-title *ngIf="apartment.firstname || apartment.lastname">
-      {{ apartment.firstname }} {{ apartment.lastname }}
-    </ion-card-title>
-    <ion-card-subtitle *ngIf="apartment.date">
-      {{ apartment.date | apartmentDate }}
-    </ion-card-subtitle>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-badge *ngIf="apartment.wg">Wohngemeinschaft</ion-badge>
-    <ion-item *ngIf="apartment.zip || apartment.city">
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>
-        {{ apartment.zip }}<span *ngIf="apartment.zip && apartment.city">&nbsp;</span>{{ apartment.city }}
-      </ion-label>
-    </ion-item>
-    <ion-item *ngIf="apartment.price">
-      <ion-icon name="cash" slot="start"></ion-icon>
-      <ion-label>
-        {{ apartment.price }} € <span *ngIf="apartment.addcosts">+ {{ apartment.addcosts }} €</span>
-      </ion-label>
-    </ion-item>
-    <ion-item *ngIf="apartment.date1 && apartment.date2" lines="none">
-      <ion-icon name="calendar" slot="start"></ion-icon>
-      <ion-label> {{ apartment.date1 }} bis {{ apartment.date2 }} </ion-label>
-    </ion-item>
-  </ion-card-content>
-  <ion-row class="ion-no-padding">
-    <ion-col>
-      <ion-button
-        fill="clear"
-        (click)="showApartmentModal(apartment)"
-        class="ion-float-right"
-        data-cy="apartment-card-open-button"
-      >
-        Öffnen
-      </ion-button>
-    </ion-col>
-  </ion-row>
-</ion-card>
+@if (apartment) {
+  <ion-card>
+    <ion-card-header>
+      @if (apartment.firstname || apartment.lastname) {
+        <ion-card-title> {{ apartment.firstname }} {{ apartment.lastname }} </ion-card-title>
+      }
+      @if (apartment.date) {
+        <ion-card-subtitle>
+          {{ apartment.date | apartmentDate }}
+        </ion-card-subtitle>
+      }
+    </ion-card-header>
+    <ion-card-content>
+      @if (apartment.wg) {
+        <ion-badge>Wohngemeinschaft</ion-badge>
+      }
+      @if (apartment.zip || apartment.city) {
+        <ion-item>
+          <ion-icon name="pin" slot="start"></ion-icon>
+          <ion-label>
+            {{ apartment.zip }}
+            @if (apartment.zip && apartment.city) {
+              <span>&nbsp;</span>
+            }
+            {{ apartment.city }}
+          </ion-label>
+        </ion-item>
+      }
+      @if (apartment.price) {
+        <ion-item>
+          <ion-icon name="cash" slot="start"></ion-icon>
+          <ion-label>
+            {{ apartment.price }} €
+            @if (apartment.addcosts) {
+              <span>+ {{ apartment.addcosts }} €</span>
+            }
+          </ion-label>
+        </ion-item>
+      }
+      @if (apartment.date1 && apartment.date2) {
+        <ion-item lines="none">
+          <ion-icon name="calendar" slot="start"></ion-icon>
+          <ion-label> {{ apartment.date1 }} bis {{ apartment.date2 }} </ion-label>
+        </ion-item>
+      }
+    </ion-card-content>
+    <ion-row class="ion-no-padding">
+      <ion-col>
+        <ion-button
+          fill="clear"
+          (click)="showApartmentModal(apartment)"
+          class="ion-float-right"
+          data-cy="apartment-card-open-button"
+        >
+          Öffnen
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+}

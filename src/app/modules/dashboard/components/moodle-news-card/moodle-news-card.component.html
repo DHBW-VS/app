@@ -3,16 +3,17 @@
     <ion-card-title data-cy="moodle-news-card-component-card-title"> News </ion-card-title>
   </ion-card-header>
   <ion-card-content class="ion-text-center">
-    <ion-spinner name="dots" *ngIf="!moodleNews"></ion-spinner>
-    <ion-list *ngIf="moodleNews">
-      <ion-item
-        detail
-        *ngFor="let post of moodleNews; let last = last"
-        [attr.lines]="last ? 'none' : 'inset'"
-        (click)="showMoodleNewsModal(post)"
-      >
-        <ion-label [innerHTML]="post.subject"> </ion-label>
-      </ion-item>
-    </ion-list>
+    @if (!moodleNews) {
+      <ion-spinner name="dots"></ion-spinner>
+    }
+    @if (moodleNews) {
+      <ion-list>
+        @for (post of moodleNews; track post; let last = $last) {
+          <ion-item detail [attr.lines]="last ? 'none' : 'inset'" (click)="showMoodleNewsModal(post)">
+            <ion-label [innerHTML]="post.subject"> </ion-label>
+          </ion-item>
+        }
+      </ion-list>
+    }
   </ion-card-content>
 </ion-card>

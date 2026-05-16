@@ -1,68 +1,91 @@
-<ion-card *ngIf="dish">
-  <ion-card-header>
-    <ion-card-subtitle *ngIf="dish.promotion">{{ dish.promotion }}</ion-card-subtitle>
-    <ion-card-title *ngIf="dish.name">{{ dish.name }}</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-badge *ngIf="dish.additionalInformation">{{ dish.additionalInformation }}</ion-badge>
-    <p *ngIf="dish.description" [innerHTML]="dish.description"></p>
-    <div *ngIf="showMore" class="more-container" data-cy="canteen-dish-card-more-container">
-      <div>
-        <ion-grid class="ion-no-padding">
-          <ion-row *ngIf="dish.price.students">
-            <ion-col>
-              <div>Studierende</div>
-            </ion-col>
-            <ion-col>
-              <div class="ion-float-right">{{ dish.price.students }}</div>
-            </ion-col>
-          </ion-row>
-          <ion-row *ngIf="dish.price.pupils">
-            <ion-col>
-              <div>Schüler</div>
-            </ion-col>
-            <ion-col>
-              <div class="ion-float-right">{{ dish.price.pupils }}</div>
-            </ion-col>
-          </ion-row>
-          <ion-row *ngIf="dish.price.employee">
-            <ion-col>
-              <div>Angestellte</div>
-            </ion-col>
-            <ion-col>
-              <div class="ion-float-right">{{ dish.price.employee }}</div>
-            </ion-col>
-          </ion-row>
-          <ion-row *ngIf="dish.price.guests">
-            <ion-col>
-              <div>Gäste</div>
-            </ion-col>
-            <ion-col>
-              <div class="ion-float-right">{{ dish.price.guests }}</div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-      <div *ngIf="dish.labels && dish.labels.length > 0">
-        <div
-          class="ion-text-wrap"
-          *ngFor="let kennzeichnung of dish.labels"
-          [innerHTML]="'Kennzeichnungen: <br>' + kennzeichnung | canteenFoodLabel"
-        ></div>
-      </div>
-      <span><b>Achtung</b>: Alle Angaben ohne Gewähr!</span>
-    </div>
-  </ion-card-content>
-  <ion-row class="ion-no-padding">
-    <ion-col>
-      <ion-button
-        fill="clear"
-        (click)="toggleShowMore()"
-        class="ion-float-right"
-        data-cy="canteen-dish-card-more-button"
-      >
-        {{ showMore ? "Weniger" : "Mehr" }}
-      </ion-button>
-    </ion-col>
-  </ion-row>
-</ion-card>
+@if (dish) {
+  <ion-card>
+    <ion-card-header>
+      @if (dish.promotion) {
+        <ion-card-subtitle>{{ dish.promotion }}</ion-card-subtitle>
+      }
+      @if (dish.name) {
+        <ion-card-title>{{ dish.name }}</ion-card-title>
+      }
+    </ion-card-header>
+    <ion-card-content>
+      @if (dish.additionalInformation) {
+        <ion-badge>{{ dish.additionalInformation }}</ion-badge>
+      }
+      @if (dish.description) {
+        <p [innerHTML]="dish.description"></p>
+      }
+      @if (showMore) {
+        <div class="more-container" data-cy="canteen-dish-card-more-container">
+          <div>
+            <ion-grid class="ion-no-padding">
+              @if (dish.price.students) {
+                <ion-row>
+                  <ion-col>
+                    <div>Studierende</div>
+                  </ion-col>
+                  <ion-col>
+                    <div class="ion-float-right">{{ dish.price.students }}</div>
+                  </ion-col>
+                </ion-row>
+              }
+              @if (dish.price.pupils) {
+                <ion-row>
+                  <ion-col>
+                    <div>Schüler</div>
+                  </ion-col>
+                  <ion-col>
+                    <div class="ion-float-right">{{ dish.price.pupils }}</div>
+                  </ion-col>
+                </ion-row>
+              }
+              @if (dish.price.employee) {
+                <ion-row>
+                  <ion-col>
+                    <div>Angestellte</div>
+                  </ion-col>
+                  <ion-col>
+                    <div class="ion-float-right">{{ dish.price.employee }}</div>
+                  </ion-col>
+                </ion-row>
+              }
+              @if (dish.price.guests) {
+                <ion-row>
+                  <ion-col>
+                    <div>Gäste</div>
+                  </ion-col>
+                  <ion-col>
+                    <div class="ion-float-right">{{ dish.price.guests }}</div>
+                  </ion-col>
+                </ion-row>
+              }
+            </ion-grid>
+          </div>
+          @if (dish.labels && dish.labels.length > 0) {
+            <div>
+              @for (kennzeichnung of dish.labels; track kennzeichnung) {
+                <div
+                  class="ion-text-wrap"
+                  [innerHTML]="'Kennzeichnungen: <br>' + kennzeichnung | canteenFoodLabel"
+                ></div>
+              }
+            </div>
+          }
+          <span><b>Achtung</b>: Alle Angaben ohne Gewähr!</span>
+        </div>
+      }
+    </ion-card-content>
+    <ion-row class="ion-no-padding">
+      <ion-col>
+        <ion-button
+          fill="clear"
+          (click)="toggleShowMore()"
+          class="ion-float-right"
+          data-cy="canteen-dish-card-more-button"
+        >
+          {{ showMore ? "Weniger" : "Mehr" }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+}

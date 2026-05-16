@@ -1,8 +1,10 @@
-<ion-item *ngIf="semesterList && semesterList.length > 0">
-  <ion-label>Semester auswählen</ion-label>
-  <ion-select (ionChange)="onSemesterSelect($any($event))" okText="OK" cancelText="Abbrechen">
-    <ion-select-option [value]="semester" *ngFor="let semester of semesterList">{{
-      semester.displayName
-    }}</ion-select-option>
-  </ion-select>
-</ion-item>
+@if (semesterList && semesterList.length > 0) {
+  <ion-item>
+    <ion-label>Semester auswählen</ion-label>
+    <ion-select (ionChange)="onSemesterSelect($any($event))" okText="OK" cancelText="Abbrechen">
+      @for (semester of semesterList; track semester) {
+        <ion-select-option [value]="semester">{{ semester.displayName }}</ion-select-option>
+      }
+    </ion-select>
+  </ion-item>
+}
