@@ -15,6 +15,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 60003
         versionName "6.0.3"
+        resValue "string", "capawesome_live_update_default_channel", "production-" + defaultConfig.versionCode
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.

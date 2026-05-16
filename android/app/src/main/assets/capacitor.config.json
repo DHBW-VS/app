@@ -17,6 +17,13 @@
 		"EdgeToEdge": {
 			"backgroundColor": "#e2001a"
 		},
+		"LiveUpdate": {
+			"appId": "70922e93-0944-48cc-a560-61135ab291ad",
+			"autoUpdateStrategy": "background",
+			"readyTimeout": 10000,
+			"autoBlockRolledBackBundles": true,
+			"serverDomain": "api.cloud.capawesome.eu"
+		},
 		"SplashScreen": {
 			"showSpinner": false,
 			"splashFullScreen": true,

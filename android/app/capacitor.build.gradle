@@ -20,6 +20,7 @@ dependencies {
     implementation project(':capawesome-team-capacitor-file-opener')
     implementation project(':capawesome-team-capacitor-nfc')
     implementation project(':capawesome-capacitor-android-edge-to-edge-support')
+    implementation project(':capawesome-capacitor-live-update')
 
 }
 

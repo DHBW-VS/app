@@ -1,0 +1,36 @@
+name: Live Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: 'Channel name to deploy the live update to'
+        required: true
+        type: string
+
+env:
+  CAPAWESOME_CLI_VERSION: 4.9.3
+  CAPAWESOME_CLOUD_APP_ID: 70922e93-0944-48cc-a560-61135ab291ad
+  NODE_VERSION: 24
+
+jobs:
+  deploy-live-update:
+    name: Deploy Live Update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Authenticate with Capawesome Cloud
+        run: npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} login --token ${{ secrets.CAPAWESOME_CLOUD_TOKEN }}
+      - name: Build and deploy live update
+        env:
+          CHANNEL: ${{ inputs.channel }}
+        run: |
+          npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
+            --app-id ${{ env.CAPAWESOME_CLOUD_APP_ID }} \
+            --platform web \
+            --channel "$CHANNEL" \
+            --git-ref ${{ github.sha }} \
+            --yes

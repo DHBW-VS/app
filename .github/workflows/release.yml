@@ -5,6 +5,7 @@ on:
 
 env:
   CAPAWESOME_CLI_VERSION: 4.9.3
+  CAPAWESOME_CLOUD_APP_ID: 70922e93-0944-48cc-a560-61135ab291ad
   NODE_VERSION: 24
 
 jobs:
@@ -21,7 +22,7 @@ jobs:
       - name: Build and deploy Android
         run: |
           npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
-            --app-id ${{ secrets.CAPAWESOME_CLOUD_APP_ID }} \
+            --app-id ${{ env.CAPAWESOME_CLOUD_APP_ID }} \
             --platform android \
             --type release \
             --git-ref ${{ github.sha }} \
@@ -41,7 +42,7 @@ jobs:
       - name: Build and deploy iOS
         run: |
           npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
-            --app-id ${{ secrets.CAPAWESOME_CLOUD_APP_ID }} \
+            --app-id ${{ env.CAPAWESOME_CLOUD_APP_ID }} \
             --platform ios \
             --type app-store \
             --git-ref ${{ github.sha }} \
