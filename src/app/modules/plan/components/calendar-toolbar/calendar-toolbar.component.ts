@@ -8,10 +8,11 @@ import {
 import { CalendarComponent, CalendarView } from '../calendar/calendar.component';
 
 @Component({
-  selector: 'app-calendar-toolbar',
-  templateUrl: './calendar-toolbar.component.html',
-  styleUrls: ['./calendar-toolbar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-calendar-toolbar',
+    templateUrl: './calendar-toolbar.component.html',
+    styleUrls: ['./calendar-toolbar.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class CalendarToolbarComponent {
   @Input()

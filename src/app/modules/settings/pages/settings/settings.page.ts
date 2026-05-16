@@ -4,10 +4,11 @@ import { AuthenticationService } from '@app/core/authentication';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-settings',
+    templateUrl: './settings.page.html',
+    styleUrls: ['./settings.page.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SettingsPage {
   constructor(

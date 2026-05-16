@@ -7,10 +7,11 @@ import { DualisSemester, DualisSemesterList, DualisSemesterListItem } from '../.
 import { DualisAuthService, DualisPageService } from '../../services';
 
 @Component({
-  selector: 'app-dualis',
-  templateUrl: './dualis.page.html',
-  styleUrls: ['./dualis.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-dualis',
+    templateUrl: './dualis.page.html',
+    styleUrls: ['./dualis.page.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DualisPage implements OnInit {
   public semesterList: DualisSemesterList | undefined;

@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { IContact } from '@app/core';
 
 @Component({
-  selector: 'app-contact-card',
-  templateUrl: './contact-card.component.html',
-  styleUrls: ['./contact-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-contact-card',
+    templateUrl: './contact-card.component.html',
+    styleUrls: ['./contact-card.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ContactCardComponent {
   @Input()

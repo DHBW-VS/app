@@ -3,10 +3,11 @@ import { DialogService, IApartment } from '@app/core';
 import { ApartmentModalComponent } from '../apartment-modal/apartment-modal.component';
 
 @Component({
-  selector: 'app-apartment-card',
-  templateUrl: './apartment-card.component.html',
-  styleUrls: ['./apartment-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-apartment-card',
+    templateUrl: './apartment-card.component.html',
+    styleUrls: ['./apartment-card.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ApartmentCardComponent {
   @Input()

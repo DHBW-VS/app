@@ -4,10 +4,11 @@ import { ApiParkingService, NotificationService } from '@app/core';
 import { IParking } from '@app/core/interfaces';
 
 @Component({
-  selector: 'app-parking',
-  templateUrl: './parking.page.html',
-  styleUrls: ['./parking.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-parking',
+    templateUrl: './parking.page.html',
+    styleUrls: ['./parking.page.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ParkingPage {
   public parkingData: IParking[] | undefined;

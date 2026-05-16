@@ -19,10 +19,11 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-calendar',
-  templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-calendar',
+    templateUrl: './calendar.component.html',
+    styleUrls: ['./calendar.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class CalendarComponent implements AfterViewInit {
   @Input()

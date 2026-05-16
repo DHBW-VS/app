@@ -12,10 +12,11 @@ import { CalendarModalComponent } from '../../components';
 import { PlanService } from '../../services';
 
 @Component({
-  selector: 'app-plan',
-  templateUrl: './plan.page.html',
-  styleUrls: ['./plan.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-plan',
+    templateUrl: './plan.page.html',
+    styleUrls: ['./plan.page.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class PlanPage implements OnInit {
   public timetableList: IPlan[] | undefined;

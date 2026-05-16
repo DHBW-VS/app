@@ -145,8 +145,9 @@ describe('DialogService', () => {
 });
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'mock',
-  template: '<p>Modal</p>',
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'mock',
+    template: '<p>Modal</p>',
+    standalone: false
 })
 class MockComponent {}

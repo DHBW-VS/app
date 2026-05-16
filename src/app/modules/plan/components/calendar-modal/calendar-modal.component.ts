@@ -4,10 +4,11 @@ import { ActionSheet, ActionSheetButton, ActionSheetButtonStyle } from '@capacit
 import { CalendarComponent } from '../calendar/calendar.component';
 
 @Component({
-  selector: 'app-calendar-modal',
-  templateUrl: './calendar-modal.component.html',
-  styleUrls: ['./calendar-modal.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-calendar-modal',
+    templateUrl: './calendar-modal.component.html',
+    styleUrls: ['./calendar-modal.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class CalendarModalComponent implements OnInit {
   @Input()

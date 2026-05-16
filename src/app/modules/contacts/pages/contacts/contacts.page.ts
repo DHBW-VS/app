@@ -13,10 +13,11 @@ import { Clipboard } from '@capacitor/clipboard';
 import { Keyboard } from '@capacitor/keyboard';
 
 @Component({
-  selector: 'app-contacts',
-  templateUrl: './contacts.page.html',
-  styleUrls: ['./contacts.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-contacts',
+    templateUrl: './contacts.page.html',
+    styleUrls: ['./contacts.page.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ContactsPage implements OnInit {
   public contactGroups: IContactGroup[] | undefined;

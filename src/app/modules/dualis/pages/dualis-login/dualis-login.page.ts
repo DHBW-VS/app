@@ -5,10 +5,11 @@ import { DialogService, IDualisStorage, StorageKey, StorageService } from '@app/
 import { DualisAuthService } from '../../services';
 
 @Component({
-  selector: 'app-dualis-login',
-  templateUrl: './dualis-login.page.html',
-  styleUrls: ['./dualis-login.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-dualis-login',
+    templateUrl: './dualis-login.page.html',
+    styleUrls: ['./dualis-login.page.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DualisLoginPage implements OnInit {
   public loginFormGroup: UntypedFormGroup = new UntypedFormGroup({
