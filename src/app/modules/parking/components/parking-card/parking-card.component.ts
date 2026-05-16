@@ -6,6 +6,7 @@ import { IParking } from '@app/core';
   templateUrl: './parking-card.component.html',
   styleUrls: ['./parking-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ParkingCardComponent {
   @Input()

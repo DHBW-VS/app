@@ -16,6 +16,7 @@ import { PlanService } from '../../services';
   templateUrl: './plan.page.html',
   styleUrls: ['./plan.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class PlanPage implements OnInit {
   public timetableList: IPlan[] | undefined;

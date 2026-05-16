@@ -18,18 +18,24 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div id="content-placeholder" *ngIf="!contactGroups || contactGroups.length < 1">
-    <ion-icon name="person-circle"></ion-icon>
-  </div>
-  <ng-container *ngIf="contactGroups && contactGroups.length > 0">
-    <div *ngFor="let contactGroup of contactGroups | contactGroupFilter: searchbarValue">
-      <h2 *ngIf="contactGroup.contacts.length > 0">{{ contactGroup.groupname }}</h2>
-      <app-contact-card
-        *ngFor="let contact of contactGroup.contacts"
-        [contact]="contact"
-        (copyToClipboard)="copyToClipboard($event)"
-        (openWindow)="openWindow($event)"
-      ></app-contact-card>
+  @if (!contactGroups || contactGroups.length < 1) {
+    <div id="content-placeholder">
+      <ion-icon name="person-circle"></ion-icon>
     </div>
-  </ng-container>
+  } @else {
+    @for (contactGroup of contactGroups | contactGroupFilter: searchbarValue; track contactGroup) {
+      <div>
+        @if (contactGroup.contacts.length > 0) {
+          <h2>{{ contactGroup.groupname }}</h2>
+        }
+        @for (contact of contactGroup.contacts; track contact) {
+          <app-contact-card
+            [contact]="contact"
+            (copyToClipboard)="copyToClipboard($event)"
+            (openWindow)="openWindow($event)"
+          ></app-contact-card>
+        }
+      </div>
+    }
+  }
 </ion-content>

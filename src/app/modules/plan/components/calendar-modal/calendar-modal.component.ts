@@ -8,6 +8,7 @@ import { CalendarComponent } from '../calendar/calendar.component';
   templateUrl: './calendar-modal.component.html',
   styleUrls: ['./calendar-modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CalendarModalComponent implements OnInit {
   @Input()

@@ -21,7 +21,7 @@ describe('ContactPage', () => {
 
   it('should scroll to the last contact card', () => {
     cy.get('app-contact-card').last().should('not.be.visible');
-    cy.get('app-contacts ion-content').shadow().find('main').scrollTo('bottom');
+    cy.get('app-contacts ion-content').shadow().find('[part="scroll"]').scrollTo('bottom');
     cy.get('app-contact-card').last().should('be.visible');
   });
 

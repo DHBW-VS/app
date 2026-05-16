@@ -7,6 +7,7 @@ import { ApartmentModalComponent } from '../apartment-modal/apartment-modal.comp
   templateUrl: './apartment-card.component.html',
   styleUrls: ['./apartment-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ApartmentCardComponent {
   @Input()

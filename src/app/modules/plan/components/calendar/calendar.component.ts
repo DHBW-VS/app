@@ -23,6 +23,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CalendarComponent implements AfterViewInit {
   @Input()

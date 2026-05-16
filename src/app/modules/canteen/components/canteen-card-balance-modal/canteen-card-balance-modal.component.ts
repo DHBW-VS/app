@@ -18,6 +18,7 @@ import { Subject, take, takeUntil } from 'rxjs';
   templateUrl: './canteen-card-balance-modal.component.html',
   styleUrls: ['./canteen-card-balance-modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CanteenCardBalanceModalComponent {
   public balance: WritableSignal<number | undefined> = signal(undefined);

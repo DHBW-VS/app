@@ -6,6 +6,7 @@ import { DialogService, IMoodleNews, IMoodleNewsAttachment } from '@app/core';
   templateUrl: './moodle-news-modal.component.html',
   styleUrls: ['./moodle-news-modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class MoodleNewsModalComponent {
   @Input()

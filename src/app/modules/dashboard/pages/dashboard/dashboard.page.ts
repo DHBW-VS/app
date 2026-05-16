@@ -6,6 +6,7 @@ import { MenuController } from '@ionic/angular';
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class DashboardPage implements OnInit {
   constructor(private readonly menuController: MenuController) {}

@@ -9,6 +9,7 @@ import { DualisAuthService } from '../../services';
   templateUrl: './dualis-login.page.html',
   styleUrls: ['./dualis-login.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class DualisLoginPage implements OnInit {
   public loginFormGroup: UntypedFormGroup = new UntypedFormGroup({

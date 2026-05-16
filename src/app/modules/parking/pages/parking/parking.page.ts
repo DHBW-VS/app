@@ -8,6 +8,7 @@ import { IParking } from '@app/core/interfaces';
   templateUrl: './parking.page.html',
   styleUrls: ['./parking.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ParkingPage {
   public parkingData: IParking[] | undefined;

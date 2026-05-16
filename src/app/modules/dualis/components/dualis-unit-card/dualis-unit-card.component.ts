@@ -6,6 +6,7 @@ import { DualisUnit } from '../../interfaces';
   templateUrl: './dualis-unit-card.component.html',
   styleUrls: ['./dualis-unit-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class DualisUnitCardComponent {
   @Input()

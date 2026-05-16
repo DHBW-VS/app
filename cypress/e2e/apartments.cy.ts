@@ -99,7 +99,7 @@ describe('ApartmentsPage', () => {
 
   it('should scroll to the last apartment card', () => {
     cy.get('swiper-slide').first().find('app-apartment-card').last().should('not.be.visible');
-    cy.get('app-apartments ion-content').shadow().find('main').scrollTo('bottom');
+    cy.get('app-apartments ion-content').shadow().find('[part="scroll"]').scrollTo('bottom');
     cy.get('swiper-slide').first().find('app-apartment-card').last().should('be.visible');
   });
 });

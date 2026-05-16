@@ -13,31 +13,17 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "es2020",
     "esModuleInterop": true,
     "noImplicitAny": true,
-    "lib": [
-      "es2021",
-      "es2020.intl",
-      "dom",
-      "dom.iterable"
-    ],
     "paths": {
-      "@app/*": [
-        "src/app/*"
-      ],
-      "@env/*": [
-        "src/environments/*"
-      ],
-      "@e2e/*": [
-        "e2e/src/*"
-      ],
-      "@tests/*": [
-        "src/tests/*"
-      ]
+      "@app/*": ["src/app/*"],
+      "@env/*": ["src/environments/*"],
+      "@e2e/*": ["e2e/src/*"],
+      "@tests/*": ["src/tests/*"]
     },
     "useDefineForClassFields": false
   },
@@ -48,8 +34,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "exclude": [
-    "cypress",
-    "./cypress.config.ts"
-  ]
+  "exclude": ["cypress", "./cypress.config.ts"]
 }

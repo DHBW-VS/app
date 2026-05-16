@@ -8,6 +8,7 @@ import { NavController } from '@ionic/angular';
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class SettingsPage {
   constructor(

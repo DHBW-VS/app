@@ -7,6 +7,7 @@ import { CanteenCardBalanceModalComponent } from '../canteen-card-balance-modal/
   templateUrl: './canteen-menu-popover.component.html',
   styleUrls: ['./canteen-menu-popover.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CanteenMenuPopoverComponent {
   constructor(private readonly dialogService: DialogService) {}

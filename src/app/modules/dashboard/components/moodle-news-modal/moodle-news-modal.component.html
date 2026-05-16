@@ -10,26 +10,28 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card *ngIf="moodleNews">
-    <ion-card-header>
-      <ion-card-title [innerHTML]="moodleNews.subject"> </ion-card-title>
-      <ion-card-subtitle>
-        {{ moodleNews.date }}
-      </ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content [innerHTML]="moodleNews.message"> </ion-card-content>
-    <ion-list *ngIf="moodleNews.attachment && moodleNews.attachment.length > 0">
-      <ion-list-header>
-        <ion-label>Anhänge</ion-label>
-      </ion-list-header>
-      <ion-item
-        *ngFor="let attachment of moodleNews.attachment; let last = last"
-        (click)="openAttachment(attachment)"
-        [attr.lines]="last ? 'none' : 'inset'"
-      >
-        <ion-icon name="download" slot="start"></ion-icon>
-        <ion-label>{{ attachment.title }}</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-card>
+  @if (moodleNews) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title [innerHTML]="moodleNews.subject"> </ion-card-title>
+        <ion-card-subtitle>
+          {{ moodleNews.date }}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content [innerHTML]="moodleNews.message"> </ion-card-content>
+      @if (moodleNews.attachment && moodleNews.attachment.length > 0) {
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Anhänge</ion-label>
+          </ion-list-header>
+          @for (attachment of moodleNews.attachment; track attachment; let last = $last) {
+            <ion-item (click)="openAttachment(attachment)" [attr.lines]="last ? 'none' : 'inset'">
+              <ion-icon name="download" slot="start"></ion-icon>
+              <ion-label>{{ attachment.title }}</ion-label>
+            </ion-item>
+          }
+        </ion-list>
+      }
+    </ion-card>
+  }
 </ion-content>

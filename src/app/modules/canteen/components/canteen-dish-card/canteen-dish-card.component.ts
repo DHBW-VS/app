@@ -6,6 +6,7 @@ import { ICanteenDish } from '@app/core';
   templateUrl: './canteen-dish-card.component.html',
   styleUrls: ['./canteen-dish-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CanteenDishCardComponent {
   @Input()

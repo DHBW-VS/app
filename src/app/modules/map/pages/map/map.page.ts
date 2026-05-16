@@ -6,6 +6,7 @@ import { Icon, Map, Marker, TileLayer } from 'leaflet';
   templateUrl: './map.page.html',
   styleUrls: ['./map.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class MapPage implements OnInit {
   private map: Map | undefined;

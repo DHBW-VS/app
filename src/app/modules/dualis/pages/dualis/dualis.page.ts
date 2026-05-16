@@ -11,6 +11,7 @@ import { DualisAuthService, DualisPageService } from '../../services';
   templateUrl: './dualis.page.html',
   styleUrls: ['./dualis.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class DualisPage implements OnInit {
   public semesterList: DualisSemesterList | undefined;

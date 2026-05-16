@@ -17,6 +17,7 @@ import { Keyboard } from '@capacitor/keyboard';
   templateUrl: './contacts.page.html',
   styleUrls: ['./contacts.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ContactsPage implements OnInit {
   public contactGroups: IContactGroup[] | undefined;

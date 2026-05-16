@@ -8,6 +8,7 @@ import { Clipboard } from '@capacitor/clipboard';
   templateUrl: './sos.page.html',
   styleUrls: ['./sos.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class SosPage {
   public sosMoreInformationLink: string;

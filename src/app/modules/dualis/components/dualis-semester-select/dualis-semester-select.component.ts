@@ -7,6 +7,7 @@ import { DualisSemesterList, DualisSemesterListItem } from '../../interfaces';
   templateUrl: './dualis-semester-select.component.html',
   styleUrls: ['./dualis-semester-select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class DualisSemesterSelectComponent {
   @Input()

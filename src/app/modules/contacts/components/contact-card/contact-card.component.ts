@@ -6,6 +6,7 @@ import { IContact } from '@app/core';
   templateUrl: './contact-card.component.html',
   styleUrls: ['./contact-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ContactCardComponent {
   @Input()

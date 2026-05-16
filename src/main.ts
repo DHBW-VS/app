@@ -1,5 +1,5 @@
 /* eslint-disable unicorn/prefer-top-level-await */
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, provideZoneChangeDetection } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { devTools } from '@ngneat/elf-devtools';
@@ -13,7 +13,7 @@ if (environment.production) {
 }
 
 platformBrowserDynamic()
-  .bootstrapModule(AppModule)
+  .bootstrapModule(AppModule, { applicationProviders: [provideZoneChangeDetection()] })
   .catch(error => console.log(error));
 
 void defineCustomElements(window);

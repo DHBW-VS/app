@@ -7,6 +7,7 @@ import { Clipboard } from '@capacitor/clipboard';
   templateUrl: './apartment-modal.component.html',
   styleUrls: ['./apartment-modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ApartmentModalComponent {
   @Input()

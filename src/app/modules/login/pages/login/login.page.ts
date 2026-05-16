@@ -9,6 +9,7 @@ import { MenuController } from '@ionic/angular';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class LoginPage implements OnInit {
   public loginFormGroup: UntypedFormGroup;

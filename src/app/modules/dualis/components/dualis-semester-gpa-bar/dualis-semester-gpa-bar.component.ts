@@ -6,6 +6,7 @@ import { DualisSemester } from '../../interfaces';
   templateUrl: './dualis-semester-gpa-bar.component.html',
   styleUrls: ['./dualis-semester-gpa-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class DualisSemesterGpaBarComponent {
   @Input()

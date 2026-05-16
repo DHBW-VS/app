@@ -12,8 +12,8 @@ on:
   workflow_dispatch:
 
 env:
-  CAPAWESOME_CLI_VERSION: 4.6.0
-  NODE_VERSION: 22
+  CAPAWESOME_CLI_VERSION: 4.9.3
+  NODE_VERSION: 24
 
 jobs:
   build-android:
@@ -50,9 +50,9 @@ jobs:
           npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
             --app-id ${{ secrets.CAPAWESOME_CLOUD_APP_ID }} \
             --platform ios \
-            --type app-store \
+            --type development \
             --git-ref ${{ github.event.pull_request.head.sha || github.sha }} \
-            --certificate "Production" \
+            --certificate "Development" \
             --yes
   lint:
     name: Lint

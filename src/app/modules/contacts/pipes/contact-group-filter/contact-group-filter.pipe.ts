@@ -3,6 +3,7 @@ import { IContactGroup, SearchHelper } from '@app/core';
 
 @Pipe({
   name: 'contactGroupFilter',
+  standalone: false,
 })
 export class ContactGroupFilterPipe implements PipeTransform {
   public transform(contactGroups: IContactGroup[], searchValue: string): IContactGroup[] {

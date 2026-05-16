@@ -7,6 +7,7 @@ import { CalendarView } from '../calendar/calendar.component';
   templateUrl: './calendar-view-options-popover.component.html',
   styleUrls: ['./calendar-view-options-popover.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CalendarViewOptionsPopoverComponent {
   @Input()
