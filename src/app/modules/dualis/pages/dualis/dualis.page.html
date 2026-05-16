@@ -25,14 +25,15 @@
     [semesterList]="semesterList"
     (selectSemester)="selectSemester($event)"
   ></app-dualis-semester-select>
-  @if (semesterResults?.units; as units) { @for (unit of units | dualisUnitFilter: searchbarValue; track
-  trackByIndex($index, unit)) {
-  <app-dualis-unit-card [unit]="unit"></app-dualis-unit-card>
-  } }
+  @if (semesterResults?.units; as units) {
+    @for (unit of units | dualisUnitFilter: searchbarValue; track trackByIndex($index, unit)) {
+      <app-dualis-unit-card [unit]="unit"></app-dualis-unit-card>
+    }
+  }
 </ion-content>
 
 <ion-footer>
   @if (semesterResults) {
-  <app-dualis-semester-gpa-bar [semester]="semesterResults"></app-dualis-semester-gpa-bar>
+    <app-dualis-semester-gpa-bar [semester]="semesterResults"></app-dualis-semester-gpa-bar>
   }
 </ion-footer>

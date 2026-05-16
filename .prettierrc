@@ -10,6 +10,12 @@
       "options": {
         "printWidth": 1
       }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
     }
   ]
 }

@@ -9,43 +9,43 @@
 
 <ion-content class="ion-padding">
   @if (timetableList && timetableList.length > 0) {
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title data-cy="plan-page-timetable-card-title">Vorlesungsplan</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-select
-            label="Vorlesungsplan auswählen"
-            labelPlacement="floating"
-            [interfaceOptions]="timetableSelection"
-            [(ngModel)]="selectedTimetable"
-            okText="Ok"
-            cancelText="Abbrechen"
-            data-cy="plan-page-plan-select"
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title data-cy="plan-page-timetable-card-title">Vorlesungsplan</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-select
+              label="Vorlesungsplan auswählen"
+              labelPlacement="floating"
+              [interfaceOptions]="timetableSelection"
+              [(ngModel)]="selectedTimetable"
+              okText="Ok"
+              cancelText="Abbrechen"
+              data-cy="plan-page-plan-select"
+            >
+              @for (timetable of timetableList; track timetable) {
+                <ion-select-option value="{{ timetable.id }}">{{ timetable.filename }}</ion-select-option>
+              }
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      <ion-row class="ion-no-padding">
+        <ion-col>
+          <ion-button
+            fill="clear"
+            (click)="showTimetable()"
+            [disabled]="!selectedTimetable"
+            class="ion-float-right"
+            data-cy="plan-page-open-plan-button"
           >
-            @for (timetable of timetableList; track timetable) {
-            <ion-select-option value="{{ timetable.id }}">{{ timetable.filename }}</ion-select-option>
-            }
-          </ion-select>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-    <ion-row class="ion-no-padding">
-      <ion-col>
-        <ion-button
-          fill="clear"
-          (click)="showTimetable()"
-          [disabled]="!selectedTimetable"
-          class="ion-float-right"
-          data-cy="plan-page-open-plan-button"
-        >
-          Öffnen
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-card>
+            Öffnen
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
   }
   <ion-card>
     <ion-card-header>

@@ -12,31 +12,31 @@
   </ion-toolbar>
   <ion-toolbar [hidden]="!(menus && menus.length > 0)">
     @if (menus && menus.length > 0) {
-    <ion-segment (ionChange)="onSegmentChange($event)" [value]="segment" scrollable>
-      @for (menu of menus; track menu; let i = $index) {
-      <ion-segment-button [value]="i">
-        <ion-label>{{ removeYearFromDateString(menu.date) }}</ion-label>
-      </ion-segment-button>
-      }
-    </ion-segment>
+      <ion-segment (ionChange)="onSegmentChange($event)" [value]="segment" scrollable>
+        @for (menu of menus; track menu; let i = $index) {
+          <ion-segment-button [value]="i">
+            <ion-label>{{ removeYearFromDateString(menu.date) }}</ion-label>
+          </ion-segment-button>
+        }
+      </ion-segment>
     }
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   @if (!menus || menus.length < 1) {
-  <div id="content-placeholder">
-    <ion-icon name="restaurant"></ion-icon>
-  </div>
-  } @if (menus && menus.length > 0) {
-  <swiper-container #slides (slidechange)="onSlideChange()">
-    @for (menu of menus; track menu) {
-    <swiper-slide>
-      @for (dish of menu.dishes; track dish) {
-      <app-canteen-dish-card [dish]="dish"> </app-canteen-dish-card>
+    <div id="content-placeholder">
+      <ion-icon name="restaurant"></ion-icon>
+    </div>
+  } @else {
+    <swiper-container #slides (slidechange)="onSlideChange()">
+      @for (menu of menus; track menu) {
+        <swiper-slide>
+          @for (dish of menu.dishes; track dish) {
+            <app-canteen-dish-card [dish]="dish"></app-canteen-dish-card>
+          }
+        </swiper-slide>
       }
-    </swiper-slide>
-    }
-  </swiper-container>
+    </swiper-container>
   }
 </ion-content>

@@ -113,7 +113,7 @@
     "jest-preset-angular": "16.1.5",
     "jest-when": "3.6.0",
     "patch-package": "8.0.1",
-    "prettier": "3.2.4",
+    "prettier": "3.8.3",
     "prettier-plugin-organize-imports": "3.2.4",
     "semver": "7.5.4",
     "standard-version": "9.5.0",

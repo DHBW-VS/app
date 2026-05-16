@@ -26,42 +26,38 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  @if (apartments && apartments.offers; as offers) { @if (apartments && apartments.searches; as searches) { @if
-  (offers.data.length > 0 || searches.data.length > 0) {
-  <swiper-container
-    #slides
-    [options]="{autoHeight: true}"
-    (slidechange)="setSegmentByIndex(slidesElementRef?.nativeElement.swiper.activeIndex)"
-  >
-    <swiper-slide>
-      @for (apartmentOffer of offers.data; track trackByIndex($index, apartmentOffer)) {
-      <app-apartment-card [apartment]="apartmentOffer"> </app-apartment-card>
-      }
-    </swiper-slide>
-    <swiper-slide>
-      @for (apartmentSearch of searches.data; track trackByIndex($index, apartmentSearch)) {
-      <app-apartment-card [apartment]="apartmentSearch"> </app-apartment-card>
-      }
-    </swiper-slide>
-  </swiper-container>
-  <ion-infinite-scroll
-    [disabled]="(!offers.infiniteLoadingEnabled && segment === 'offers') || (!searches.infiniteLoadingEnabled && segment === 'searches')"
-    threshold="100px"
-    (ionInfinite)="loadMoreApartments($event)"
-  >
-    <ion-infinite-scroll-content loadingText="Bitte warten..."> </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  @let offers = apartments?.offers;
+  @let searches = apartments?.searches;
+  @if (offers && searches && (offers.data.length > 0 || searches.data.length > 0)) {
+    <swiper-container
+      #slides
+      [options]="{ autoHeight: true }"
+      (slidechange)="setSegmentByIndex(slidesElementRef?.nativeElement.swiper.activeIndex)"
+    >
+      <swiper-slide>
+        @for (apartmentOffer of offers.data; track trackByIndex($index, apartmentOffer)) {
+          <app-apartment-card [apartment]="apartmentOffer"></app-apartment-card>
+        }
+      </swiper-slide>
+      <swiper-slide>
+        @for (apartmentSearch of searches.data; track trackByIndex($index, apartmentSearch)) {
+          <app-apartment-card [apartment]="apartmentSearch"></app-apartment-card>
+        }
+      </swiper-slide>
+    </swiper-container>
+    <ion-infinite-scroll
+      [disabled]="
+        (!offers.infiniteLoadingEnabled && segment === 'offers') ||
+        (!searches.infiniteLoadingEnabled && segment === 'searches')
+      "
+      threshold="100px"
+      (ionInfinite)="loadMoreApartments($event)"
+    >
+      <ion-infinite-scroll-content loadingText="Bitte warten..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
   } @else {
-  <div id="content-placeholder">
-    <ion-icon name="home"></ion-icon>
-  </div>
-  } } @else {
-  <div id="content-placeholder">
-    <ion-icon name="home"></ion-icon>
-  </div>
-  } } @else {
-  <div id="content-placeholder">
-    <ion-icon name="home"></ion-icon>
-  </div>
+    <div id="content-placeholder">
+      <ion-icon name="home"></ion-icon>
+    </div>
   }
 </ion-content>

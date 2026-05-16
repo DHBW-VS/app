@@ -9,12 +9,13 @@
 
 <ion-content class="ion-padding">
   @if (!parkingData || parkingData.length < 1) {
-  <div id="content-placeholder">
-    <ion-icon name="car"></ion-icon>
-  </div>
-  } @if (parkingData && parkingData.length > 0) { @for (parking of parkingData; track trackByIndex($index, parking)) {
-  <app-parking-card [parking]="parking"></app-parking-card>
-  } @if (parkingData && parkingData.length > 0) {
-  <div class="annotation"><ion-icon name="checkmark"></ion-icon> <span>Automatische Aktualisierung</span></div>
-  } }
+    <div id="content-placeholder">
+      <ion-icon name="car"></ion-icon>
+    </div>
+  } @else {
+    @for (parking of parkingData; track trackByIndex($index, parking)) {
+      <app-parking-card [parking]="parking"></app-parking-card>
+    }
+    <div class="annotation"><ion-icon name="checkmark"></ion-icon> <span>Automatische Aktualisierung</span></div>
+  }
 </ion-content>
