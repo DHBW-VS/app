@@ -1,0 +1,22 @@
+diff --git a/node_modules/@ionic/core/dist/types/components.d.ts b/node_modules/@ionic/core/dist/types/components.d.ts
+index b091b50..cd9df04 100644
+--- a/node_modules/@ionic/core/dist/types/components.d.ts
++++ b/node_modules/@ionic/core/dist/types/components.d.ts
+@@ -1297,7 +1297,7 @@ export namespace Components {
+           * Whether auto correction should be enabled when the user is entering/editing the text value.
+           * @default 'off'
+          */
+-        "autocorrect": 'on' | 'off';
++        "autocorrect": boolean;
+         /**
+           * Sets the [`autofocus` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) on the native input element.  This may not be sufficient for the element to be focused on page load. See [managing focus](/docs/developing/managing-focus) for more information.
+           * @default false
+@@ -2939,7 +2939,7 @@ export namespace Components {
+           * Set the input's autocorrect property.
+           * @default 'off'
+          */
+-        "autocorrect": 'on' | 'off';
++        "autocorrect": boolean;
+         /**
+           * Set the cancel button icon. Only applies to `md` mode. Defaults to `arrow-back-sharp`.
+           * @default config.get('backButtonIcon', arrowBackSharp) as string
