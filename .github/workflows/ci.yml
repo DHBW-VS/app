@@ -12,8 +12,8 @@ on:
   workflow_dispatch:
 
 env:
-  CAPAWESOME_CLI_VERSION: 4.6.0
-  NODE_VERSION: 22
+  CAPAWESOME_CLI_VERSION: 4.9.3
+  NODE_VERSION: 24
 
 jobs:
   build-android:
