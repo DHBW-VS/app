@@ -33,6 +33,9 @@ export class AppComponent {
   }
 
   private initializeLiveUpdate(): void {
+    if (!Capacitor.isNativePlatform()) {
+      return;
+    }
     void this.capacitorLiveUpdateService.ready();
     this.capacitorLiveUpdateService.nextBundleSet$.subscribe(async event => {
       if (!event.bundleId) {
