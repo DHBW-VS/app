@@ -47,6 +47,7 @@
     "@capawesome-team/capacitor-file-opener": "8.0.1",
     "@capawesome-team/capacitor-nfc": "8.0.1",
     "@capawesome/capacitor-android-edge-to-edge-support": "8.0.6",
+    "@capawesome/capacitor-live-update": "8.2.2",
     "@fortawesome/angular-fontawesome": "4.0.0",
     "@fortawesome/fontawesome-svg-core": "6.5.1",
     "@fortawesome/free-brands-svg-icons": "6.5.1",
@@ -92,7 +93,7 @@
     "@angular/compiler-cli": "21.2.13",
     "@angular/language-service": "21.2.13",
     "@capacitor/cli": "8.2.0",
-    "@capawesome/capver": "0.1.3",
+    "@capawesome/capver": "0.1.4",
     "@cypress/schematic": "2.5.1",
     "@ionic/angular-toolkit": "12.3.0",
     "@ionic/cli": "7.2.0",
@@ -143,7 +144,7 @@
   },
   "commit-and-tag-version": {
     "scripts": {
-      "postbump": "npx @capawesome/capver set $(node -p \"require('./package.json').version\") && git add android/app/build.gradle ios/App/App/Info.plist"
+      "postbump": "npx @capawesome/capver set $(node -p \"require('./package.json').version\") && git add android/app/build.gradle ios/App/App/Info.plist ios/App/App.xcodeproj/project.pbxproj"
     }
   },
   "elf": {

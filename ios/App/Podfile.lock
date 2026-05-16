@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.10.2)
   - Capacitor (8.2.0):
     - CapacitorCordova
   - CapacitorActionSheet (8.1.0):
@@ -18,12 +19,17 @@ PODS:
     - Capacitor
   - CapacitorStatusBar (8.0.1):
     - Capacitor
+  - CapawesomeCapacitorLiveUpdate (8.2.2):
+    - Alamofire (~> 5.10.2)
+    - Capacitor
+    - ZIPFoundation (~> 0.9.0)
   - CapawesomeTeamCapacitorFileOpener (8.0.1):
     - Capacitor
   - CapawesomeTeamCapacitorNfc (8.0.1):
     - Capacitor
   - CordovaPlugins (8.2.0):
     - CapacitorCordova
+  - ZIPFoundation (0.9.20)
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
@@ -36,9 +42,15 @@ DEPENDENCIES:
   - "CapacitorShare (from `../../node_modules/@capacitor/share`)"
   - "CapacitorSplashScreen (from `../../node_modules/@capacitor/splash-screen`)"
   - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
+  - "CapawesomeCapacitorLiveUpdate (from `../../node_modules/@capawesome/capacitor-live-update`)"
   - "CapawesomeTeamCapacitorFileOpener (from `../../node_modules/@capawesome-team/capacitor-file-opener`)"
   - "CapawesomeTeamCapacitorNfc (from `../../node_modules/@capawesome-team/capacitor-nfc`)"
   - CordovaPlugins (from `../capacitor-cordova-ios-plugins`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ZIPFoundation
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -61,6 +73,8 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/splash-screen"
   CapacitorStatusBar:
     :path: "../../node_modules/@capacitor/status-bar"
+  CapawesomeCapacitorLiveUpdate:
+    :path: "../../node_modules/@capawesome/capacitor-live-update"
   CapawesomeTeamCapacitorFileOpener:
     :path: "../../node_modules/@capawesome-team/capacitor-file-opener"
   CapawesomeTeamCapacitorNfc:
@@ -69,6 +83,7 @@ EXTERNAL SOURCES:
     :path: "../capacitor-cordova-ios-plugins"
 
 SPEC CHECKSUMS:
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   Capacitor: 49a454e1cdbd520bc106a220adca7913536a4933
   CapacitorActionSheet: beba4b3fc77fb7ef4a532ee07fa90180855041e0
   CapacitorApp: 942306cd1acf7774a00e89a3986af3a67c8cad7a
@@ -79,10 +94,12 @@ SPEC CHECKSUMS:
   CapacitorShare: 0c58305114538568059bfc07111f22dcb9cb2a82
   CapacitorSplashScreen: 4b46c72298db552b3c57ce021ef028b6dc7f1fa7
   CapacitorStatusBar: 32206abd53b14f339763da26f71286deaa891e16
+  CapawesomeCapacitorLiveUpdate: 7a7dfe0e2c81a3095477f97290f98194ca355ab4
   CapawesomeTeamCapacitorFileOpener: 4b1c1a5a739915ed692296c5a7760903ca6ffa25
   CapawesomeTeamCapacitorNfc: 707034c3aeace18fca0516b05043d7483fba4f23
   CordovaPlugins: 607152f73690dca4bc10ab75e9194c2f10881d3a
+  ZIPFoundation: dfd3d681c4053ff7e2f7350bc4e53b5dba3f5351
 
-PODFILE CHECKSUM: a136ffc1f3f43b209a52690d69a69d9bb0d7a6e9
+PODFILE CHECKSUM: b51d76c6ff0fdb28bbe3345086747d61d8a5fe92
 
 COCOAPODS: 1.16.2
