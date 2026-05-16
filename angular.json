@@ -113,9 +113,10 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "configPath": "jest.config.js",
+            "config": "jest.config.js",
             "tsConfig": "tsconfig.spec.json",
-            "watch": true
+            "watch": true,
+            "zoneless": false
           },
           "configurations": {
             "ci": {

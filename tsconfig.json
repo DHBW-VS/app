@@ -20,30 +20,19 @@
     "esModuleInterop": true,
     "noImplicitAny": true,
     "paths": {
-      "@app/*": [
-        "src/app/*",
-      ],
-      "@env/*": [
-        "src/environments/*",
-      ],
-      "@e2e/*": [
-        "e2e/src/*",
-      ],
-      "@tests/*": [
-        "src/tests/*",
-      ],
+      "@app/*": ["src/app/*"],
+      "@env/*": ["src/environments/*"],
+      "@e2e/*": ["e2e/src/*"],
+      "@tests/*": ["src/tests/*"]
     },
-    "useDefineForClassFields": false,
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true,
+    "strictTemplates": true
   },
-  "exclude": [
-    "cypress",
-    "./cypress.config.ts",
-  ],
+  "exclude": ["cypress", "./cypress.config.ts"]
 }
