@@ -19,7 +19,7 @@
     "prettier": "prettier \"{src,e2e/src}/**/*.{css,scss,html,ts,js}\"",
     "cypress:open": "ng run app:cypress-open",
     "cypress:run": "ng run app:cypress-run",
-    "release": "standard-version --commit-all",
+    "release": "commit-and-tag-version --commit-all",
     "capawesome:build": "npm run build -- --configuration production",
     "postinstall": "patch-package"
   },
@@ -104,6 +104,7 @@
     "@typescript-eslint/eslint-plugin": "8.59.3",
     "@typescript-eslint/parser": "8.59.3",
     "angular-eslint": "21.4.0",
+    "commit-and-tag-version": "12.7.3",
     "cy-mobile-commands": "0.3.0",
     "cypress": "15.0.0",
     "eslint": "9.39.4",
@@ -116,7 +117,6 @@
     "prettier": "3.8.3",
     "prettier-plugin-organize-imports": "3.2.4",
     "semver": "7.5.4",
-    "standard-version": "9.5.0",
     "ts-jest": "29.4.9",
     "ts-node": "10.9.2",
     "tsconfig-paths": "4.1.2",
@@ -141,7 +141,7 @@
       }
     }
   },
-  "standard-version": {
+  "commit-and-tag-version": {
     "scripts": {
       "postbump": "npx @capawesome/capver set $(node -p \"require('./package.json').version\") && git add android/app/build.gradle ios/App/App/Info.plist"
     }
