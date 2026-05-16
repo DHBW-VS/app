@@ -1,5 +1,5 @@
 import { registerLocaleData } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import localeDe from '@angular/common/locales/de';
 import { ErrorHandler, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,29 +17,23 @@ registerLocaleData(localeDe);
 
 registerSwiper();
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    CoreModule,
-    SharedModule,
-    BrowserModule,
-    IonicModule.forRoot({
-      backButtonText: isPlatform('ios') ? 'Zurück' : '',
-      backButtonDefaultHref: '/dashboard',
-    }),
-    AppRoutingModule,
-    HttpClientModule,
-  ],
-  providers: [
-    File,
-    HTTP,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    {
-      provide: ErrorHandler,
-      useClass: GlobalErrorHandlerService,
-    },
-    { provide: LOCALE_ID, useValue: 'de-DE' },
-  ],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent], imports: [CoreModule,
+        SharedModule,
+        BrowserModule,
+        IonicModule.forRoot({
+            backButtonText: isPlatform('ios') ? 'Zurück' : '',
+            backButtonDefaultHref: '/dashboard',
+        }),
+        AppRoutingModule], providers: [
+        File,
+        HTTP,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+        {
+            provide: ErrorHandler,
+            useClass: GlobalErrorHandlerService,
+        },
+        { provide: LOCALE_ID, useValue: 'de-DE' },
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {}
