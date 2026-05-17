@@ -10,7 +10,7 @@
       <ion-list>
         @for (post of moodleNews; track post; let last = $last) {
           <ion-item detail [attr.lines]="last ? 'none' : 'inset'" (click)="showMoodleNewsModal(post)">
-            <ion-label [innerHTML]="post.subject"> </ion-label>
+            <ion-label><span [innerHTML]="post.subject"></span></ion-label>
           </ion-item>
         }
       </ion-list>
