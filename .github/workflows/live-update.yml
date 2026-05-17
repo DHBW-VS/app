@@ -31,6 +31,7 @@ jobs:
           npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:channels:create \
             --app-id ${{ env.CAPAWESOME_CLOUD_APP_ID }} \
             --name "$CHANNEL" \
+            --protected \
             --ignore-errors
       - name: Build and deploy live update
         env:
