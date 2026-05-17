@@ -46,6 +46,7 @@ export class AppComponent {
         message: 'Eine neue Version der App ist verfügbar. Möchtest du das Update jetzt installieren?',
       });
       if (confirmed) {
+        await SplashScreen.show({ autoHide: false });
         await this.capacitorLiveUpdateService.reload();
       }
     });
