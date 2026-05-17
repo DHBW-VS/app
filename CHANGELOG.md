@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.0.0](https://github.com/dhbw-vs/app/compare/v6.0.3...v7.0.0) (2026-05-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* Raised the Android `minSdkVersion` to 24 and the iOS Deployment Target to 15.
+
+### Features
+
+* add live updates via Capawesome Cloud ([#55](https://github.com/dhbw-vs/app/issues/55)) ([34eab27](https://github.com/dhbw-vs/app/commit/34eab27d2ca79a01cfa6fb675cdef769ebb862c9))
+* migrate from GitHub Actions + Fastlane to Capawesome Cloud ([#53](https://github.com/dhbw-vs/app/issues/53)) ([2f25609](https://github.com/dhbw-vs/app/commit/2f25609fd58b42126f8f4bd73296ef3429edf122))
+* update to Capacitor 8 ([#52](https://github.com/dhbw-vs/app/issues/52)) ([2b337e7](https://github.com/dhbw-vs/app/commit/2b337e7f124e4ad69c4efd2bc17be8650e557e72))
+
+
+### Bug Fixes
+
+* remove outline from ion-alert dialog ([a879427](https://github.com/dhbw-vs/app/commit/a879427a153368ea625bf65751fa5dfda4aa13b7))
+* wrap post subject in a span for proper formatting ([1e7cd33](https://github.com/dhbw-vs/app/commit/1e7cd332af3c6eebcb829b9c9bac821850de2034))
+
 ### [6.0.3](https://github.com/dhbw-vs/app/compare/v6.0.2...v6.0.3) (2025-11-29)
 
 ### [6.0.2](https://github.com/dhbw-vs/app/compare/v6.0.1...v6.0.2) (2025-11-23)
