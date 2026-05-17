@@ -9,6 +9,10 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+@use "./theme/app";
+@use "./theme/variables";
+@use "./theme/ionic-overrides";
+
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
@@ -27,7 +31,3 @@
 
 /* Custom */
 @import "~leaflet/dist/leaflet.css";
-
-@import "./theme/app.scss";
-@import "./theme/variables.scss";
-@import "./theme/ionic-overrides.scss";
