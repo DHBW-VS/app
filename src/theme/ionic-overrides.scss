@@ -1,3 +1,7 @@
+ion-alert > div[role="alertdialog"] {
+  outline: none;
+}
+
 ion-menu > ion-content > ion-list {
   height: 100%;
 
