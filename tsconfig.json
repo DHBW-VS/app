@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -11,7 +10,6 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
@@ -20,10 +18,10 @@
     "esModuleInterop": true,
     "noImplicitAny": true,
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@env/*": ["src/environments/*"],
-      "@e2e/*": ["e2e/src/*"],
-      "@tests/*": ["src/tests/*"]
+      "@app/*": ["./src/app/*"],
+      "@env/*": ["./src/environments/*"],
+      "@e2e/*": ["./e2e/src/*"],
+      "@tests/*": ["./src/tests/*"]
     },
     "useDefineForClassFields": false
   },
