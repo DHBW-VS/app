@@ -10,7 +10,7 @@ describe('PlanPage', () => {
       statusCode: 200,
       fixture: 'plan-list-wi.json',
     });
-    cy.intercept('GET', Cypress.env('apiBaseUrl') + '/plans/download/ical/demo', {
+    cy.intercept('GET', Cypress.env('apiBaseUrl') + '/plans/download/ical**', {
       statusCode: 200,
       fixture: 'demo.ics',
     });

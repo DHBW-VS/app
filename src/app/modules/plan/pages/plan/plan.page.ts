@@ -82,7 +82,7 @@ export class PlanPage implements OnInit {
     if (!timetable) {
       return;
     }
-    if (timetable.iCalendarKey) {
+    if (timetable.iCalendarUrl) {
       await this.openTimetableAsICalendar(timetable);
     } else {
       await this.openTimetableAsPdf(timetable);
@@ -111,14 +111,13 @@ export class PlanPage implements OnInit {
   }
 
   private async openTimetableAsICalendar(timetable: IPlan): Promise<void> {
-    if (!timetable.iCalendarKey) {
+    if (!timetable.iCalendarUrl) {
       return;
     }
-    const iCalendarLink = this.planService.buildICalendarLink(timetable.iCalendarKey);
     await this.dialogService.showModal({
       component: CalendarModalComponent,
       componentProps: {
-        iCalendarLink: iCalendarLink,
+        iCalendarLink: timetable.iCalendarUrl,
         exportTimetableAsPdf: () => this.exportTimetableAsPdf(timetable),
         exportTimetableAsICalendar: () => this.exportTimetableAsICalendar(timetable),
       },

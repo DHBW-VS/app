@@ -24,7 +24,7 @@
     "id": "4560",
     "filename": "WI4_Kurs_A_WI_2019.pdf",
     "description": "Kurs A WI 2019",
-    "iCalendarKey": "demo",
+    "iCalendarUrl": "https://app-api.dhbw-vs.de/v1/plans/download/ical?url=https%3A%2F%2Frapla.dhbw.de%2Frapla%3Fkey%3Ddemo",
     "semester": "4",
     "course": "WI"
   },
