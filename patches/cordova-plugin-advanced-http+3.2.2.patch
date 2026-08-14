@@ -1,0 +1,24 @@
+diff --git a/node_modules/cordova-plugin-advanced-http/src/ios/SM_AFNetworking/SM_AFHTTPSessionManager.m b/node_modules/cordova-plugin-advanced-http/src/ios/SM_AFNetworking/SM_AFHTTPSessionManager.m
+index 01b72ca..4ab450c 100644
+--- a/node_modules/cordova-plugin-advanced-http/src/ios/SM_AFNetworking/SM_AFHTTPSessionManager.m
++++ b/node_modules/cordova-plugin-advanced-http/src/ios/SM_AFNetworking/SM_AFHTTPSessionManager.m
+@@ -29,7 +29,6 @@
+ #import <Security/Security.h>
+ 
+ #import <netinet/in.h>
+-#import <netinet6/in6.h>
+ #import <arpa/inet.h>
+ #import <ifaddrs.h>
+ #import <netdb.h>
+diff --git a/node_modules/cordova-plugin-advanced-http/src/ios/SM_AFNetworking/SM_AFNetworkReachabilityManager.m b/node_modules/cordova-plugin-advanced-http/src/ios/SM_AFNetworking/SM_AFNetworkReachabilityManager.m
+index 611c1f2..acb5f56 100644
+--- a/node_modules/cordova-plugin-advanced-http/src/ios/SM_AFNetworking/SM_AFNetworkReachabilityManager.m
++++ b/node_modules/cordova-plugin-advanced-http/src/ios/SM_AFNetworking/SM_AFNetworkReachabilityManager.m
+@@ -23,7 +23,6 @@
+ #if !TARGET_OS_WATCH
+ 
+ #import <netinet/in.h>
+-#import <netinet6/in6.h>
+ #import <arpa/inet.h>
+ #import <ifaddrs.h>
+ #import <netdb.h>
