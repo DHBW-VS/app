@@ -73,10 +73,9 @@ export class PlanService {
     if (!timetable.iCalendarUrl) {
       return;
     }
-    const iCalendarLink = this.buildICalendarLink(timetable.iCalendarUrl);
     try {
       await Share.share({
-        url: iCalendarLink,
+        url: timetable.iCalendarUrl,
       });
     } catch (error) {
       if (error instanceof Error && error.message && error.message.includes('canceled')) {
@@ -102,9 +101,5 @@ export class PlanService {
       return;
     }
     return storageData.lastOpenedTimetable;
-  }
-
-  public buildICalendarLink(iCalendarUrl: string) {
-    return this.apiPlansService.buildICalendarLink(iCalendarUrl);
   }
 }

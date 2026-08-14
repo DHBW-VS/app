@@ -114,11 +114,10 @@ export class PlanPage implements OnInit {
     if (!timetable.iCalendarUrl) {
       return;
     }
-    const iCalendarLink = this.planService.buildICalendarLink(timetable.iCalendarUrl);
     await this.dialogService.showModal({
       component: CalendarModalComponent,
       componentProps: {
-        iCalendarLink: iCalendarLink,
+        iCalendarLink: timetable.iCalendarUrl,
         exportTimetableAsPdf: () => this.exportTimetableAsPdf(timetable),
         exportTimetableAsICalendar: () => this.exportTimetableAsICalendar(timetable),
       },

@@ -37,8 +37,4 @@ export class ApiPlansService {
     });
     return lastValueFrom(response$);
   }
-
-  public buildICalendarLink(iCalendarUrl: string) {
-    return `${environment.apiBaseUrl}${this.urlPath}/download/ical?url=${encodeURIComponent(iCalendarUrl)}`;
-  }
 }
