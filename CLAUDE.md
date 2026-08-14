@@ -44,6 +44,8 @@ Features: dashboard (Moodle news), plan (timetables, FullCalendar/iCalendar), du
 3. `HttpNativeInterceptor` — **key pattern**: requests to `Config.dualisBaseUrl` are diverted to the native `cordova-plugin-advanced-http` stack (`NativeHttpService`) to bypass CORS/cookie limits. Dualis grades are HTML-scraped from `https://dualis.dhbw.de` (parsers in `modules/dualis/services/`).
 4. `HttpErrorInterceptor` — pass-through stub.
 
+**API quirk — JWT payload only on sign-in:** the auth server includes the JWT payload with the `user` claim only in access tokens issued on sign-in (`grantType: 'password'`), never in tokens issued on refresh (`grantType: 'refreshToken'`). User data is therefore decoded once in `AuthenticationService.login()`, persisted in the session store, and stays unchanged (potentially stale) until the next sign-in — never derive user data from a refreshed access token.
+
 `GlobalErrorHandlerService` is the root `ErrorHandler` and shows German error alerts via `DialogService`.
 
 ### State & storage

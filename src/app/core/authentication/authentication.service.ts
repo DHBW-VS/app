@@ -52,6 +52,8 @@ export class AuthenticationService {
     this.clearSession();
   }
 
+  // Note: Access tokens issued on refresh never contain the `Payload`
+  // (see interface below), so the stored user cannot be updated here.
   public async refreshSession(): Promise<void> {
     const refreshToken = this.sessionRepository.getRefreshToken();
     const response = await this.apiAuthService.token({
@@ -81,6 +83,8 @@ export class AuthenticationService {
   }
 }
 
+// Only present in access tokens issued on sign-in (`grantType: 'password'`),
+// never in tokens issued on refresh (`grantType: 'refreshToken'`).
 interface Payload {
   exp: number;
   iat: number;
