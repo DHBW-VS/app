@@ -3,24 +3,21 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": ["jest"],
-    "paths": {
-      "@app/*": [
-        "src/app/*"
-      ],
-      "@env/*": [
-        "src/environments/*"
-      ],
-      "@e2e/*": [
-        "e2e/src/*"
-      ],
-      "@tests/*": [
-        "src/tests/*"
-      ]
-    }
+    "isolatedModules": true,
+    "types": [
+      "jest"
+    ]
   },
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    }
+  }
 }

@@ -5,7 +5,7 @@ import { DualisSession } from '../../classes';
 import { DualisAuthService } from '../dualis-auth/dualis-auth.service';
 import { DualisHtmlParserService } from '../dualis-html-parser/dualis-html-parser.service';
 import { DualisPageService } from './dualis-page.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('DualisPageService', () => {
   let service: DualisPageService;
@@ -30,7 +30,7 @@ describe('DualisPageService', () => {
       providers: [
         { provide: DualisHtmlParserService, useValue: dualisHtmlParserServiceSpy },
         { provide: DualisAuthService, useValue: dualisAuthServiceSpy },
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withXhr(), withInterceptorsFromDi()),
         provideHttpClientTesting(),
       ],
     });

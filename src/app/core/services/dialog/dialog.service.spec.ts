@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import {
   AlertController,
@@ -148,6 +148,7 @@ describe('DialogService', () => {
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'mock',
   template: '<p>Modal</p>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false,
 })
 class MockComponent {}
