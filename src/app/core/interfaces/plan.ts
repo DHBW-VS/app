@@ -1,7 +1,7 @@
 export interface IPlan {
   id: number;
   filename: string;
-  iCalendarKey?: string;
+  iCalendarUrl?: string;
   description: string;
   semester: number;
   course: string;

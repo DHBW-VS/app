@@ -70,10 +70,10 @@ export class PlanService {
   }
 
   public async shareTimetableAsICalendar(timetable: IPlan): Promise<void> {
-    if (!timetable.iCalendarKey) {
+    if (!timetable.iCalendarUrl) {
       return;
     }
-    const iCalendarLink = this.buildICalendarLink(timetable.iCalendarKey);
+    const iCalendarLink = this.buildICalendarLink(timetable.iCalendarUrl);
     try {
       await Share.share({
         url: iCalendarLink,
@@ -104,7 +104,7 @@ export class PlanService {
     return storageData.lastOpenedTimetable;
   }
 
-  public buildICalendarLink(iCalendarKey: string) {
-    return this.apiPlansService.buildICalendarLink(iCalendarKey);
+  public buildICalendarLink(iCalendarUrl: string) {
+    return this.apiPlansService.buildICalendarLink(iCalendarUrl);
   }
 }

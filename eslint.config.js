@@ -53,8 +53,8 @@ module.exports = defineConfig([
         {
           allowList: {
             changeDetectorRef: true,
-            iCalendarKey: true,
             iCalendarLink: true,
+            iCalendarUrl: true,
           },
         },
       ],
