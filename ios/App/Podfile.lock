@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.10.2)
-  - Capacitor (8.2.0):
+  - Capacitor (8.5.2):
     - CapacitorCordova
   - CapacitorActionSheet (8.1.0):
     - Capacitor
@@ -8,7 +8,7 @@ PODS:
     - Capacitor
   - CapacitorClipboard (8.0.1):
     - Capacitor
-  - CapacitorCordova (8.2.0)
+  - CapacitorCordova (8.5.2)
   - CapacitorKeyboard (8.0.1):
     - Capacitor
   - CapacitorPreferences (8.0.1):
@@ -27,7 +27,7 @@ PODS:
     - Capacitor
   - CapawesomeTeamCapacitorNfc (8.0.1):
     - Capacitor
-  - CordovaPlugins (8.2.0):
+  - CordovaPlugins (8.5.2):
     - CapacitorCordova
   - ZIPFoundation (0.9.20)
 
@@ -84,11 +84,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
-  Capacitor: 49a454e1cdbd520bc106a220adca7913536a4933
+  Capacitor: 89067779e14fb7ea56af07b4817f45d1f0c2a269
   CapacitorActionSheet: beba4b3fc77fb7ef4a532ee07fa90180855041e0
   CapacitorApp: 942306cd1acf7774a00e89a3986af3a67c8cad7a
   CapacitorClipboard: c75fdaa6e622111119f35e7914ecfc67b05efecb
-  CapacitorCordova: a9ac88d84a1f5280f33b349fe50fce1902683ac0
+  CapacitorCordova: 5bec5648cbd09a176ce34ce5e7b6cdabb2c8a327
   CapacitorKeyboard: 867eb4b3c901d9bb5c3d0c93b546185d52484e19
   CapacitorPreferences: cca2021f386efb75947c850334447d9ff22b14f1
   CapacitorShare: 0c58305114538568059bfc07111f22dcb9cb2a82
@@ -97,9 +97,9 @@ SPEC CHECKSUMS:
   CapawesomeCapacitorLiveUpdate: 7a7dfe0e2c81a3095477f97290f98194ca355ab4
   CapawesomeTeamCapacitorFileOpener: 4b1c1a5a739915ed692296c5a7760903ca6ffa25
   CapawesomeTeamCapacitorNfc: 707034c3aeace18fca0516b05043d7483fba4f23
-  CordovaPlugins: 607152f73690dca4bc10ab75e9194c2f10881d3a
+  CordovaPlugins: afa407306ecde40fef123d7269fda5912b189d7b
   ZIPFoundation: dfd3d681c4053ff7e2f7350bc4e53b5dba3f5351
 
 PODFILE CHECKSUM: b51d76c6ff0fdb28bbe3345086747d61d8a5fe92
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.17.0
