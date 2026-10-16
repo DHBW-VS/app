@@ -61,21 +61,21 @@ Build the web assets:
 npm run build
 ```
 
-Prepare and launch the Android app:
+Sync, build and launch the Android app:
 
 ```bash
-npx ionic cap sync android
-npx ionic cap run android --open --external -l
+npx cap run android
 ```
 
-Prepare and launch the iOS app:
+Sync, build and launch the iOS app:
 
 ```bash
-npx ionic cap sync ios
-npx ionic cap run ios --open --external -l
+npx cap run ios
 ```
 
-This project uses [Ionic](https://ionicframework.com/) as app development platform and the [Ionic CLI](https://ionicframework.com/docs/cli).
+For live reload, start the dev server with `npm start -- --host 0.0.0.0` and add `-l --port 8100` to the run command.
+
+This project uses [Ionic](https://ionicframework.com/) as app development platform and [Capacitor](https://capacitorjs.com/) as native runtime.
 
 <!-- ## Contributing
 

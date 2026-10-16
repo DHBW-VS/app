@@ -14,7 +14,7 @@ Official app for DHBW Villingen-Schwenningen (Android/iOS). Angular 21 + Ionic 8
 - Single test file: `npm test -- --test-path-patterns=<regex>` (Jest 30: the option is `testPathPatterns`, plural); single test: add `--test-name-pattern=<name>`
 - `npm run lint` — ESLint + Prettier check; `npm run fmt` — auto-fix both
 - `npm run e2e` / `npm run e2e:ci` — Cypress e2e (starts dev server itself); `npm run cypress:open` for interactive
-- Native: `npx ionic cap sync android && npx ionic cap run android --open --external -l` (same for `ios`)
+- Native: `npx cap run android` (runs sync first; same for `ios`). Live reload: `npm start -- --host 0.0.0.0`, then `npx cap run android -l --port 8100`
 - `npm run release` — `commit-and-tag-version`; a postbump hook syncs native version numbers via `@capawesome/capver`
 
 `npm install` requires `CAPAWESOME_NPM_REGISTRY_TOKEN` (private registry for `@capawesome-team/*` in `.npmrc`) and runs `patch-package` (patches in `patches/`). All dependency versions are pinned exactly (`save-exact=true`).

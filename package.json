@@ -96,7 +96,6 @@
     "@capawesome/capver": "0.1.4",
     "@cypress/schematic": "2.5.1",
     "@ionic/angular-toolkit": "13.0.0",
-    "@ionic/cli": "7.2.0",
     "@types/jest": "30.0.0",
     "@types/jest-when": "3.5.5",
     "@types/leaflet": "1.9.8",
