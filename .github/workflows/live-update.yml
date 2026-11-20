@@ -40,6 +40,7 @@ jobs:
           npx @capawesome/cli@${{ env.CAPAWESOME_CLI_VERSION }} apps:builds:create \
             --app-id ${{ env.CAPAWESOME_CLOUD_APP_ID }} \
             --platform web \
+            --certificate Production \
             --channel "$CHANNEL" \
             --git-ref ${{ github.sha }} \
             --yes
